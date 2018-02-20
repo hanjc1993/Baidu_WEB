@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /*使用checkbox的:check  来实现*/
+        #check *{transition: all 0.3s ease;}
+        #check div.content *{
+            width: 500px
+        }
+        #check label{
+            background-color: #666;
+            display: block;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            cursor: pointer;
+            color: white;
+        }
+        #check label:hover{
+            background-color: #999;
+        }
+        #check div div{
+            max-height: 0px;
+            overflow: hidden;
+        }
+        #check input{
+            display: none;
+        }
+        #check input:checked+div label{
+            background-color: #ccc;
+            color: #222;
+        }
+        #check input:checked+div div{
+            max-height: 500px;
+            /*height值太绝对了，auto不能触发动画，max-height是最好的选择！*/
+        }/*!important; css选择器优先级问题，若把前面 #check div div 改为 #check #show11 div 则必须使用important了*/
+
+        /*使用html5新功能实现，ie11不支持*/
+        #html5 *{transition: all 0.3s ease;}
+        #html5 details *{
+            width: 500px
+        }
+        #html5 summary::-webkit-details-marker{
+            display: none;
+        }
+        #html5 summary{
+            background-color: #666;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            cursor: pointer;
+            color: white;
+            outline: none;
+        }
+        #html5 summary:hover{
+            background-color: #999;
+        }
+        #html5 details[open] summary{
+            background-color: #ccc;
+            color: #222;
+        }
+        #html5 details div{
+            display: block !important;
+        }
+
+        /*使用a标签，配合:target  来实现*/
+        #target a,#target div{
+            width: 500px
+        }
+        #target a{
+            background-color: #666;
+            display: block;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            color: white;
+            text-decoration: none;
+        }
+        #target a:hover{
+            background-color: #999;
+        }
+        #target div{
+            display: none;
+        }
+        #target div:target{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<div id="check">
+    <h1>使用checkbox的:check  来实现  推荐！</h1>
+
+    <input type="checkbox" id="show1">
+    <div class="content">
+        <label for="show1">点我展开/收起标签 1</label>
+        <div>
+            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+        </div>
+    </div>
+    <input type="checkbox" id="show2">
+    <div class="content">
+        <label for="show2">点我展开/收起标签 2</label>
+        <div>
+            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+        </div>
+    </div>
+</div>
+<div id="html5">
+    <h1>使用html5新功能实现，ie11不支持  推荐！</h1>
+    <h5>由于是后台控制显隐，所以无法加动画</h5>
+    <article>
+        <details>
+            <summary>点我展开/收起标签 1</summary>
+            <!--            <details>
+                            <summary>Getting Started</summary>
+                            <p>1. Signup for a free trial</p>
+                        </details>
+                        <details>
+                            <summary>Setting up a backup schedule</summary>
+                            <p>This step assumes you have already signed up and installed the software</p>
+                        </details>-->
+            <div>
+                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+            </div>
+        </details>
+        <details>
+            <summary>点我展开/收起标签 2</summary>
+            <div>
+                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+            </div>
+        </details>
+    </article>
+</div>
+<div id="target">
+    <h1>使用a标签，配合:target  来实现</h1>
+    <h5>不推荐，懒得加动画了</h5>
+    <a href="#l1">点我展开 标签1 (无法收起)</a>
+    <div id="l1">
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+    </div>
+    <a href="#l2">点我展开 标签2 (无法收起)</a>
+    <div id="l2">
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+    </div>
+</div>
+
+</body>
+</html>

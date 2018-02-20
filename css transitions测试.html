@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test</title>
+    <style>
+        div{
+            height: 200px;width: 200px;
+            background-color: blue;
+            transition: width,color,height 1s,1s,1s;/*表示该对象对width属性的变化会做出动画响应*/
+            transition-timing-function:cubic-bezier(0,0,0.5,1);
+        }
+        .hover{
+            width: 500px;height: 400px;
+            background-color: #00a6ff;
+        }
+    </style>
+    <script src="jquery-3.2.1.js" type="text/javascript"></script>
+    <script>
+        $(function () {
+            //下面这段代码，在css中一个:hover即可实现
+            $("div").mouseover(function () {
+                $(this).addClass("hover")
+            }).mouseleave(function () {
+                $(this).removeClass("hover")
+            })
+        })
+    </script>
+</head>
+<body>
+    <div></div>
+</body>
+</html>

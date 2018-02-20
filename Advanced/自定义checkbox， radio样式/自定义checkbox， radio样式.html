@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>自定义checkbox， radio样式</title>
+    <style>
+        input{
+            width: 50px;height: 50px;
+            visibility: hidden;
+        }
+        label{
+            width: 46px;height: 46px;
+            display: inline-block;
+            position: absolute;
+            top:3px;
+            cursor: pointer;
+        }
+        /*下面两个border没用的，删掉会位移，懒得调了*/
+        #weiyuansu label{border: 2px gray outset;}
+        #sprites label{border: 2px #fff solid;}
+        label.r1,label.r2{border-radius: 50%}
+        label.r1{left: 5px}
+        label.c1{left: 4px}
+        label.r2{left: 68px}
+        label.c2{left: 66px}
+        div.a div{
+            position: relative;
+        }
+        /*雪碧方法*/
+        #sprites #xc label{
+            background: url("sprite.png")  -86px -113px;
+            background-size: 340px 170px;
+        }
+        #sprites #xc input:checked+label{
+            background: url("sprite.png") -205px -110px;
+            background-size: 340px 170px;
+        }
+        #sprites #xr label{
+            background: url("sprite.png") -69px -29px;
+            background-size: 288px 144px;
+        }
+        #sprites #xr input:checked+label{
+            background: url("sprite.png") -170px -29px;
+            background-size: 288px 144px;
+        }
+        /*伪元素方法*/
+        #weiyuansu input:checked+label{
+            border-style: inset;
+            background-color: #ddd;
+        }
+        #weiyuansu input:checked+label::after{
+            position: absolute;
+            top: 10px;left: 10px;
+            width: 22px;height: 22px;
+            background-color: gray;
+            content: "";
+            border: 2px gray outset;
+        }
+        #weiyuansu #wr input:checked+label::after{
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <div id="sprites" class="a">
+            <h2>雪碧图</h2>
+            <div id="xc">
+                <input type="checkbox" id="xc1"><label for="xc1" class="c1"></label>
+                <input type="checkbox" id="xc2"><label for="xc2" class="c2"></label>
+            </div>
+            <div id="xr">
+                <input type="radio" name="a" id="xr1"><label for="xr1" class="r1"></label>
+                <input type="radio" name="a" id="xr2"><label for="xr2" class="r2"></label>
+            </div>
+        </div>
+        <div id="weiyuansu" class="a">
+            <h2>伪元素</h2>
+            <div id="wc">
+                <input type="checkbox" id="wc1"><label for="wc1" class="c1"></label>
+                <input type="checkbox" id="wc2"><label for="wc2" class="c2"></label>
+            </div>
+            <div id="wr">
+                <input type="radio" name="b" id="wr1"><label for="wr1" class="r1"></label>
+                <input type="radio" name="b" id="wr2"><label for="wr2" class="r2"></label>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

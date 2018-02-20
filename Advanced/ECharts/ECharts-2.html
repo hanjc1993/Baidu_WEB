@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ECharts-2</title>
+    <style>
+        #red{
+            position: absolute;
+            top: 8px;left:8px;
+            width: 25px;height: 70px;
+            background-color: #f0494f;
+        }
+    </style>
+    <script src="../../echarts.js" type="text/javascript"></script>
+
+</head>
+<body>
+    <div id="main" style="height: 700px;width: 700px"></div>
+    <div id='red'></div>
+    <script>
+        //legend 依托于series中的name属性
+        var myChart = echarts.init(document.getElementById("main"))
+        var sources={
+            text:"Sources:World Bank; Census Bureau;EIU",
+            textStyle:{
+                fontSize: 18,
+                color:"rgb(90,93,97)",
+                fontWeight:"normal"
+            },
+            bottom:20,
+            left:50
+        }
+        var option={
+            title:[{
+                text:"What's my credit score?",
+                textStyle:{
+                    fontWeight:"bold",
+                    fontSize:24
+                },
+                subtext:"puerto Rico, % decrease on a year earlier",
+                subtextStyle:{
+                    fontSize:22,
+                    color:"rgb(65,67,69)"
+                },
+                top:40,
+                left:50
+            },
+                sources
+            ],
+            legend:{
+                data:["Population","GDP"],
+                textStyle:{
+                  fontSize:16
+                },
+                top:125,
+                left:50
+            },
+            xAxis:[{
+                axisLine:{
+                    onZero:false,
+                    lineStyle:{
+                        width:3
+                    }
+                },
+                axisTick:{
+                    inside:true,
+                    alignWithLabel:true,
+                    length:8
+                },
+                axisLabel:{
+                    fontSize:20,
+                    fontFamily:"Microsoft YaHei UI",
+                },
+                data:['2006','07','08','09','10','11','12','13','14','15'],
+            },{
+                data:['','','','','','','',"",'',''],
+                axisLine:{
+                    lineStyle:{
+                        color:"red",
+                        width:2
+                    }
+                },axisTick:{
+                    show:false
+                }
+            }],
+            yAxis:{
+                inverse:true,
+                position:'right',
+                axisLine:{
+                    show:false
+                },
+                axisTick:{
+                    show:false,
+                    textSize:20,
+                },
+                splitLine:{
+                    lineStyle:{
+                        color:"#fafaff",
+                        width:3
+                    },
+                    interval:"20"
+                },
+                axisLabel:{
+                    fontSize:20,
+                    fontFamily:"Microsoft YaHei UI",
+                },
+                max:4
+            },
+            tooltip:{},
+            axisPointer:{
+                show:true,
+                type:"line"
+            },
+            grid:{
+                top:170,
+                left:50,
+                bottom:90
+            },
+            series:[{
+                name:"Population",
+                type:"bar",
+                data:[0.3,0.4,0.4,0.35,0.32,1.1,1.2,1.1,1.5,1.7],
+                barGap:'0',     //bar间距
+                barWidth:16     //bar宽度
+
+            },{
+                name:"GDP",
+                type:"bar",
+                data:[0.8,3.3,1.8,2.2,2.5,1.9,2.7,0.5,0.9,1.0],
+                barWidth:16
+            }],
+            backgroundColor:"#d7e4eb",
+            color:['rgb(51,116,138)','rgb(51,182,227)']
+        }
+        myChart.setOption(option)
+    </script>
+</body>
+</html>

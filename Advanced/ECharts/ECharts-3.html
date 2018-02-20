@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ECharts NO.3 - 绘制地图</title>
+    <script type="text/javascript" src="../../echarts.js"></script>
+</head>
+<body>
+<div id="main" style="height: 630px; width: 650px"></div>
+<script>
+    alert("这篇全是抄的，网上下的数据不会用。。。xml异步也不会用。。。")
+    let xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4){
+            if ((xhr.status >=200 && xhr.status < 300)||(xhr.status == 304)){
+                let chinaJson = JSON.parse(xhr.responseText);
+                echarts.registerMap('china', chinaJson);
+
+                let myChart = echarts.init(document.getElementById('main'));
+                let option = {
+                    series:[{
+                        type:'map',
+                        map:'china'
+                    }]
+                };
+                myChart.setOption(option);
+            }else {
+                alert("失败");
+            }
+        }
+    };
+    xhr.open('get', 'map/china.json', true);
+    xhr.send(null);
+</script>
+</body>
+</html>

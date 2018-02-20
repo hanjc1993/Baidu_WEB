@@ -1,0 +1,50 @@
+<html lang="en">
+<head runat="server">
+    <meta charset="UTF-8">
+    <title>jquery 表格排序</title>
+    <script type="text/javascript" language="javascript" src="jquery-3.2.1.js"></script>
+    <script>
+        var a=new Number(7);
+        var b=new String("哈哈");
+        var c=new Object({});
+        var d=new Boolean(true);
+        var e=new Array([]);
+        var h=[];
+        //var f// 不声明  F ！！！
+        var g=null;
+        console.log(a)
+        console.log(b)
+        console.log(c)
+        console.log(d)
+        console.log(e)
+        //console.log(f)//报错
+        console.log(g)
+        console.log(typeof a)
+        console.log(typeof b)
+        console.log(typeof c)
+        console.log(typeof d)
+        console.log(typeof e)//Object
+        console.log(typeof f)//undefined
+        console.log(typeof g)
+        console.log("H的类型是"+typeof h)
+        console.log("ABCDE typeof")
+        console.log(typeof a === typeof b)//true
+        console.log(typeof a === typeof c)//true
+        console.log(typeof a === typeof d)//true
+        console.log(typeof a === typeof e)//true   abcde都是object g也是，所以想等
+        console.log("F")
+        console.log(typeof d === typeof f)//false
+        console.log(typeof d > typeof f)//false
+        console.log(typeof d < typeof f)//true  undefined比Object大，是因为当做字符串来比较了
+        console.log("G")
+        console.log(typeof g > typeof f)//false
+        console.log(typeof g === typeof d)//true   null也是对象
+        console.log(typeof g == typeof f)//false
+        console.log(typeof g < typeof f)//true  undefined比Object大，是因为当做字符串来比较了
+        console.log("undefined">"object")//true
+
+    </script>
+</head>
+<body>
+</body>
+</html>

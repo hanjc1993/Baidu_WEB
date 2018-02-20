@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>XiaoWei-Task6</title>
+    <style>
+        #big *{padding: 0;margin: 0}
+        #big{position:absolute;height: 1600px;width: 1500px;background-color: #666}
+        #zhuti{
+            padding: 0 44px;
+            margin: 107px 260px;
+            height: 1386px;width: 892px;
+            background-color: white
+        }
+
+        /*头部*/
+        #head{
+            height: 60px;width: 892px;
+            border-bottom: 2px solid #938e8c;
+        }
+        #head #www,#head #date{
+            font: 12px 黑体;
+            height: 60px;width: 110px;
+            position: relative;
+        }
+        #head #www{
+            background-color: #d45d5c;
+            float: left;
+        }
+        #head #www span{
+            position: absolute;
+            bottom: 5px;left: 5px;
+            color: #fff;
+        }
+        #head #date{
+            float: right;
+        }
+        #head #date span{
+            color: #d45d5c;
+            position: absolute;
+            bottom: 5px;right: 5px;
+        }
+
+        /*第一行*/
+        #row_1{
+            height: 301px;width: 892px;
+            position: relative;
+            margin-top: 35px;
+        }
+        #row_1 #r1_L_img{
+            background-image: url("左上大图.png");
+            height: 301px;width: 641px;
+            float: left;
+        }
+        #row_1 #r1_L_img .left{
+            background-color: #428c59;
+            height: 301px;width: 191px;
+            float: left;
+            opacity: 0.5;
+        }
+        #row_1 #r1_L_img .right{
+            background-color: #cc7680;
+            height: 301px;width: 191px;
+            float: right;
+            opacity: 0.5;
+        }
+        #row_1 #r1_R_content{
+            height: 299px;width: 203px;
+            margin-left: 48px;
+            border-top: 2px #cc8091 solid;
+            float: right;
+        }
+        #row_1 #r1_R_content .c1{
+            text-transform: uppercase;
+            border-bottom: solid 1px #000;
+            font: 19px/24px 微软雅黑;
+            color: #000;
+        }
+        #row_1 #r1_R_content .c1 b{font-size: 28px;}
+        #row_1 #r1_R_content .c2{
+            font: 13px/12px 楷体;
+        }
+        #row_1 #r1_R_content .c3{
+            font: 116px/146px 微软雅黑;
+            color: #75b86b;
+            font-style: italic;
+            margin-left: -20px;
+        }
+        #row_1 #r1_R_content .c4 *{
+            color: #cc8091;
+            font-family: 微软雅黑;
+            float: left;
+        }
+        #row_1 #r1_R_content .c4 #r1rc4_1{
+            font-size: 55px;
+            margin-right: 8px;
+            line-height: 60px;
+        }
+        #row_1 #r1_R_content .c4 #r1rc4_2{
+            font-size: 21px;
+            padding-top: 25px;
+            line-height: 15px;
+        }
+        #row_1 #r1_R_content .c4 #r1rc4_3{
+            font-size: 12px;
+        }
+
+        /*第二行*/
+        #row_2{
+            height: 301px;width: 892px;
+            position: relative;
+        }
+        #what,#When,#How{
+            height: 301px;width: 250px;
+            margin-right: 30px;
+            float: left;
+        }
+        #row_2 .title{
+            font: 16px 微软雅黑 bold;
+            text-decoration: underline;
+            line-height: 50px;
+        }
+        #row_2 #what .title{color: #418c59}
+        #row_2 #When .title{color: #d2994f}
+        #row_2 #How .title{color: #cc7680}
+        #row_2 div p.content{
+            font: 13px/20px 宋体;
+            opacity: 0.7;
+            color: #231815;
+            height: 251px;
+            display: block;
+        }
+        #row_2 #How .content{
+            line-height: 30px;
+            width: 180px;height: 120px;
+        }
+        #row_2 #How{height: 140px}
+        #row_2 #other{
+            float: left;
+            margin: 20px 0 0 10px;
+            font: 13px/30px 微软雅黑;
+            opacity: 0.7;
+        }
+        #row_2 #other span{
+            color: #cd4a48;
+            font-style: italic;
+        }
+
+        /*第三行*/
+        /*第三行左上*/
+        #row_3{
+            height: 602px;width: 892px;
+            position: relative;
+        }
+        #row_3 #left{
+            width: 415px;
+            float: left;}
+        #row_3 #leftTop{
+            height: 160px;
+            border-bottom: 2px solid #938e8c;
+        }
+        #row_3 #leftTop span{
+            font: 42px/42px bold;
+            font-family: Tahoma;
+            color: #11456b;
+        }
+        #row_3 #leftTop b{
+            font: 72px 黑体 bold;
+            font-style: italic;
+            color: #f5e327;
+            margin-left: -15px;
+            line-height: 60px;
+        }
+        #row_3 #leftTop p{
+            font-size: 33px;
+            font-weight: 900;
+            line-height: 60px;
+            font-family: "黑体",sans-serif;
+            color: #11456b;
+        }
+        /*第三行左下*/
+        #row_3 #leftBottom{
+            height: 440px;
+        }
+        #row_3 #leftBottom b{
+            font: 70px 微软雅黑;
+            color: #f5e327;
+            float: left;
+            line-height: 74px;
+            margin-right: 5px;
+        }
+        #row_3 #leftBottom p{
+            font: 12px/16px 宋体;
+            color: #767777;
+            text-indent: 2em;
+        }
+        #row_3 #leftBottom p.first{
+            text-indent: 0;
+            margin-top: 15px;
+        }
+
+        #row_3 #leftBottom img{
+            height: 210px;
+            margin: 15px 10px 15px 15px;
+            float: right;
+            clear: both;
+        }
+
+        /*第三行右上*/
+        #row_3 #right{
+            height: 440px;
+            margin-left: 19px;
+            width: 458px;
+            float: left;
+        }
+        #row_3 #rightTop{
+            background-image: url("右下.png");
+            height: 257px;
+            position: relative;
+        }
+        #row_3 #rightTop>div{
+            line-height: 61px;
+            height: 61px;width: 458px;
+            background-color: rgba(0,0,0,0.5);
+            position: absolute;
+            bottom: 0;
+        }
+        #row_3 #rightTop>div>div{
+            margin: 8px 40px;
+            border-left: 3px solid #72b16a;
+            height: 45px;
+        }
+        #row_3 #rightTop>div>div h2{
+            font: 26px 微软雅黑;
+            color: #fff;
+            line-height: 45px;
+            margin-left: 20px;
+            width: 110px;
+            float: left;
+        }
+        #row_3 #rightTop>div>div span{
+            font:italic 16px/140%  微软雅黑;
+            color: #72b16a;
+        }
+        /*第三行右下*/
+        #row_3 #rightBottom{
+            width: 458px;height: 300px;
+            background-color: #eeedd6;
+            margin-top: 20px;
+            position: relative;
+        }
+        #row_3 #rightBottom>*{
+            position: absolute;
+        }
+
+        #row_3 #rightBottom ul{
+            top: 20px;
+            margin: 0 10px 10px 30px;
+            width: 400px;height: 120px;
+            list-style:square inside;
+        }
+        #row_3 #rightBottom ul li{
+            line-height: 30px;
+        }
+        #row_3 #rightBottom #square{
+            width: 260px;height: 160px;
+            bottom: 0;left: 0;
+            background-color: #d45d5c;
+            color: #fff;
+        }
+        #row_3 #rightBottom #square h1{
+            font: 110px 微软雅黑;
+            line-height: 86px;
+            border-right: 2px solid #fff;
+            padding-right: 5px;
+            margin: 37px 8px 37px 15px;
+            float: left;
+        }
+        #row_3 #rightBottom #square h2{
+            float: left;
+            font: italic 21px/24px 黑体;
+            width: 158px;
+            margin-top: 42px;
+        }
+        #row_3 #rightBottom #square h3{
+            float: left;
+            width: 158px;
+            font: 13px/14px 黑体;
+        }
+
+        #row_3 #rightBottom #special{
+            width: 128px;height: 130px;
+            right: 0;bottom: 0;
+            padding: 15px 35px;
+        }
+        #row_3 #rightBottom #special span{
+            font: 72px 黑体;
+            color: #d45d5c;
+            margin-left: -50px;
+            width: 80px;height: 30px;line-height: 65px;
+            float: left;
+        }
+        #row_3 #rightBottom #special p{
+            font: italic 900 14px/16px 黑体;
+            color: #5a5b5b;
+        }
+        #row_3 #rightBottom #special p span{
+            font: 72px 黑体;
+            color: #d45d5c;
+            padding-left: 50px;
+            width: 30px;height: 30px;line-height: 85px;
+            float: right;
+        }
+        #foot{
+            height: 60px;width: 892px;
+            border-top: 2px solid #938e8c;
+            position: relative;
+        }
+        #foot span{
+            position: absolute;
+            top:0;right: 0;
+            color: #d45d5c;
+            font: 14px 黑体;
+        }
+    </style>
+</head>
+<body>
+    <div id="big">
+        <div id="zhuti">
+            <div id="head">
+                <p id="www"><span>ife.baidu.com</span></p>
+                <p id="date"><span>2016.03</span></p>
+            </div>
+            <div id="row_1">
+                <div id="r1_L_img">
+                    <div class="left"></div>
+                    <div class="right"></div>
+                </div>
+                <div id="r1_R_content">
+                    <div class="c1" style="width: 76px;margin-top: 10px"><b>A</b>bout</div>
+                    <div class="c1" style="width: 140px;margin-top: 5px"><b>T</b>echnology</div>
+                    <div class="c2">About technology about technology about technology</div>
+                    <div class="c3">700</div>
+                    <div class="c4">
+                        <span id="r1rc4_1">3.2</span>
+                        <span id="r1rc4_2">css</span>
+                        <span id="r1rc4_3">csscscscscscscsccs</span>
+                    </div>
+                </div>
+            </div>
+            <div id="row_2">
+                <div id="what">
+                    <p class="title">What</p>
+                    <p class="content">端前端前端前端前前端前前端端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前前端前前端端前端前端前端前端前端前端端前前端端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端</p>
+                </div>
+                <div id="When">
+                    <p class="title">When</p>
+                    <p class="content">前端前端前端前端前端前端前端前端前前端前前端端前端前端前端前端前端前端前端前端前端前端前端前端前端端前端前前端前端前端前端前端前端前端前端前端前前端前前端端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前前端前前端端前端前端前端前端前端前端端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端</p>
+                </div>
+                <div id="How">
+                    <p class="title">How</p>
+                    <p class="content">前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端</p>
+                </div>
+                <div id="other">
+                    <p>What--------<span>40%</span></p>
+                    <p>When--------<span>30%</span></p>
+                    <p>How --------<span>30%</span></p>
+                </div>
+
+
+            </div>
+            <div id="row_3">
+                <div id="left">
+                    <div id="leftTop">
+                        <span><b>THE</b> &nbspTECHNOLOGE OF FRONT</span>
+                        <p>前端技术领域</p>
+                    </div>
+                    <div id="leftBottom">
+                        <b>前</b>
+                        <p class="first">前端前端前端前端前端前端前端前端前前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端</p>
+                        <p>前端前端端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端
+                            <img src="左下.png">
+                            前端前端前端前端前端前端前端前端前端前端前端前端前端前前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端</p>
+                        <p>前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前前端前端前端前端前端前端前端前端前端前端前端前端前端前端前</p>
+                    </div>
+                </div>
+                <div id="right">
+                    <div id="rightTop">
+                        <div>
+                            <div>
+                                <h2>前端技术</h2>
+                                <span>前端技术前端技术</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="rightBottom">
+                        <ul>
+                            <li>前端前端前端前端前端前………………………………前端</li>
+                            <li>前端前前前端……………………………………………前端前</li>
+                            <li>前端前端端前端前…………….…………….………….…前端</li>
+                        </ul>
+                        <div id="square">
+                            <h1>0</h1>
+                            <h2>ONE  TWO<br>THREE  FOUR  FIVE</h2>
+                            <h3>hello world hello world hello world</h3>
+                        </div>
+                        <div id="special">
+                            <span>“</span>
+                            <p>hello world hello world hello world hello world hello world hello world hello world hello world<span>”</span> hello world hello world</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="foot">
+                <span>ife.baidu.com</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

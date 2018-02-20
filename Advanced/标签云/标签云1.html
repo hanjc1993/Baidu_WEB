@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>标签云</title>
+    <style>
+        body{
+            background-color: black;
+        }
+        div{
+            position: absolute;
+        }
+        #big{
+            top:0;left: 0;
+            width: 640px;height: 640px;
+            border: solid 1px #fff;
+        }
+        #box{
+            width: 420px;height: 420px;
+            /*background-color: yellow;*/
+            position: absolute;
+            top:100px;left: 100px;
+            perspective:500px;
+            perspective-origin: 50% 50%;
+        }
+        #ball{
+            width: 420px;height: 420px;
+            position: absolute;
+            /*background-color: black;*/
+            transform: rotateZ(0deg);
+        }
+        #ball div{
+            width: 20px;height: 20px;
+            background-color: #c6e3ff;
+            position: absolute;
+            font: 9px/20px 微软雅黑;
+            text-align: center;
+            /*transition:
+                    left 1s cubic-bezier(0,0,0.75,0.25) 0s,
+                    transform 1s cubic-bezier(0,0,0.25,0.75) 0s
+                    !*我想让transform中的某一属性单独设置动画效果，网上搜不到答案
+                    transform-translateZ 1s cubic-bezier(0,0,0.25,0.75) 0s,
+                    transform(rotateY) 1s linear 0s;*!*/
+        }
+        #ball div:hover{
+            background-color: red;
+            cursor: pointer;
+        }
+        #area{
+            position: absolute;
+            top:650px;
+        }
+        #float{
+            position:absolute;
+            height: 29px;width: 29px;
+            border: 1px solid #ccc;
+            top:305px;left: 305px;
+            border-radius: 50%;
+        }
+    </style>
+    <script src="../../jquery-3.2.1.js" type="text/javascript"></script>
+    <script>
+        $(function () {
+            var suijichi=[];
+            //var jishu=0
+            for(var a=5;a<400;a+=30){//增加数等于小单元高度的1.5倍，生成5-395的，差30的数字a
+                var c=Math.sqrt(40000-((a-200)*(a-200)))//c是半径值
+                var meicijiaodu=Math.ceil((5400/Math.PI)/c);//每块之间横向间距至少是30
+                for (var b=0;b<360;b+=meicijiaodu){//正常应该是b+=27/Math.PI，为了方便，且是3的倍数，干脆写9
+                    //jishu++;
+                    //经计算，一共循环424次
+                    var z=[a,b,c];//a是top值，b是旋转值
+                    suijichi.push(z)
+                }
+            }
+            suijichi.sort(function () {//打散随机池，方便后面直接取数据
+                return Math.random()>0.5? -1:1;
+            })
+            //console.log(jishu)
+
+            var top=[];//随机产生
+            var r=[];//被top值决定，top随机产生
+            var rotateX=[]//由top值决定
+            var xuanzhuan=[];//随机产生
+            var hudu=[];//由旋转值计算
+            var rotateY=[];//由旋转值计算
+            var opacity=[];//由旋转值计算，跟top--r有关
+            var translateZ=[];//由旋转值--弧度计算，跟top--r有关
+            var left=[];//由旋转值--弧度计算，跟top--r有关
+            var shuliang=200;//初始化方块数量
+            var sudu=3;//初始化速度
+            var pi=Math.PI;
+
+            function huitu(x) {
+                $("#ball div").remove();
+                for(var i=0;i<x;i++){
+                    $("#ball").append("<div>"+i+"</div>")
+                    top[i]=suijichi[i][0];//直接读取随机池中的数据
+                    xuanzhuan[i]=suijichi[i][1];
+                    r[i]=suijichi[i][2]
+                    //top[i]=10 + (Math.floor(Math.random()*381));//随机生成[10-390]的整数，因为顶端底端不好画圈，干脆不画
+                    //xuanzhuan[i]=3 * (Math.floor(Math.random()*120))//随机生成[0,360)中3的倍数的整数
+                    //r[i]=Math.sqrt(40000-((top[i]-200)*(top[i]-200)))//半径等于 根号下（200的平方减去（top-200的平方））
+                    //console.log("top: "+top+" r: "+r+" xuanzhuan: "+xuanzhuan)
+                }
+            }
+            huitu(shuliang);//初始化
+
+            var x;
+            var start=function (speed,shuliang,turn) {
+                x=setInterval(function () {
+                    //不透明度0.4-1 （0.6/(90/x)），角度-90-0  (+x)，translateZ0-200 (sin(x)*r)，left(r-r*cos(x))
+                    for(var i=0;i<shuliang;i++){
+                        if(xuanzhuan[i]==360){
+                            xuanzhuan[i]=0;
+                        }
+                        rotateX[i]=90-((180*Math.acos((200-top[i])/200))/pi);
+                        xuanzhuan[i]+=speed;//跟速率有关
+                        hudu[i]=(pi*xuanzhuan[i])/180;//正常是*2再除360
+                        rotateY[i] = xuanzhuan[i]-90;
+                        left[i]= 200 - r[i] * Math.cos(hudu[i]);
+                        translateZ[i]= r[i] * Math.sin(hudu[i]);
+                        opacity[i]= (r[i] / 200) * (0.7 + (0.3 * Math.sin(hudu[i])));
+                        //console.log(rotateY)
+                        //console.log("旋转 "+xuanzhuan+" 弧度 "+hudu+" 透明度 "+opacity+" 左边距 "+left+" 旋转角度 "+rotateY+" 视距 "+translateZ)
+                        //console.log($("#ball div").eq(i).text())
+                        $("#ball div").eq(i).css({
+                            "top":top[i]+"px",
+                            "opacity":opacity[i],
+                            "left":left[i]+"px",
+                            //console.log($("#ball div").css("opacity")+" "+$("#ball div").css("left")+" "+$("#ball div").css("transform"))
+                        })
+                        if(turn=="down"){
+                            $("#ball div").eq(i).css("transform","translateZ("+translateZ[i]+"px) rotateY("+rotateY[i]+"deg) rotateX("+rotateX[i]+"deg) rotate(180deg)")
+                        }else{
+                            $("#ball div").eq(i).css("transform","translateZ("+translateZ[i]+"px) rotateY("+rotateY[i]+"deg) rotateX("+rotateX[i]+"deg)")
+                        }
+                    }
+                },40)
+            }
+            start(sudu,shuliang);
+
+            var stop=false;
+            $("#stop").click(function () {
+                stop=true;
+                clearInterval(x)
+                clearInterval(y)
+            })
+            $("#restart").click(function () {
+                stop=false;
+                start(sudu,shuliang)
+            })
+
+            var y;
+            var chajuX,chajuY;
+            var moved=false;
+            $("#big").mousemove(function (e) {
+                if(!stop) {
+                    chajuY = e.pageY - 320;
+                    chajuX = e.pageX - 320;
+                    var rotateZ = (Math.atan(chajuY / chajuX) * 180) / pi;
+                    if (chajuX > 0) {
+                        $("#ball").css("transform", "rotate(" + rotateZ + "deg)")
+                    } else if (chajuX < 0) {
+                        $("#ball").css("transform", "rotate(" + (rotateZ + 180) + "deg)")
+                    } else if (chajuX == 0) {
+                        if (chajuY > 0) {
+                            $("#ball").css("transform", "rotate(90deg)")
+                        } else {
+                            $("#ball").css("transform", "rotate(-90deg)")
+                        }
+                    }
+                    moved = true;
+                }
+            }).hover(function () {
+                y=setInterval(function () {
+                    if(!stop) {
+                        if (moved) {
+                            sudu = 5 * (Math.sqrt((chajuX * chajuX + (chajuY * chajuY)))) / (Math.sqrt(204800))
+                            clearInterval(x)
+                            if (chajuX > 0) {
+                                start(sudu, shuliang)
+                            }
+                            else if (chajuX < 0) {
+                                start(sudu, shuliang, "down")
+                            }
+                        }
+                        else {console.log("未重绘")}
+                    }
+                    moved=false;
+                },1000)
+            },function () {
+                clearInterval(y)
+            })
+
+            $("#num").click(function () {
+                shuliang=Number($("#numText").val())
+                //是数字就转换成功，否则转换为NaN
+                if (shuliang!=NaN){
+                    if(shuliang>=30&&shuliang<=424){
+                        huitu(shuliang);
+                        clearInterval(x);
+                        start(sudu,shuliang)
+                    }else{alert("请输入 30 - 424 之间的数字")}
+                }
+            })
+            $("#sudu").click(function () {
+                var xinsudu=Number($("#suduText").val());
+                if(xinsudu!=NaN){
+                    if(xinsudu>=0&&xinsudu<=10){
+                        clearInterval(x);
+                        start(xinsudu,shuliang)
+                        alert("鼠标移入画面则恢复默认")
+                    }else {
+                        alert("请输入 0 - 10 之间的数字")
+                    }
+                }
+            })
+        })
+    </script>
+</head>
+<body>
+    <div id="big">
+        <div id="box">
+            <div id="ball"></div>
+        </div>
+    </div>
+    <div id="float"></div>
+    <div id="area">
+        <button id="stop">停止</button>
+        <button id="restart">恢复</button>
+        <br>
+        <input type="text" id="numText">
+        <input type="button" id="num" value="提交个数">
+        <br>
+        <input type="text" id="suduText">
+        <input type="button" id="sudu" value="提交速度">
+    </div>
+</body>
+</html>

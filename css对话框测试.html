@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{margin-top: 20px}
+        div{
+            float: left;
+        }
+        #head{
+            border: solid 3px #00a6ff;
+            border-radius: 100%;
+            width: 80px;height: 80px;
+            background: url("timg.jpg") no-repeat 0px -13px;
+            background-size: 80px;
+            margin:0 20px;
+        }
+        #talk{
+            border-radius: 10px;
+            width: 160px;height: 40px;
+            border: 2px solid #00a6ff;
+            position: relative;
+            top: 10px;
+            padding: 10px 20px;
+            line-height: 40px;
+            font-size: 20px;
+        }
+        #talk:before{
+            content: "";
+            position: absolute;
+            border-left: solid 2px #00a6ff;
+            border-bottom: solid 2px #00a6ff;
+            width: 10px;height: 10px;
+            top:23px;left: -7px;
+            background-color: white;
+            transform: rotate(45deg);
+        }
+
+    </style>
+</head>
+<body>
+    <div id="head"></div>
+    <div id="talk">Hello CSS !!</div>
+</body>
+</html>

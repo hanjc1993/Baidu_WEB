@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>懒加载</title>
+    <script src="../../jquery-3.2.1.js" type="text/javascript"></script>
+    <style>
+        body,ul{margin: 0;}
+        #h1{
+            background-color: #f7f7f8;
+            height: 44px;
+            text-align: center;
+            font-size:20px;
+            line-height: 44px;
+        }
+        #h2{
+            height: 35px;
+            background-color: #efeff4;
+            border-bottom: solid 1px #ccc;
+        }
+        #content ul li{
+            list-style: none;
+            line-height: 44px;
+            font-size:16px;
+            height: 44px;
+            padding-left: 15px;
+        }
+        li.hide{display: none}
+        #load{
+            background-color: #efeff4;
+            height: 44px;
+        }
+        #flash{
+            height: 44px;width: 44px;
+            margin: 0 auto;
+            position: relative;
+        }
+        @keyframes loading {
+            0% {background-color: #777}
+            100% {background-color: #dedede}
+        }
+        #flash div{
+            border-radius: 25%;
+            background-color: #dedede;
+            width: 2px;height: 13px;
+            position: absolute;
+            left: 21px;
+            transform-origin: 1px 22px;
+         }
+        #f1{transform: rotate(0deg);animation: loading 2s infinite}
+        #f2{transform: rotate(30deg);animation: loading 2s infinite 167ms}
+        #f3{transform: rotate(60deg);animation: loading 2s infinite 333ms}
+        #f4{transform: rotate(90deg);animation: loading 2s infinite 500ms}
+        #f5{transform: rotate(120deg);animation: loading 2s infinite 667ms}
+        #f6{transform: rotate(150deg);animation: loading 2s infinite 833ms}
+        #f7{transform: rotate(180deg);animation: loading 2s infinite 1000ms}
+        #f8{transform: rotate(210deg);animation: loading 2s infinite 1167ms}
+        #f9{transform: rotate(240deg);animation: loading 2s infinite 1333ms}
+        #f10{transform: rotate(270deg);animation: loading 2s infinite 1500ms}
+        #f11{transform: rotate(300deg);animation: loading 2s infinite 1667ms}
+        #f12{transform: rotate(330deg);animation: loading 2s infinite 1833ms}
+
+    </style>
+    <script>
+        var show = 30;//基础条数
+        var max = 100;//最大条数
+        var newLi = 10;//每次显示的条数
+        $(function () {
+            for(var i=1;i<show+1;i++){//显示的部分
+                $("#content ul").append("<li>item "+i+"</li>")
+            }
+            for(var i=show+1;i<max+1;i++){//不显示的部分使用hide样式
+                $("#content ul").append("<li class='hide'>item "+i+"</li>")
+            }
+            $(document).scroll(function () {
+                var liHeight=show*44;//每个li的高度
+                var headHeight=44+35;//所有头部的高度
+                var footHeight=44//所有足部的高度
+                var seeHeight=$(window).height();//视窗高度
+                var scrollHeight = $(document).scrollTop();//滑块高度
+                var cha = (liHeight+headHeight+footHeight) - (seeHeight+scrollHeight)
+                if (show<100){
+                    if (cha<0){
+                        //如果是异步，把下面这些if的内容换成请求
+                        setTimeout(function (show,newLi) {
+                            for (var i =show;i<show+newLi;i++){
+                                $("#content ul li").eq(i).show()
+                            }
+                        },1000,show,newLi)//延时（动画）时间
+                        show+=newLi;
+                    }
+                }else {
+                    $("#load #flash").hide()//到底后不显示loading动画
+                }
+            })
+        })
+    </script>
+</head>
+<body>
+    <div id="head">
+        <div id="h1">Infinite Scroll</div>
+        <div id="h2"></div>
+    </div>
+    <div id="content">
+        <ul></ul>
+    </div>
+    <div id="load">
+        <div id="flash">
+            <div id="f1"></div>
+            <div id="f2"></div>
+            <div id="f3"></div>
+            <div id="f4"></div>
+            <div id="f5"></div>
+            <div id="f6"></div>
+            <div id="f7"></div>
+            <div id="f8"></div>
+            <div id="f9"></div>
+            <div id="f10"></div>
+            <div id="f11"></div>
+            <div id="f12"></div>
+        </div>
+    </div>
+</body>
+</html>

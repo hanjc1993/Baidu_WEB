@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图片裁剪器</title>
+    <script src="../../vue.js" type="text/javascript"></script>
+    <style>
+        #big{position: relative}
+        #back{
+            width: 800px;height: 800px;
+            background:url("背景.gif") repeat;
+        }
+        #pic{
+            max-width: 800px;
+            max-height: 800px;
+        }
+        #pic,#back,#float{
+            position: absolute;
+            top: 40px;left: 0;
+        }
+        #float{
+            width: 800px;height: 800px;
+            display: none;
+        }
+        #float div{
+            float: left;
+        }
+        #float div.f1{
+            background-color: rgba(0,0,0,0.5);
+        }
+        #float div.f2{
+            background-color: rgba(0,0,0,0.4);
+        }
+        #float #f4,#float #f7{
+            clear: left;
+        }
+        #float #middle{
+            border:solid 1px greenyellow;
+            position: relative;
+            cursor: move;
+        }
+        #middle div{
+            background-color: greenyellow;
+            width: 4px;height: 4px;
+            position: absolute;
+        }
+        #middle #s1,#middle #s2,#middle #s3{
+            top:-2px;
+        }
+        #middle #s1,#middle #s4,#middle #s6{
+            left:-2px;
+        }
+        #middle #s1{cursor: nw-resize}
+        #middle #s2{cursor: n-resize}
+        #middle #s3{cursor: ne-resize}
+        #middle #s4{cursor: w-resize}
+        #middle #s5{cursor: e-resize}
+        #middle #s6{cursor: sw-resize}
+        #middle #s7{cursor: s-resize}
+        #middle #s8{cursor: se-resize}
+        #middle #m_heng,#middle #m_zong{
+            border: dashed #bbb;
+            background-color: transparent;
+        }
+        #yulan{
+            position: absolute;
+            top: 40px;left: 850px;
+            width: 220px;height: 250px;
+            border: solid 1px red;
+            padding-left: 20px;
+            padding-top: 20px;
+        }
+        #yulan *{position: absolute}
+        #yulan b{
+            bottom: 10px;
+            display: block;
+            width: 200px;
+            text-align: center;
+            color: red;
+            font-size: 20px;
+        }
+        #show{
+            height: 200px;
+            width: 200px;
+            overflow: hidden;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<!--
+    主要知识点如下
+        1.绘制黑白格子背景，不会！--用ps做的时候，发现gif保存时候可选颜色范围，如果是黑白，图片容量可以很小！
+        2.读取选中的图片：在input加onchange属性，利用FileReader()构造函数的方法读取图片源码，把源码值赋给img标签的src属性。水平要求挺高的，这是网上抄的
+            2.1 利用filereader自动识别文件格式的功能，配合正则表达式确认传入的是否是图片
+        3.使用了大量拖拽，由于坐标变化频繁，直接使用Vue
+        4.在小窗口显示的时候，使用div：overflow：hidden加内部一个img进行裁剪
+        5.overflow好像要配合position: absolute使用
+        6.一开始写了些jq代码，想转成vue时，需要设置些中间值。。比如fwid，下次直接用vue可以省去。
+        7.由于没用jq，用了原生的获取css样式的函数，见255,256行。另有427，428选择器及获取标签属性
+-->
+<div id="big">
+    <div id="zairu">
+        <input id="get" type="file" value="点我选择图片" onchange="read(this)">
+        <input id="cut" type="button" value="裁剪图片" @click="cutStart">
+    </div>
+    <div id="back"></div>
+    <img id="pic">
+    <div id="float" :style="[float,block]">
+        <div id="f1" :style="[hang1,lie1]" class="f1"></div>
+        <div id="f2" :style="[hang1,lie2]" class="f2"></div>
+        <div id="f3" :style="[hang1,lie3]" class="f1"></div>
+        <div id="f4" :style="[hang2,lie1]" class="f2"></div>
+        <div id="middle" :style="middle" @mousedown="midMove($event)">
+            <div id="s1" :style="s1" @mousedown.stop="s1move"></div>
+            <div id="s2" :style="s2" @mousedown.stop="s2move"></div>
+            <div id="s3" :style="s3" @mousedown.stop="s3move"></div>
+            <div id="s4" :style="s4" @mousedown.stop="s4move"></div>
+            <div id="s5" :style="s5" @mousedown.stop="s5move"></div>
+            <div id="s6" :style="s6" @mousedown.stop="s6move"></div>
+            <div id="s7" :style="s7" @mousedown.stop="s7move"></div>
+            <div id="s8" :style="s8" @mousedown.stop="s8move"></div>
+            <div id="m_heng" :style="mheng"></div>
+            <div id="m_zong" :style="mzong"></div>
+        </div>
+        <div id="f6" :style="[hang2,lie3]" class="f2"></div>
+        <div id="f7" :style="[hang3,lie1]" class="f1"></div>
+        <div id="f8" :style="[hang3,lie2]" class="f2"></div>
+        <div id="f9" :style="[hang3,lie3]" class="f1"></div>
+    </div>
+    <div id="yulan">
+        <div id="show" :style="[show,block]">
+            <img :style="showImg">
+        </div>
+        <b>预览</b>
+    </div>
+</div>
+<script>
+    var width,height;
+    var vm=new Vue({
+        el:"#big",
+        data:{
+            top:0,
+            bottom:0,
+            left:0,
+            right:0,
+            width:0,
+            height:0,
+            fwid:0,
+            fhei:0,
+            display:"none"//和下面block属性，控制float 和 show 的显隐
+        },
+        computed:{
+            //确定float的大小
+            float() {
+                return {
+                    "width":this.fwid+"px",
+                    "height":this.fhei+"px",
+                }
+            },
+            //确定 float中 九块区域的位置
+            hang1() {
+                return{"height":this.top+"px"}
+            },
+            hang2:function () {
+                return{"height":(this.height+2)+"px"}
+            },
+            hang3:function () {
+                return {"height":this.bottom+"px"}
+            },
+            lie1:function () {
+                return {"width":this.left+"px"}
+            },
+            lie2:function () {
+                return {"width":(this.width+2)+"px"}
+            },
+            lie3:function () {
+                return {"width":this.right+"px"}
+            },
+            middle:function () {
+                return {
+                    "width":this.width+"px",
+                    "height":this.height+"px"
+                }
+            },
+            //确定 S小块的位置
+            s1() {// 大概不需要
+            },
+            s2() {return{"left":((this.width/2)-2)+"px"}},
+            s3() {return{"left":(this.width-2)+"px"}},
+            s4() {return {"top":((this.height/2)-2)+"px"}},
+            s5() {return {
+                    "top":((this.height/2)-2)+"px",
+                    "left":(this.width-2)+"px"
+                }},
+            s6() {return {"top":(this.height-2)+"px"}},
+            s7() {return {
+                    "left":((this.width/2)-2)+"px",
+                    "top":(this.height-2)+"px"
+                }},
+            s8() {return {
+                    "left":(this.width-2)+"px",
+                    "top":(this.height-2)+"px"
+                }},
+            //确定 选区内 3分线的位置
+            mheng() {return{
+                "height":(this.height/3-2) + "px",
+                "width":this.width+"px",
+                "border-width":"1px 0",
+                "top":(this.height/3-1)+"px",
+                "left":"0"
+            }},
+            mzong() {
+                return{
+                "width":(this.width/3-2) + "px",
+                "height":this.height+"px",
+                "border-width":"0 1px",
+                "left":(this.width/3-1)+"px",
+                "top":"0"
+            }},
+            whbigger() {
+                if(this.width>this.height){
+                    return [this.width,this.height]
+                }else{
+                    return [this.height,this.width]
+                }
+            },
+            show() {
+                if(this.width>this.height) {
+                    return {
+                        //按照选区的横纵比例，使预览区长边等于200，短边按比例变化
+                        "height": (200 * (this.whbigger[1] + 2) / (this.whbigger[0] + 2)) + "px"
+                    }
+                }else {
+                    return {"width": (200 * (this.whbigger[1] + 2) / (this.whbigger[0] + 2)) + "px"}
+                }
+            },
+            showImg() {
+                //var beishu = width/200;
+                //var showimgH = height/beishu;
+                var x=(this.whbigger[0]+2)/200//纯简写
+                return {
+                    "height":height/x + "px",
+                    "top":(0-this.top)/x + "px",
+                    "left":(0-this.left)/x + "px"
+                }
+            },
+            block() {
+                return {"display":this.display}
+            }
+        },
+        methods: {
+            //点击裁剪后，整个功能的初始化函数
+            cutStart() {//本来可以不用这么写，但jq最后剩的点代码想转成Vue只能这样
+                var pic = document.getElementById("pic");
+                var css = document.defaultView.getComputedStyle(pic,null)
+                width=parseInt(css.width);
+                height=parseInt(css.height);
+                this.fwid=width;
+                this.fhei=height;
+                //初始化vm值
+                this.top = Math.round(height/3);
+                this.left = Math.round(width/3);
+                this.width = this.left-2;
+                this.height = this.top-2;
+                this.bottom = height-this.top*2;
+                this.right = width-this.left*2;
+                //显示float及show
+                this.display = "block"
+            },
+            //小方块 拖拽
+            s1move(){//其实可以归纳简写，省去几行，但这样方便阅读
+                document.onmousemove = function (e) {
+                    var x=SmoveArea(e.pageX,e.pageY,"s1")
+                    vm.top = x.y - 48;
+                    vm.left = x.x - 8;
+                    vm.width = width-vm.right-vm.left-2;
+                    vm.height = height-vm.bottom-vm.top-2;
+                }
+            },
+            s2move(){
+                document.onmousemove = function (e) {
+                    var x=SmoveArea(e.pageX,e.pageY,"s2")
+                    vm.top = x.y - 48;
+                    vm.height = height-vm.bottom-vm.top-2;
+                }
+            },
+            s3move(){
+                document.onmousemove = function (e) {
+                    var x=SmoveArea(e.pageX,e.pageY,"s3")
+                    vm.top = x.y - 48;
+                    vm.right = width+8-x.x;
+                    vm.width = width-vm.right-vm.left-2;
+                    vm.height = height-vm.bottom-vm.top-2;
+                }
+            },
+            s4move(){
+                document.onmousemove = function (e) {
+                    var x=SmoveArea(e.pageX,e.pageY,"s4")
+                    vm.left = x.x - 8;
+                    vm.width = width-vm.right-vm.left-2;
+                }
+            },
+            s5move(){
+                document.onmousemove = function (e) {
+                    var x=SmoveArea(e.pageX,e.pageY,"s5")
+                    vm.right = width+8-x.x;
+                    vm.width = width-vm.right-vm.left-2;
+                }
+            },
+            s6move(){
+                document.onmousemove = function (e) {
+                    var x=SmoveArea(e.pageX,e.pageY,"s6")
+                    vm.bottom = height + 48 -x.y;
+                    vm.left = x.x - 8;
+                    vm.width = width-vm.right-vm.left-2;
+                    vm.height = height-vm.bottom-vm.top-2;
+                }
+            },
+            s7move(){
+                document.onmousemove = function (e) {
+                    var x=SmoveArea(e.pageX,e.pageY,"s7")
+                    vm.bottom = height + 48 -x.y;
+                    vm.height = height-vm.bottom-vm.top-2;
+                }
+            },
+            s8move(){
+                document.onmousemove = function (e) {
+                    var x=SmoveArea(e.pageX,e.pageY,"s8")
+                    vm.bottom = height + 48 -x.y;
+                    vm.right = width+8-x.x;
+                    vm.width = width-vm.right-vm.left-2;
+                    vm.height = height-vm.bottom-vm.top-2;
+                }
+            },
+            //裁剪区域 拖拽
+            midMove(event){
+                var y=event.pageY;
+                var x=event.pageX;
+                var left=vm.left;
+                var right = vm.right;
+                var top = vm.top;
+                var bottom = vm.bottom;
+                document.onmousemove = function (e) {
+                    //先限制范围
+                    var newX = e.pageX-x;
+                    var newY = e.pageY-y;
+                    if (newX < 0-left){newX=0-left}
+                    if (newX > right){newX=right}
+                    if (newY > bottom){newY=bottom}
+                    if (newY < 0-top){newY=0-top}
+                    //执行移动
+                    vm.left = left + newX;
+                    vm.right = right - newX;
+                    vm.top = top + newY;
+                    vm.bottom = bottom - newY;
+                }
+            }
+        }
+    })
+    //处理 S小块 越界问题
+    function SmoveArea(x,y,z){
+        if(x<8){x=8}
+        if(x>8+width){x=8+width}
+        if(y<48){y=48}
+        if(y>48+height){y=48+height}
+        switch (z){
+            case "s1":
+                if(x>width-vm.right+4){//x-8>width-right-4
+                    x=width-vm.right+4
+                }
+                if(y>height-vm.bottom+44){//y-48>height-bottom-4
+                    y=height-vm.bottom+44
+                }break;
+            case "s2":
+                if(y>height-vm.bottom+44){//y-48>height-bottom-4
+                    y=height-vm.bottom+44
+                }break;
+            case "s3":
+                if(x<vm.left+12){//x<left+8+4
+                    x=vm.left+12
+                }
+                if(y>height-vm.bottom+44){//y-48>height-bottom-4
+                    y=height-vm.bottom+44
+                }break;
+            case "s4":
+                if(x>width-vm.right+4){//x-8>width-right-4
+                    x=width-vm.right+4
+                }break;
+            case "s5":
+                if(x<vm.left+12){//x<left+8+4
+                    x=vm.left+12
+                }break;
+            case "s6":
+                if(x>width-vm.right+4){//x-8>width-right-4
+                    x=width-vm.right+4
+                }
+                if(y<52+vm.top){//y<vm.top+48+4
+                    y=52+vm.top;
+                }break;
+            case "s7":
+                if(y<52+vm.top){//y<vm.top+48+4
+                    y=52+vm.top;
+                }break;
+            case "s8":
+                if(x<vm.left+12){//x<left+8+4
+                    x=vm.left+12
+                }
+                if(y<52+vm.top){//y<vm.top+48+4
+                    y=52+vm.top;
+                }break;
+        }
+        return {x:x,y:y}
+    }
+    //读取并显示图片
+    function read(file) {
+        var file=file.files[0];
+        if(!file){
+            return false;
+        }
+        if(!/image\/\w+/.test(file.type)){
+            alert("文件必须为图片！");
+            return false;
+        }
+        var readData= new FileReader()
+        readData.onload = function (e) {
+            document.getElementById("pic").src = e.target.result;
+            document.querySelector("#show img").src = e.target.result;
+            vm.display = "none"
+        }
+        readData.readAsDataURL(file);
+    }
+    //全局，松开鼠标时候，取消移动
+    document.onmouseup = function () {
+        document.onmousemove = null;
+        document.onmousedown = null;
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>自定义右键菜单</title>
+    <style>
+        #div{
+            height: 500px;width: 500px;
+            background-color: black;
+        }
+        #caidan,div.zcd{
+            height: 198px;width: 98px;
+            display: none;
+            position: absolute;
+            background-color: white;
+            border: solid 1px #444;
+        }
+        div.cd,div.zzcd{
+            width: 90px;
+            border-bottom: 1px solid gray;
+            margin: 2px 5px;
+            text-align: center;
+        }
+        div.cd{
+            height: 35px;
+            line-height: 35px;
+        }
+        div.cd:hover,div.zzcd:hover{background-color: #ddd;}
+        #cd1,#zcd1 #zcd1_1{margin-top: 6px}
+        #cd5,#zcd1 #zcd1_3{border: none}
+        div.zcd{height: 93px;}
+        #zcd1{top:0}
+        #zcd2{top: 41px}
+        #zcd3{top: 79px}
+        div.zzcd{
+            height: 25px;
+            line-height: 25px;
+        }
+    </style>
+    <script src="../../vue.js" type="text/javascript"></script>
+    <script src="../../jquery-3.2.1.js" type="text/javascript"></script>
+    <script>
+        window.onload=function () {
+            var top,left;
+            new Vue({
+                el:"#div",
+                data:{},
+                methods:{
+                    right:function (e) {
+                        $("div.zcd").hide()
+                        top=e.pageY;
+                        left=e.pageX;
+                        if(left<=408) {
+                            $("#caidan").css("left", left)
+                        }else{
+                            $("#caidan").css("left", left-100)
+                        }
+                        if (top<=308){
+                            $("#caidan").css("top", top).show()
+                        }else {
+                            $("#caidan").css("top", top-200).show()
+                        }
+                        console.log(top+" , "+left)
+                    },
+                    left:function () {
+                        $("#caidan").hide();
+                    }
+                }
+            })
+            $("#caidan div.cd").mouseover(function () {
+                var x="#z"+$(this).attr("id")
+                $("#caidan div.zcd").hide()
+                if((top>=257&&top<=308)||(top>457)){
+                    if((top>=295&&top<=308)||top>494){
+                        $("#zcd4").css("top",62)
+                        $("#zcd5").css("top",104)
+                    }else {
+                        $("#zcd5").css("top",104)
+                    }
+                }else{
+                    $("#zcd4").css("top",117)
+                    $("#zcd5").css("top",155)
+                }
+
+                if(left>=308){
+                    $("div.zcd").css("left",-100)
+                }else {
+                    $("div.zcd").css("left",98)
+                }
+                $(x).show()
+            })
+            $("#caidan div.zzcd").click(function () {
+                $("#caidan").hide();
+            })
+            $("#caidan div").contextmenu(function () {
+                return false;
+            })
+        }
+    </script>
+</head>
+<body>
+    <div id="div" @contextmenu.prevent="right($event)" @click="left"></div>
+    <div id="caidan" @contextmenu.prevent>
+        <div id="cd1" class="cd">我是菜单1</div>
+        <div id="zcd1" class="zcd">
+            <div id="zcd1_1" class="zzcd">1_子菜单1</div>
+            <div id="zcd1_2" class="zzcd">1_子菜单2</div>
+            <div id="zcd1_3" class="zzcd">1_子菜单3</div>
+        </div>
+        <div id="cd2" class="cd">我是菜单2</div>
+        <div id="zcd2" class="zcd">        </div>
+        <div id="cd3" class="cd">我是菜单3</div>
+        <div id="zcd3" class="zcd">        </div>
+        <div id="cd4" class="cd">我是菜单4</div>
+        <div id="zcd4" class="zcd">        </div>
+        <div id="cd5" class="cd">我是菜单5</div>
+        <div id="zcd5" class="zcd">        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task-7</title>
+    <style>
+        table,tr,td,th{border: solid 1px black;border-collapse: collapse;padding: 1px}
+        th,td{
+            width: 75px;
+            text-align: center;
+        }
+        .up{background: url("up.png") no-repeat}
+        .down{background: url("down.png") no-repeat}
+        /*锁定首行的关键css如下  */
+        #table tr, #table th{border-width: 2px}
+        #table th{width: 74px}
+        #div,#table2,#table{position: absolute;}
+        /*先通过table1，确定table2的top值*/
+        #table2{
+            top: 34px;
+            z-index: 1;
+        }
+        /*再通过table2的绝对位置，确定table1的top值*/
+        #table,#div{z-index: 100;}
+        #table{
+            top: 8px;
+            background-color: #eee;
+        }
+        #div{
+            top:0;
+            height: 8px;width: 100%;
+            background-color: white
+        }
+    </style>
+    <script src="../../../jquery-3.2.1.js" type="text/javascript"></script>
+    <script>
+        var data= [
+            {name:"张三",age:13,class:"三年二班",yuwen:100,shuxue:80,yingyu:91},
+            {name:"张思",age:14,class:"三年二班",yuwen:85,shuxue:101,yingyu:92},
+            {name:"张武",age:15,class:"三年三班",yuwen:50,shuxue:100,yingyu:93},
+            {name:"张柳",age:16,class:"三年三班",yuwen:75,shuxue:90,yingyu:94},
+            {name:"张琪",age:17,class:"三年四班",yuwen:66,shuxue:86,yingyu:95},
+            {name:"张八",age:18,class:"三年四班",yuwen:90,shuxue:87,yingyu:80},
+            {name:"张久",age:19,class:"四年二班",yuwen:95,shuxue:88,yingyu:70},
+            {name:"张氏",age:20,class:"四年二班",yuwen:97,shuxue:97,yingyu:60},
+            {name:"李四",age:19,class:"四年三班",yuwen:88,shuxue:95,yingyu:50},
+            {name:"李武",age:18,class:"四年三班",yuwen:78,shuxue:90,yingyu:40},
+            {name:"李柳",age:17,class:"四年四班",yuwen:70,shuxue:66,yingyu:81},
+            {name:"李琦",age:16,class:"四年四班",yuwen:80,shuxue:75,yingyu:82},
+            {name:"李八",age:15,class:"五年二班",yuwen:82,shuxue:80,yingyu:83},
+            {name:"李九",age:14,class:"五年二班",yuwen:83,shuxue:85,yingyu:84},
+            {name:"李诗",age:13,class:"五年三班",yuwen:84,shuxue:100,yingyu:85},
+            {name:"张三",age:13,class:"三年二班",yuwen:100,shuxue:80,yingyu:91},
+            {name:"张思",age:14,class:"三年二班",yuwen:85,shuxue:101,yingyu:92},
+            {name:"张武",age:15,class:"三年三班",yuwen:50,shuxue:100,yingyu:93},
+            {name:"张柳",age:16,class:"三年三班",yuwen:75,shuxue:90,yingyu:94},
+            {name:"张琪",age:17,class:"三年四班",yuwen:66,shuxue:86,yingyu:95},
+            {name:"张八",age:18,class:"三年四班",yuwen:90,shuxue:87,yingyu:80},
+            {name:"张久",age:19,class:"四年二班",yuwen:95,shuxue:88,yingyu:70},
+            {name:"张氏",age:20,class:"四年二班",yuwen:97,shuxue:97,yingyu:60},
+            {name:"李四",age:19,class:"四年三班",yuwen:88,shuxue:95,yingyu:50},
+            {name:"李武",age:18,class:"四年三班",yuwen:78,shuxue:90,yingyu:40},
+            {name:"李柳",age:17,class:"四年四班",yuwen:70,shuxue:66,yingyu:81},
+            {name:"李琦",age:16,class:"四年四班",yuwen:80,shuxue:75,yingyu:82},
+            {name:"李八",age:15,class:"五年二班",yuwen:82,shuxue:80,yingyu:83},
+            {name:"李九",age:14,class:"五年二班",yuwen:83,shuxue:85,yingyu:84},
+            {name:"李诗",age:13,class:"五年三班",yuwen:84,shuxue:100,yingyu:85},
+            {name:"张三",age:13,class:"三年二班",yuwen:100,shuxue:80,yingyu:91},
+            {name:"张思",age:14,class:"三年二班",yuwen:85,shuxue:101,yingyu:92},
+            {name:"张武",age:15,class:"三年三班",yuwen:50,shuxue:100,yingyu:93},
+            {name:"张柳",age:16,class:"三年三班",yuwen:75,shuxue:90,yingyu:94},
+            {name:"张琪",age:17,class:"三年四班",yuwen:66,shuxue:86,yingyu:95},
+            {name:"张八",age:18,class:"三年四班",yuwen:90,shuxue:87,yingyu:80},
+            {name:"张久",age:19,class:"四年二班",yuwen:95,shuxue:88,yingyu:70},
+            {name:"张氏",age:20,class:"四年二班",yuwen:97,shuxue:97,yingyu:60},
+            {name:"李四",age:19,class:"四年三班",yuwen:88,shuxue:95,yingyu:50},
+            {name:"李武",age:18,class:"四年三班",yuwen:78,shuxue:90,yingyu:40},
+            {name:"李柳",age:17,class:"四年四班",yuwen:70,shuxue:66,yingyu:81},
+            {name:"李琦",age:16,class:"四年四班",yuwen:80,shuxue:75,yingyu:82},
+            {name:"李八",age:15,class:"五年二班",yuwen:82,shuxue:80,yingyu:83},
+            {name:"李九",age:14,class:"五年二班",yuwen:83,shuxue:85,yingyu:84},
+            {name:"李诗",age:13,class:"五年三班",yuwen:84,shuxue:100,yingyu:85},
+            {name:"张三",age:13,class:"三年二班",yuwen:100,shuxue:80,yingyu:91},
+            {name:"张思",age:14,class:"三年二班",yuwen:85,shuxue:101,yingyu:92},
+            {name:"张武",age:15,class:"三年三班",yuwen:50,shuxue:100,yingyu:93},
+            {name:"张柳",age:16,class:"三年三班",yuwen:75,shuxue:90,yingyu:94},
+            {name:"张琪",age:17,class:"三年四班",yuwen:66,shuxue:86,yingyu:95},
+            {name:"张八",age:18,class:"三年四班",yuwen:90,shuxue:87,yingyu:80},
+            {name:"张久",age:19,class:"四年二班",yuwen:95,shuxue:88,yingyu:70},
+            {name:"张氏",age:20,class:"四年二班",yuwen:97,shuxue:97,yingyu:60},
+            {name:"李四",age:19,class:"四年三班",yuwen:88,shuxue:95,yingyu:50},
+            {name:"李武",age:18,class:"四年三班",yuwen:78,shuxue:90,yingyu:40},
+            {name:"李柳",age:17,class:"四年四班",yuwen:70,shuxue:66,yingyu:81},
+            {name:"李琦",age:16,class:"四年四班",yuwen:80,shuxue:75,yingyu:82},
+            {name:"李八",age:15,class:"五年二班",yuwen:82,shuxue:80,yingyu:83},
+            {name:"李九",age:14,class:"五年二班",yuwen:83,shuxue:85,yingyu:84},
+            {name:"李诗",age:13,class:"五年三班",yuwen:84,shuxue:100,yingyu:85},
+            {name:"张三",age:13,class:"三年二班",yuwen:100,shuxue:80,yingyu:91},
+            {name:"张思",age:14,class:"三年二班",yuwen:85,shuxue:101,yingyu:92},
+            {name:"张武",age:15,class:"三年三班",yuwen:50,shuxue:100,yingyu:93},
+            {name:"张柳",age:16,class:"三年三班",yuwen:75,shuxue:90,yingyu:94},
+            {name:"张琪",age:17,class:"三年四班",yuwen:66,shuxue:86,yingyu:95},
+            {name:"张八",age:18,class:"三年四班",yuwen:90,shuxue:87,yingyu:80},
+            {name:"张久",age:19,class:"四年二班",yuwen:95,shuxue:88,yingyu:70},
+            {name:"张氏",age:20,class:"四年二班",yuwen:97,shuxue:97,yingyu:60},
+            {name:"李四",age:19,class:"四年三班",yuwen:88,shuxue:95,yingyu:50},
+            {name:"李武",age:18,class:"四年三班",yuwen:78,shuxue:90,yingyu:40},
+            {name:"李柳",age:17,class:"四年四班",yuwen:70,shuxue:66,yingyu:81},
+            {name:"李琦",age:16,class:"四年四班",yuwen:80,shuxue:75,yingyu:82},
+            {name:"李八",age:15,class:"五年二班",yuwen:82,shuxue:80,yingyu:83},
+            {name:"李九",age:14,class:"五年二班",yuwen:83,shuxue:85,yingyu:84},
+            {name:"李诗",age:13,class:"五年三班",yuwen:84,shuxue:100,yingyu:85},
+            {name:"张三",age:13,class:"三年二班",yuwen:100,shuxue:80,yingyu:91},
+            {name:"张思",age:14,class:"三年二班",yuwen:85,shuxue:101,yingyu:92},
+            {name:"张武",age:15,class:"三年三班",yuwen:50,shuxue:100,yingyu:93},
+            {name:"张柳",age:16,class:"三年三班",yuwen:75,shuxue:90,yingyu:94},
+            {name:"张琪",age:17,class:"三年四班",yuwen:66,shuxue:86,yingyu:95},
+            {name:"张八",age:18,class:"三年四班",yuwen:90,shuxue:87,yingyu:80},
+            {name:"张久",age:19,class:"四年二班",yuwen:95,shuxue:88,yingyu:70},
+            {name:"张氏",age:20,class:"四年二班",yuwen:97,shuxue:97,yingyu:60},
+            {name:"李四",age:19,class:"四年三班",yuwen:88,shuxue:95,yingyu:50},
+            {name:"李武",age:18,class:"四年三班",yuwen:78,shuxue:90,yingyu:40},
+            {name:"李柳",age:17,class:"四年四班",yuwen:70,shuxue:66,yingyu:81},
+            {name:"李琦",age:16,class:"四年四班",yuwen:80,shuxue:75,yingyu:82},
+            {name:"李八",age:15,class:"五年二班",yuwen:82,shuxue:80,yingyu:83},
+            {name:"李九",age:14,class:"五年二班",yuwen:83,shuxue:85,yingyu:84},
+            {name:"李诗",age:13,class:"五年三班",yuwen:84,shuxue:100,yingyu:85}
+        ]
+        //排序函数
+        function by(yaoqiu) {
+            return function (x,y) {
+                if(typeof x=="object" && typeof y=="object" && x && y){
+                    var a=x[yaoqiu],b=y[yaoqiu];
+                    //如果被比较的  不都是字符串
+                    if(typeof a!="string" || typeof b!="string") {
+                        if (a === b) {
+                            return 0;
+                        }
+                        if (typeof a == typeof b) {
+                            return a < b ? -1 : 1;
+                        }
+                        return typeof a < typeof b ? -1 : 1;
+                    }//如果被比较的都是字符串，则比较前三位的字符串编码值大小
+                    else{
+                        return a.localeCompare(b,"zh")
+                    }//这样写的原因是.localeCompare 对非字符串的排序效果不好，比如他认为66比100大
+                }else console.log("比较函数出错")
+            }
+        }
+
+        //jq 功能
+        $(function () {
+            //scroll滚动时，首行 及 遮罩div 的top值随之变化
+            $(window).scroll(function () {
+                var x=$(document).scrollTop()
+                $("#table").css("top",8+x+"px")
+                $("#div").css("top",x+"px")
+            })
+            //显示内容
+            function show() {
+                $("#table2").empty();
+                var x;
+                for(var i=0;i<data.length;i++){
+                    x=data[i];
+                    $("#table2").append("<tr></tr>").find("tr:last-child")
+                        .append("<td>"+(i+1)+"</td><td>"+x.name+"</td><td>"+x.age+"</td><td>"+x.class+"</td><td>"+x.yuwen+"</td><td>"+x.shuxue+"</td><td>"+x.yingyu+"</td>")
+                }
+            }
+            show();
+
+           //排序时 标题样式
+            $("#table #biaoti th:first-child").nextAll().click(function () {
+                //如果没有again 类，则
+                if(!$(this).hasClass("again")){
+                    $("#table #biaoti th").removeClass("up down again")
+                    $(this).addClass("up again")
+                }else{//如果含有again类
+                    $(this).addClass("down").removeClass("again up")
+                }
+            })
+            //点击排序
+            function hehe(x,y) {
+                if($(y).hasClass("down")){//先执行完前面的代码才有down类，所以触发这个函数必须在 标题样式切换之后，否则需要改为up触发
+                    data.reverse();
+                    show();
+                }else {
+                    data.sort(by(x));
+                    show();
+                }
+            }
+            $("#biaoti th").eq(1).click(function () {
+                hehe("name",this)
+            })
+            $("#biaoti th").eq(2).click(function () {
+                hehe("age",this)
+            })
+            $("#biaoti th").eq(3).click(function () {
+                hehe("class",this)
+            })
+            $("#biaoti th").eq(4).click(function () {
+                hehe("yuwen",this)
+            })
+            $("#biaoti th").eq(5).click(function () {
+                hehe("shuxue",this)
+            })
+            $("#biaoti th").eq(6).click(function () {
+                hehe("yingyu",this)
+            })
+
+
+        })
+    </script>
+</head>
+<body>
+    <div id="div"></div>
+    <table id="table">
+        <tr id="biaoti">
+            <th>序号</th><th>姓名</th><th>年龄</th><th>班级</th><th>语文</th><th>数学</th><th>英语</th>
+        </tr>
+    </table>
+    <table id="table2">
+        <tr>
+            <th></th><th></th><th></th><th></th><th></th><th></th><th></th>
+        </tr>
+    </table>
+</body>
+</html>

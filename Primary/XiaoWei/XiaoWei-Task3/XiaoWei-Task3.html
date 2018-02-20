@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>测试</title>
+    <style>
+        html *{
+            padding: 20px;
+            border: solid 1px #999;
+            margin: 0;
+        }
+        #dad{
+            display: flex;
+            background-color: #eee;
+            align-items: flex-start;
+        }
+        #dad>*{background-color: #fff}
+        #left{
+            height: 80px;
+            width: 160px;
+            flex-shrink: 0;
+        }
+        #right {
+            width: 80px;
+            flex-shrink: 0;
+            padding: 20px 20px 0 20px;
+        }
+        #main{
+            margin: 0 20px;
+            flex-grow: 1;
+        }
+        /*大块布局完成，小块布局开始*/
+        #left *,#right *,#main *{
+            padding: 0;
+            border: none;
+            float: left;
+        }
+        #left #teamLogo,#right div{
+            border: 1px solid #999;
+            height: 78px;width: 78px;
+            background-color: #eee;
+            display: table;
+        }
+        #right div{margin-bottom: 20px;}
+        #left div{margin-right: 16px;}
+        #left #teamLogo p,#right div p{
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+            float: none;
+        }
+        #main p{padding-bottom: 10px;clear: both}
+
+
+    </style>
+</head>
+<body>
+<div id="dad">
+    <div id="left">
+        <div id="teamLogo"><p>团队loge<br>80x80</p></div>
+        <span>团队名称</span>
+    </div>
+    <div id="main">
+        <p>关于你们团队的介绍</p>
+        <p>关于你们团队的介绍关于你们团队的介绍关于你们团队的介绍</p>
+        <p>关于你们团队的介绍关于你们团队的介绍关于你们团队的介绍关于你们团队的介绍关于你们团队的介绍关于你们团队的介绍关于你们团队的介绍关于你们团队的介绍关于你们团队的介绍关于你们团队的介绍关于你们团队的介绍关于你们团队的介绍关于你们团队的介绍关于你们团队的介绍关于你们团队的介绍关于你们团队的介绍关于你们团队的介绍</p>
+        <p>关于你们团队的介绍</p>
+        <p>关于你们团队的介绍关于你们团队的介绍关于你们团队的介绍关于你们团队的介绍关于你们团队的介绍关于你们团队的介绍关于你们团队的介绍关于你们团队的介绍关于你们团队的介绍关于你们团队的介绍关于你们团队的介绍关于你们团队的介绍关于你们团队的介绍关于你们团队的介绍关于你们团队的介绍关于你们团队的介绍关于你们团队的介绍关于你们团队的介绍关于你们团队的介绍关于你们团队的介绍关于你们团队的介绍关于你们团队的介绍关于你们团队的介绍关于你们团队的介绍关于你们团队的介绍关于你们团队的介绍关于你们团队的介绍关于你们团队的介绍关于你们团队的介绍关于你们团队的介绍关于你们团队的介绍关于你们团队的介绍关于你们团队的介绍关于你们团队的介绍关于你们团队的介绍关于你们团队的介绍关于你们团队的介绍关于你们团队的介绍关于你们团队的介绍关于你们团队的介绍关于你们团队的介绍</p>
+    </div>
+    <div id="right">
+        <div><p>个人logo<br>80x80</p></div>
+        <div><p>个人logo<br>80x80</p></div>
+        <div><p>个人logo<br>80x80</p></div>
+        <div><p>个人logo<br>80x80</p></div>
+    </div>
+</div>
+</body>
+</html>

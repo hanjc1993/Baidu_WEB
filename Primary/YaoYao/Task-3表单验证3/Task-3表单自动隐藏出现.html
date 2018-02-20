@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task-3</title>
+    <style>
+        *{padding: 0;margin: 0;font-size: 15px}
+        #form{padding: 20px 40px;width: 400px}
+        div{
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        label{margin:0 40px}
+        select{margin-right: 20px}
+        input{
+            border-radius: 5px;
+            height: 20px;
+            outline: none;
+        }
+        input:focus{border: 2px inset #00c5ff}
+        select{height: 28px;}
+        #at_notatDiv label{
+            width: 100px;height: 30px;
+            position: relative;
+        }
+        #at_notatDiv input{display: none;}
+        #at_notatDiv span{
+            display: inline-block;
+            border: 1px solid #bbb;
+            border-radius: 100%;
+            width: 16px;
+            height: 16px;
+            margin: 6px;
+        }
+        #at_notatDiv span.selected{
+            border: 6px solid #00c5ff;
+            width: 6px;
+            height: 6px;
+        }
+        #at_notatDiv b{
+            position: absolute;
+            font-weight: normal;
+            top: 5px;left: 30px;
+        }
+        #atSchoolDiv,#notatSchoolDiv{
+            padding-right:50px;
+            display: none;
+        }
+        #atSchoolDiv label{line-height: 28px;}
+    </style>
+    <script src="../../../jquery-3.2.1.js" type="text/javascript"></script>
+</head>
+<body>
+    <form id="form">
+        <div id="at_notatDiv">
+            <label for="atSchool">
+                <span></span>
+                <input name="at_notat" id="atSchool" type="radio" value="at">
+                <b>在校生</b>
+            </label>
+            <label for="notatSchool">
+                <span></span>
+                <input name="at_notat" id="notatSchool" type="radio" value="notat">
+                <b>非在校生</b>
+            </label>
+        </div>
+        <div id="atSchoolDiv">
+            <label for="schoolAt">学校</label>
+            <select id="schoolAt">
+                <option value="bj">北京</option>
+                <option value="sh">上海</option>
+                <option value="gd">广东</option>
+                <option value="ln">辽宁</option>
+            </select>
+            <select id="school"></select>
+        </div>
+        <div id="notatSchoolDiv">
+            <label for="workIn">就业单位</label>
+            <input id="workIn" type="text">
+        </div>
+    </form>
+    <script>
+        $(function () {
+            $("#at_notatDiv").click(function () {//点击自动切换隐藏
+                $(this).find(".selected").removeClass("selected")
+                var $checked=$(this).find(":checked")
+                $checked.prev().addClass("selected");
+                if($checked.val()=="at"){
+                    $("#atSchoolDiv").show().next().hide();
+                    $("#schoolAt").click();
+                }else{
+                    $("#notatSchoolDiv").show().prev().hide()
+                }
+            })
+            var school=[
+                "<option value='1'>北京大学</option>",
+                "<option value='2'>清华大学</option>",
+                "<option value='3'>中国人民大学</option>",
+                "<option value='4'>北京师范大学</option>",
+                "<option value='5'>复旦大学</option>",
+                "<option value='6'>上海交通大学</option>",
+                "<option value='7'>同济大学</option>",
+                "<option value='8'>华东师范大学</option>",
+                "<option value='9'>中山大学</option>",
+                "<option value='10'>华南理工大学</option>",
+                "<option value='11'>华南师范大学</option>",
+                "<option value='12'>暨南大学</option>",
+                "<option value='13'>东北大学</option>",
+                "<option value='14'>大连理工大学</option>",
+                "<option value='15'>大连海事大学</option>",
+                "<option value='16'>辽宁大学</option>"
+            ];
+            $("#schoolAt").click(function () { //选择地域，自动切换学校
+                switch ($("#schoolAt").val()){
+                    case "bj":$("#school").empty().append(school[0]).append(school[1]).append(school[2]).append(school[3]);break;
+                    case "sh":$("#school").empty().append(school[4]).append(school[5]).append(school[6]).append(school[7]);break;
+                    case "gd":$("#school").empty().append(school[8]).append(school[9]).append(school[10]).append(school[11]);break;
+                    case "ln":$("#school").empty().append(school[12]).append(school[13]).append(school[14]).append(school[15]);break;
+                }
+            })
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>饼状Loading</title>
+    <style>
+        #huabu{
+            position: relative;
+            top: 50px;
+            height: 400px;width: 400px;
+            margin: 0 auto;
+            background-color: black;
+        }
+        /*外圈光环*/
+        @keyframes wai {
+            from{transform:rotate(0deg);}
+            to{transform:rotate(-360deg);}
+        }
+        #wai{
+            animation: linear wai 1s infinite;
+            position: absolute;
+            top: 100px;left: 100px;
+            height: 200px;width: 200px;
+            border-radius: 50%;
+            -webkit-mask: radial-gradient( transparent 95px, #000 10px);
+            overflow: hidden;
+        }
+        div.wai{
+            height: 200px;width: 100px;
+            float: left;
+        }
+        #leftwai{
+            left: 100px;
+            background: linear-gradient(to bottom,transparent,transparent,rgba(0,0,217,0.4));
+        }
+        #rightwai{
+            left: 200px;
+            background: linear-gradient(to bottom,rgba(0,0,217,1),rgba(0,0,217,0.4));
+        }
+        /*内圈移动*/
+        @keyframes nei {
+            0% {background-color: #00ff00;}
+            50% {background-color: #b4ffb4;}
+        }
+        @keyframes f3rotate {
+            from{transform:rotate(0deg);}
+            to{transform:rotate(-720deg);}
+        }
+        @keyframes f3color {
+            0% { background-color: #b4ffb4}
+            50% {background-color: #0f0}
+        }
+        @keyframes f2 {
+            0% {opacity: 0;background-color: #0f0;}
+            25% {opacity: 1}
+            50% {opacity: 0;background-color: #b4ffb4;}
+            75% {opacity: 1}
+        }
+        @keyframes f1 {
+            0% {opacity: 1;background-color: #b4ffb4;}
+            25% {opacity: 0}
+            50% {opacity: 1;background-color: #0f0;}
+            75% {opacity: 0}
+        }
+        #nei{
+            position: absolute;
+            top: 120px;left: 120px;
+            width: 160px;height: 160px;
+            border-radius: 50%;
+            animation: nei 2s steps(1,end) infinite;
+            overflow: hidden;
+        }
+        #nei div{
+            width: 80px;height: 160px;
+            position: absolute;
+            top:0;
+        }
+        #float1{
+            left: 80px;
+            animation:f1 2s steps(1,end) infinite;
+            transition: none;
+        }
+        #float2{
+            left: 0;
+            animation: f2 2s steps(1,end) infinite;
+        }
+        #float3{
+            left: 0;
+            animation: linear f3rotate 2s infinite,f3color 2s steps(1,end) infinite;
+            transform-origin: right;
+        }
+    </style>
+</head>
+<body>
+    <div id="huabu">
+        <div id="wai">
+            <div id="leftwai" class="wai"></div>
+            <div id="rightwai" class="wai"></div>
+        </div>
+        <div id="nei">
+            <div id="float3"></div>
+            <div id="float2"></div>
+            <div id="float1"></div>
+        </div>
+    </div><br><br><br><br>
+<h1>主要涉及4个知识点<b>（请在源代码中看）</b></h1>
+    1.渐变环的绘制，其核心有俩个
+        1.1 渐变： 张鑫旭（http://www.zhangxinxu.com/wordpress/2017/11/pure-css-colorful-circle/）
+            1.1.1 锥形渐变（最好，但兼容性差）conic-gradient
+            1.1.2 左右拼接基本法（最弱智），也是本次使用的方法(分成左右边，左边从上到下渐变，右边从下到上渐变)
+            1.1.3 左右拼接改良法，在底部渐变辣眼睛的位置上加一个遮罩块，块内也用linear渐变，并加模糊blur。完成障眼法
+            1.1.4 左右拼接终极法，借助CSS clip剪裁、transform旋转和模糊blur（没研究）
+    1.2 遮罩：mask，在本元素上部加一个遮罩图层
+        张鑫旭写的比较深（http://www.zhangxinxu.com/wordpress/2017/11/css-css3-mask-masks/）
+        这两个比较基础（http://www.php.cn/div-tutorial-374282.html）（https://www.jianshu.com/p/19a81c07f822）
+            1.2.1 根据引用的图片进行透明
+                1.2.1.1 颜色是transparent 不仅不显示遮罩，而且被盖住的部分直接透明
+                1.2.1.2 颜色是黑色则遮罩完全透明
+                1.2.1.3 颜色白色遮罩完全不透明
+                1.2.1.4 其他颜色不清楚，大概是十六进制的大小来判断
+            1.2.2 兼容性不好，本次仍使用私有前缀
+    2.@keyframes设置帧
+        只有两个关键帧可以使用from{} to{}，有多个关键帧可以用百分比代替from to。
+    3.steps控制帧
+        3.1 @keyframes 正常是添加了过渡动画的
+        3.2 如果不想要@keyframes中有动画，或者仅有帧率很低的动画，则需要在animation调用帧的同时，使用steps()属性
+            3.2.1 steps(x,end|start) 对对应的帧动画添加控制
+            3.2.2 参数 x 必须是正整数，表示每两个关键帧中有0个过渡帧，
+            3.2.3 第二个参数，写end表示第一个关键帧作为初始画面，写start表示第二个关键帧作为初始画面，写其他的不知道
+    4.animation 中可以添加多个帧动画，用逗号间隔，同时启动，一般用于“属性变化速率不同”的情况
+</body>
+</html>

@@ -1,0 +1,129 @@
+*{padding: 0;margin: 0}
+html,body,#background{width: 100%;height: 100%}
+#background{
+    background-color: #ac9f94;
+    display: flex;
+    justify-content: center;
+    padding-top: 100px;
+}
+/*按钮*/
+#button{
+    position: absolute;
+    top:15px;
+    display: flex;
+    flex-wrap: wrap;
+    width: 404px;
+    justify-content: center;
+}
+#button #Pause{margin: 0 50px 5px 0}
+#button button,#button input{
+    height: 30px;width: 100px;
+    line-height: 28px;
+    font-size: 20px;
+}
+#button #time{
+    min-width: 400px;
+    text-align: center;
+    border-radius: 25%;
+    display: none;
+}
+
+/*表盘*/
+#outside,#biaopan,#neibiaopan,.xiaoKD{border-radius: 100%}
+#outside{
+    width: 612px;height: 612px;
+    background-color: white;
+    flex:none;
+    display: flex;
+}
+#biaopan{
+    width: 600px;height: 600px;
+    margin: 6px;
+    background-color: #eaeadf;
+    position: relative;
+}
+#neibiaopan{
+    width: 400px;height: 400px;
+    margin: 100px;
+}
+/*3 6 9 12 数字*/
+#bigKD div{
+    position: absolute;
+    height: 70px;width: 30px;line-height: 70px;
+    font-size: 75px;
+    color: #96968c;
+    font-weight: bold;
+}
+#bigKD #bigKD_1{top:265px;left:552px;}
+#bigKD #bigKD_3{top:265px;left:1px;}
+#bigKD #bigKD_2{
+    top:540px;left:275px;
+    transform: scaleY(0.7);
+}
+#bigKD #bigKD_4{
+    top:-10px;left:255px;
+    transform: scaleY(0.7);
+}
+/*小刻度*/
+#kedu div{
+    position: absolute;
+    left: 300px;
+}
+#kedu div.daKD{
+    top: 50px;
+    width: 6px;height: 25px;
+    background-color: black;
+    transform-origin:3px 250px;
+}
+#kedu div.xiaoKD{
+    top: 45px;
+    width: 16px;height: 16px;
+    background-color: black;
+    transform-origin:8px 255px;
+}
+#kedu div.mixKD{
+    top: 50px;
+    width: 4px;height: 12px;
+    background-color: black;
+    transform-origin:2px 250px;
+}
+/*指针*/
+#zhizhen{
+    z-index: 100;
+}
+#zhizhen div{
+    position: absolute;
+    box-shadow: 0 0 10px 3px #fff;
+}
+#zhizhen #zhongxin{
+    height: 20px;width: 20px;
+    border:3px solid #554a44;
+    top:287px;left: 287px;
+    border-radius: 100%;
+    z-index: 500;
+    background-color: white;
+    box-shadow: 0 0 20px rgb(166, 60, 0) inset;
+}
+#zhizhen #shizhen{
+    width: 16px;height: 150px;
+    background-color: #4f1f00;
+    top: 170px;left: 292px;
+    z-index: 200;
+    transform-origin:8px 130px;
+    /*transform: rotate(270deg);*/
+}
+#zhizhen #fenzhen{
+    width: 10px;height: 200px;
+    background-color: #4f1f00;
+    top: 120px;left: 295px;
+    z-index: 300;
+    transform-origin:5px 180px;
+
+}
+#zhizhen #miaozhen{
+    width: 4px;height: 230px;
+    background-color: #ee3400;
+    top: 90px;left: 298px;
+    z-index: 400;
+    transform-origin:2px 210px;
+}

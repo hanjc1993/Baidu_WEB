@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>测试</title>
+    <style>
+        html *{
+            padding: 20px;
+            border: solid 1px #999;
+            margin: 0;
+        }
+        #dad{
+            background-color: #eee;
+            overflow: hidden;
+            padding: 20px 204px 20px 244px;
+        }
+        #dad>*{
+            background-color: #fff;
+        }
+        #left{
+            height: 80px;
+            width: 160px;
+            float: left;
+            position: relative;
+            margin-left: -100%;
+            left: -265px;
+        }
+        #right {
+            width: 80px;
+            padding: 20px 20px 0 20px;
+            float: left;
+            position: relative;
+            margin-left: -180px;
+            right: -200px;
+        }
+        #main{
+            float: left;
+            width: 100%;
+            position: relative;
+        }
+        /*大块布局完成，小块布局开始*/
+        #left *,#right *,#main *{
+            padding: 0;
+            border: none;
+            float: left;
+        }
+        #left #teamLogo,#right div{
+            border: 1px solid #999;
+            height: 78px;width: 78px;
+            background-color: #eee;
+            display: table;
+            float: left
+        }
+        #right div{margin-bottom: 20px;}
+        #left div{margin-right: 16px;}
+        #left #teamLogo p,#right div p{
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+            float: none;
+        }
+        #main *{padding-bottom: 10px;float: none}
+
+
+    </style>
+</head>
+<body>
+<div id="dad">
+    <div id="main">
+        <p>关于你们团队的介绍</p>
+        <p><h3>本来用的flex方法实现，但向下兼容性不好，特试试圣杯法</h3></p>
+        <p>关于你们团队<b>圣杯法当页面过窄时候，会出现显示错误。所以flex布局是最好的响应式布局！</b>的介绍关于你们团队的介绍关于你们团队的介绍关于你们团队的介绍关于你们团队的介绍关于你们团队的介绍关于你们团队的介绍关于你们团队的介绍关于你们团队的介绍关于你们团队的介绍关于你们团队的介绍关于你们团队的介绍关于你们团队的介绍关于你们团队的介绍关于你们团队的介绍关于你们团队的介绍关于你们团队的介绍</p>
+        <p>关于你们团队的介绍</p>
+        <p>关于你们团队的<b>另一种方式是中间的div在html中排在前面，通过margin控制他的宽度，两边小块用绝对定位锁定于两侧。缺点是左右两侧的纵向超出部分不能显示，仅适合在窗口最大化时中间框仍比两侧框高的情况。可以用父级的padding-bottom勉强控制（效果一般）</b>介绍关于你们团队的介绍关于你们团队的介绍关于你们团队的介绍关于你们团队的介绍关于你们团队的介绍关于你们团队的介绍关于你们团队的介绍关于你们团队的介绍关于你们团队的介绍关于你们团队的介绍关于你们团队的介绍关于你们团队的介绍关于你们团队的介绍关于你们团队的介绍关于你们团队的介绍关于你们团队的介绍关于你们团队的介绍关于你们团队的介绍关于你们团队的介绍关于你们团队的介绍关于你们团队的介绍关于你们团队的介绍关于你们团队的介绍关于你们团队的介绍关于你们团队的介绍</p>
+    </div>
+    <div id="left">
+        <div id="teamLogo"><p>团队loge<br>80x80</p></div>
+        <span>团队名称</span>
+    </div>
+    <div id="right">
+        <div><p>个人logo<br>80x80</p></div>
+        <div><p>个人logo<br>80x80</p></div>
+        <div><p>个人logo<br>80x80</p></div>
+        <div><p>个人logo<br>80x80</p></div>
+    </div>
+</div>
+</body>
+</html>

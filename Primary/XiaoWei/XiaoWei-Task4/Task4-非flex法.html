@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>XiaoWei-Task4</title>
+    <style>
+        #big {
+            position: absolute; /*这句非常重要！！！*/
+            width: 100%;
+            height: 100%;
+        }
+        #out{
+            top:50%;/*仅针对此项目，不用flex不会多写代码*/
+            transform: translateY(-50%);
+            margin: 0 auto;
+
+
+            width: 400px;height: 200px;
+            background-color: grey;
+            overflow: hidden;
+            position: relative;
+        }
+        #out p{text-align: center}
+        #leftTop,#rightBottom{
+            background-color: yellow;
+            height: 100px;width: 100px;
+            border-radius: 50px;
+            position: absolute;
+        }
+        #leftTop{top: -50px;left: -50px;background-color: red}
+        #rightBottom{top:150px;left: 350px}
+    </style>
+</head>
+<body>
+<div id="big">
+    <div id="out">
+        <p>其实不用flex也可以快速的做简单布局</p>
+        <div id="leftTop"></div>
+        <div id="rightBottom"></div>
+    </div>
+</div>
+</body>
+</html>

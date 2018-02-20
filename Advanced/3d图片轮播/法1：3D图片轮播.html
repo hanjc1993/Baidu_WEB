@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3d图片轮播</title>
+    <script src="../../jquery-3.2.1.js" type="text/javascript"></script>
+    <style>
+        @keyframes zhuan {
+            from{transform: rotateY(0deg)}
+            to  {transform: rotateY(360deg)}
+        }
+        #back{
+            height: 500px;width: 800px;
+            background-color: #eee;
+            perspective: 800px;
+        }
+        #container{
+            position: absolute;
+            transform-style: preserve-3d;
+            height: 500px;width: 800px;
+            animation:linear zhuan 15s infinite;
+        }
+        #container div.img{
+            position: absolute;
+            top: 150px;left: 250px;
+            width: 300px;height: 200px;
+            background-size: 300px 200px;
+            cursor: pointer;
+        }
+        #container .img div{
+            width: 300px;height: 200px;
+            background-color: rgba(255,255,255,0.5);
+            display: none;
+        }
+        #img1{transform: rotateY(0deg)   translateZ(300px);background: url("1.jpg") no-repeat}
+        #img2{transform: rotateY(60deg)  translateZ(300px);background: url("2.jpg") no-repeat}
+        #img3{transform: rotateY(120deg) translateZ(300px);background: url("3.jpg") no-repeat}
+        #img4{transform: rotateY(180deg) translateZ(300px);background: url("4.jpg") no-repeat}
+        #img5{transform: rotateY(240deg) translateZ(300px);background: url("5.jpg") no-repeat}
+        #img6{transform: rotateY(300deg) translateZ(300px);background: url("6.jpg") no-repeat}
+    </style>
+</head>
+<body>
+    <div id="back">
+        <div id="container">
+            <div id="img1" class="img"><div></div></div>
+            <div id="img2" class="img"><div></div></div>
+            <div id="img3" class="img"><div></div></div>
+            <div id="img4" class="img"><div></div></div>
+            <div id="img5" class="img"><div></div></div>
+            <div id="img6" class="img"><div></div></div>
+        </div>
+    </div>
+    <script>
+        alert("先rotate ， 再translateZ 可以构建圆环，配合container div 可以 快速 形成旋转，但效果稍差点")
+        var paused = false;
+        $("#container div.img").click(function () {
+            if(paused){
+                $("#container").css({
+                    "animation-play-state":"running"
+                })
+                paused = false;
+            }else{
+                $("#container").css({
+                    "animation-play-state":"paused"
+                })
+                paused = true;
+            }
+        }).hover(function () {
+                $(this).find("div").show()
+            },function () {
+                $(this).find("div").hide()
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task-6</title>
+    <script src="../../jquery-3.2.1.js" type="text/javascript"></script>
+    <style>
+        #ul{
+            color: white;
+            padding: 0;
+        }
+        #ul li{
+            width: 500px;
+            list-style: none;
+            background-color: red;
+            margin-bottom: 10px;
+            cursor: pointer;
+            padding-left: 20px;
+        }
+        textarea{height: 100px;width: 200px}
+        #ul li b{
+            background-color: yellow;
+            color: red;
+        }
+    </style>
+    <script>
+        $(function () {
+            var input,$ul,length,$li,check,result;
+            var lili=new Array();
+            $("#input").on("keydown",function (e) {//截住tab默认触发，并将他替换为8个空格
+                if (e.keyCode==9){
+                    e.preventDefault();
+                    var tab="        ";
+                    $(this).val(this.value+tab);
+                }
+            })
+            $("#in").click(function () {
+                input=$("#input").val();//这个值如果没有实质内容，则可以判断他为0，但是不能作为布尔值，比如下面if (!input)就不好用
+                if (input==0){alert("请输入内容");return false}//必须输入添加值
+                input = input.replace(/\r\n/g, "<br/>");
+                input = input.replace(/\n/g, "<br/>");
+                input = input.replace(/\s/g,"&nbsp");
+                $ul=$("#ul");
+
+                if (lili.length!=0){//将页面还原成搜索前的样子
+                    for(var i=0;i<length;i++){
+                        $li.eq(i).html(lili[i]);
+                    }
+                    lili.unshift(input)//因为新增了一个li 元素，则对应增加原样本中的lili内容，防止再次调用时候出错
+                }
+
+                $ul.prepend("<li>"+input+"</li>");//将新增的内容加入到队首
+                $("#input").val("").focus();//清空输入框，并重新获取焦点
+
+            })
+            $("#findButton").click(function () {
+                $li=$("#ul li");
+                length=$("#ul li").length;
+                check=$("#find").val();
+                result=-1;
+                for(var i=0;i<length;i++){//检查搜索值到底有没有
+                    if ($li.eq(i).text().indexOf(check)!=-1){
+                        result=0;
+                        alert("已经匹配，内容将被突出标记")//查到反馈
+                    }
+                }
+
+                var x;
+                var reg= new RegExp(check,"g");//replace的第一个参数是正则表达式的时候，才进行
+                //全局替换，当需要匹配的内容含有变量时，可以用new RegExp实时构造一个，再传给replace
+
+                if (lili.length!=0){//将页面还原成搜索前的样子
+                    for(var i=0;i<length;i++){
+                        $li.eq(i).html(lili[i]);
+                    }
+                }//因为此处没有调整li元素个数，所以无需调整原样本中的lili内容
+                if (check==''){alert("请输入查询内容")//必须输入查询值
+                }else{
+                    if (result==-1){
+                        alert("没有查到")//没查到反馈
+                        $("#input").focus();//输入框重新获取焦点
+                    }else{
+                        for(var i=0;i<length;i++){//查到后替换为：被b标签包裹的内容
+                            lili[i]=$li.eq(i).html();
+                            x=$li.eq(i).html().replace(reg,"<b>"+check+"</b>")
+                            $li.eq(i).html(x);
+                        }
+                    }
+                }
+
+            })
+
+            $("#ul").on("click","li",function () {
+                if (lili.length!=0){//将页面还原成搜索前的样子
+                    for(var i=0;i<length;i++){
+                        $li.eq(i).html(lili[i]);
+                    }
+                    lili.splice($(this).index(),1);//因为点击删除了某个li 元素，则对应删除原样本中的lili内容，防止再次调用时候出错
+                }
+                $(this).remove();//删除点击的元素
+            })
+
+        })
+    </script>
+</head>
+<body>
+<textarea id="input"></textarea>
+<input class="button" type="button" value="加入" id="in">
+<input type="text" id="find">
+<input type="button" value="查找" id="findButton">
+<ul id="ul">
+    <li>asda</li>
+    <li>dsa</li>
+</ul>
+</body>
+</html>

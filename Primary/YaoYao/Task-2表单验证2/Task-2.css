@@ -1,0 +1,52 @@
+*{padding: 0;margin: 0}
+#form{margin-top: 20px;}
+#form div{
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+#form div label{
+    height: 32px;
+    width: 100px;
+    text-align: right;
+    margin: 0 20px;
+    font-weight: bold;
+    font-size: 15px;
+    line-height: 32px;
+    display: inline-block;
+}
+#form input{
+    border-radius: 10px;
+    outline: none;
+}
+#form div input{
+    width: 300px;
+    line-height: 28px;
+    font-size: 16px;
+    padding: 0 10px;
+}
+.true{border: 2px inset lawngreen;}
+.false{border: 2px inset red}
+.focus{border: 2px inset dodgerblue}
+#form div span{
+    margin: 1px 0 0 150px;
+    font-size: 12px;
+    line-height: 26px;
+    width: 300px;
+    height: 26px;
+    display: inline-block;
+    display: none;
+    color: #ccc;
+    font-weight: bold;
+}
+.green{color: lawngreen!important;}
+.red{color: red!important;}
+#form>input{
+    height: 40px;width: 100px;
+    line-height: 38px;
+    font-size: 20px;
+    background-color: #0073ff;
+    color: white;
+    border-color: #00a6ff;
+    margin-left: 360px;
+}
+#form #emailIn{text-transform: lowercase}

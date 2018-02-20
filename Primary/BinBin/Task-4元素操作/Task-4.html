@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task-4</title>
+    <script src="../../jquery-3.2.1.js" type="text/javascript"></script>
+    <style>
+        #ul{
+            color: white;
+            padding: 0;
+        }
+        #ul li{
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            list-style: none;
+            background-color: red;
+            text-align: center;
+            margin-right: 10px;
+            float: left;
+            cursor: pointer;
+        }
+    </style>
+    <script>
+        $(function () {
+            var input,length,$ul,$li;
+
+            $("#leftIn").click(function () {
+                input=$("#input").val();
+                $ul=$("#ul");
+
+                $ul.prepend("<li>"+input+"</li>");
+            })
+            $("#rightIn").click(function () {
+                input=$("#input").val();
+                $ul=$("#ul");
+
+                $ul.append("<li>"+input+"</li>");
+            })
+            $("#leftOut").click(function () {
+                $li=$("#ul li");
+
+                alert($li.eq(0).remove().text());
+            })
+            $("#rightOut").click(function () {
+                $li=$("#ul li");
+                length=$li.length
+
+                alert($li.eq(length-1).remove().text());
+            })
+
+            $("#ul").on("click","li",function () {
+                $(this).remove();
+            })
+            $("input.button").click(function () {
+                $("#input").val("").focus();
+
+            })
+        })
+    </script>
+</head>
+<body>
+    <input type="text" id="input">
+    <input class="button" type="button" value="左侧入" id="leftIn">
+    <input class="button" type="button" value="右侧入" id="rightIn">
+    <input class="button" type="button" value="左侧出" id="leftOut">
+    <input class="button" type="button" value="右侧出" id="rightOut">
+    <ul id="ul">
+        <li>asd</li>
+        <li>dsa</li>
+    </ul>
+</body>
+</html>

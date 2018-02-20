@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task-5</title>
+    <script src="../../jquery-3.2.1.js" type="text/javascript"></script>
+    <style>
+        ul{
+            color: white;
+            padding: 0;
+        }
+        ul li{
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            list-style: none;
+            background-color: red;
+            text-align: center;
+            margin-right: 10px;
+            float: left;
+            cursor: pointer;
+        }
+        #ulView{
+            background-color: yellow;
+            height: 200px;
+            display: flex;
+            align-items: flex-end;
+        }
+        #ulView li{
+            color:red;
+            margin-right: 5px;
+        }
+    </style>
+    <script>
+        $(function () {
+            var input,length,$ul,$li;
+            function check() {
+                if ($("#input").val() > 100 || $("#input").val() < 10) {
+                    alert("请输入 0 - 100 之间的数字");
+                    $("#input").select();
+                    return 0;
+                }
+            }
+            //4个功能键
+            $("#leftIn").click(function () {
+                if(check()==0) return false;
+                input=$("#input").val();
+                $ul=$("#ul");
+
+                $ul.prepend("<li>"+input+"</li>");
+                $("#input").val("").focus();
+            })
+            $("#rightIn").click(function () {
+                if(check()==0) return false;
+                input=$("#input").val();
+                $ul=$("#ul");
+
+                $ul.append("<li>"+input+"</li>");
+                $("#input").val("").focus();
+            })
+            $("#leftOut").click(function () {
+                if(check()==0) return false;
+                $li=$("#ul li");
+
+                alert($li.eq(0).remove().text());
+            })
+            $("#rightOut").click(function () {
+                if(check()==0) return false;
+                $li=$("#ul li");
+                length=$li.length
+
+                alert($li.eq(length-1).remove().text());
+            })
+            //点击li红块时候消失
+            $("#ul").on("click","li",function () {
+                $(this).remove();
+            })
+            //生成可视化图形
+            $("#view").click(function () {
+                $("#ulView li").remove();
+                $("#ulView").append($("#ul").html());
+                //.find("li").text("")
+                $("#ulView li").each(function () {
+                    var a=$(this).text()*2+"px";
+                    $(this).css("height",a);
+                })
+            })
+            //进行排序
+            var i;var x;var y;
+            var a,b;
+            $("#paixu").click(function () {
+                $("#ulView li").remove();
+                $("#ulView").append($("#ul").html());
+                a=$("#ulView li");
+                for(i=0;i<a.length-1;i++) {
+                    for (x = a.length-1; x > i; x--) {
+                        b=x-1;
+                        if (a.eq(x).text() > a.eq(b).text()) {
+                            var val = a.eq(x).text();
+                            a.eq(x).text(a.eq(b).text());
+                            a.eq(b).text(val);
+                        }
+                    }
+                }
+                $("#ulView li").each(function () {
+                    var a=$(this).text()*2+"px";
+                    $(this).css({"height":a,"color":"white"});
+                })
+            })
+
+        })
+    </script>
+</head>
+<body>
+<input type="text" id="input">
+<input class="button" type="button" value="左侧入" id="leftIn">
+<input class="button" type="button" value="右侧入" id="rightIn">
+<input class="button" type="button" value="左侧出" id="leftOut">
+<input class="button" type="button" value="右侧出" id="rightOut">
+<input type="button" value="可视化数据" id="view">
+<input type="button" value="可视化排序" id=paixu>
+
+<ul id="ul">
+    <li>54</li>
+    <li>44</li>
+</ul><br><br>
+<ul id="ulView"></ul>
+</body>
+</html>

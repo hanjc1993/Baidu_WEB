@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--我首先看了一眼ps里面的拾色器，发现只有选中H时，跟要求的图片猜最相似，确定本次做的是HSB拾色器-->
+    <!--但其实给的图片是无法取到某些颜色的，因为没设置饱和度。那么我就按照ps的做一个-->
+    <!--H就是选颜色（色相），x轴是饱和度s，y轴是明度b-->
+    <!--首先做下布局-->
+    <!--浏览器能识别的各种精度都是1px，chrome选择四舍五入，所以H的360度，只能做成360px高的竖条-->
+    <style>
+        #waikuang{
+            margin: 50px auto;
+            background-color: #222;
+            height: 500px;width: 800px;
+            position: relative;
+        }
+        #waikuang div{
+            float: left;}
+        #waikuang *{
+            font: 18px/20px 微软雅黑;
+        }
+/*xuanse div*/
+        #xuanse{
+            background-color: #444;
+            height: 380px;width: 429px;
+            margin: 20px 0 60px 0;
+            position: relative;
+            padding: 20px 0 0 20px;
+        }
+        #xuanse #fangkuang{
+            background:linear-gradient(transparent,#000),linear-gradient(-90deg,rgb(255,0,0),rgb(255,255,255));
+            height: 360px;width: 360px;
+            margin-right: 20px;
+            position: relative;
+            cursor: none;
+        }
+        #xuanse #shutiao{
+            background: linear-gradient(rgb(255,0,0),rgb(255,0,255),rgb(0,0,255),rgb(0,255,255),rgb(0,255,0),rgb(255,255,0),rgb(255,0,0));
+            height: 360px;width: 30px;
+            cursor: pointer;
+        }
+        #xuanse #zuobiao,#xuanse #youbiao{
+            position:absolute;
+            top:15px;
+            height: 0;width: 0;
+            border-top: 5px solid transparent;
+            border-bottom: 5px solid transparent;
+        }
+        #xuanse #zuobiao{
+            border-left: 10px solid #ddd;
+            left: 390px;
+        }
+        #xuanse #youbiao{
+            border-right: 10px solid #ddd;
+            left: 430px;
+        }
+        #xuanse #yuanquan{
+            display: none;
+            background: url("未标题-1.ico") transparent;
+            height: 16px;width: 16px;
+            position: absolute;
+            cursor: none;
+        }
+        #xuanse #fangkuang #suoding{
+            background: url("未标题-2.ico") transparent ;
+            height: 12px;width: 12px;
+            position: absolute;
+            top: -6px;left:354px;
+        }
+/*xianse div*/
+        #xianse{
+            width: 180px;height: 180px;
+            margin: 40px 0 0 10px ;
+            background-color: #444;
+        }
+        #xianse span{
+            display: inline-block;
+            width:100%;
+            background-color: #00a6ff;
+            text-align: center;
+        }
+        #xianse div{
+            width: 140px;height: 70px;
+            margin: 0 20px;
+        }
+        #xianse #xinde{
+            background-color: #f00;
+        }
+        #xianse #jiude{
+            background-color: #f00;
+        }
+/*anjian div*/
+        #anjian{
+            width: 140px;height: 180px;
+            margin: 40px 0 0 20px;
+            background-color: #444;
+        }
+        #anjian input{
+            margin-top: 10px;
+        }
+/*shuzise div*/
+        #shuzise{
+            width: 300px;height: 250px;
+            margin: 15px 20px 90px 30px;
+            background-color: #444;
+            position: relative;
+        }
+        #shuzise div{
+            width: 130px;height: 120px;
+            background-color: #f5e327;
+            margin-right: 20px;
+        }
+        #shuzise div *{
+            text-align: center;
+        }
+        #shuzise div label{
+            display: inline-block;
+            width: 20px;
+        }
+        #shuzise div input{
+            width: 60px;
+            margin-top: 5px;
+        }
+        #shuzise #shuziHSB label:first-child{
+            color: red;
+            font-weight: bolder;
+        }
+        #shuzise #shuziRGB{
+            position: absolute;
+            top: 125px;
+        }
+        #shuzise #shuziCMYK{
+            height: 145px;
+        }
+        #shuzise #shuziFFF{
+            position: absolute;
+            top: 160px;left:150px;
+            height: 65px;
+            padding-top: 20px;
+        }
+        #shuzise #shuziFFF input{
+            width: 85px;
+        }
+    </style>
+    <script src="../../jquery-3.2.1.js" type="text/javascript"></script>
+    <script>
+        $(function () {
+            alert('仅支持在选色板上选色，不支持填数字变色。。因为逻辑太乱了，回调复杂，改用Vue写')
+            //竖条滑动的事件
+            $("#xuanse #shutiao").click(function (e) {
+                STgensui(e.pageY)
+                //console.log(y)
+                //refreshFFF(y);
+                //refreshFK(fff);
+                //refreshRGB(fff);
+                //refreshCMYK(fff);
+            }).mousedown(function (e) {
+                $(document).mousemove(function (e) {
+                    $("#xuanse #yuanquan").hide()
+                    var y=e.pageY;
+                    if (y>=90&&y<=450) {
+                        STgensui(y)
+                    }
+                }).mouseup(function () {
+                    $(document).off("mousemove");
+                })
+            })
+            //选色板滑动的事件
+            $("#xuanse").mousemove(function (e) {
+                var x=e.pageX-$(this).offset().left;
+                var y=e.pageY-70;
+                var $yuanquan=$("#xuanse #yuanquan").show();
+                if (x>=20&&x<=380){
+                    if(y>=20&&y<=380){
+                        $yuanquan.show().css({
+                            "top":(y-8)+"px",
+                            "left":(x-8)+"px"
+                        })
+                    }else if(window.event.buttons==0){
+                            $yuanquan.hide()
+                    }
+                }else if(window.event.buttons==0){
+                        $yuanquan.hide()
+                }
+            })
+            //选色板选色事件
+            $("#xuanse #yuanquan").mousedown(function (e) {
+                //refreshHSB(e.pageX-$("#xuanse").offset().left-20,e.pageY-90)
+                var $suoding=$("#xuanse #fangkuang #suoding")
+                $(document).mousemove(function (e) {
+                    var x=e.pageX-$("#xuanse").offset().left-26;
+                    var y=e.pageY-96;
+                    $("#xuanse #yuanquan").css({
+                        "top":(y+18)+"px",
+                        "left":(x+18)+"px"
+                    })
+                    $suoding.css({
+                        "top":y+"px",
+                        "left":x+"px"
+                    })
+                    if(x<-6){$suoding.css("left","-6px")
+                    }else if(x>354){$suoding.css("left","354px")}
+                    if(y<-6){$suoding.css("top","-6px")
+                    }else if(y>354){$suoding.css("top","354px")}
+                    refreshHSB(x+6,y+6)
+                })
+            }).mouseup(function () {
+                $(document).off("mousemove")
+            }).click(function (e) {
+                var x=e.pageX-$("#xuanse").offset().left-26;
+                var y=e.pageY-96;
+                var $suoding=$("#xuanse #fangkuang #suoding")
+                $suoding.css({
+                    "top":y+"px",
+                    "left":x+"px"
+                })
+                if(x<-6){$suoding.css("left","-6px")
+                }else if(x>354){$suoding.css("left","354px")}
+                if(y<-6){$suoding.css("top","-6px")
+                }else if(y>354){$suoding.css("top","354px")}
+                refreshHSB(x+6,y+6)
+            })
+
+
+            function STgensui(y) {
+                $("#xuanse #youbiao").css("top", (y - 75) + "px")
+                $("#xuanse #zuobiao").css("top", (y - 75) + "px")
+                refreshH(y);
+            }
+            
+            var fff;
+            var tianjia;
+            function refreshFFF(x) {
+                fff="";
+                for (var i=0;i<3;i++){
+                    tianjia=(Math.round(x[i])).toString(16);
+                    if(tianjia.length==1){
+                        fff+=0;
+                    }
+                    fff+=tianjia;
+                }
+                $("#shuzise #shuziFFF input").val(fff)
+
+            }
+            function refreshFK(fff){
+
+            };
+            function refreshH(y){
+                $("#shuzise #shuziHSB #hsb1").val(450-y)
+                refreshSeban(450-y);
+            };
+            function refreshSeban(h) {
+                var r,g,blue;
+                if(h>300&&h<=360){//1
+                    r=255;
+                    g=0;
+                    blue=((360-h)*255)/60;
+                }else if(h>240&&h<=300){//2
+                    r=(((h-300)*255)/60)+255;
+                    g=0;
+                    blue=255;
+                }else if(h>180&&h<=240){//3
+                    r=0;
+                    g=((240-h)*255)/60;
+                    blue=255;
+                }else if(h>120&&h<=180){//4
+                    r=0;
+                    g=255;
+                    blue=(((h-180)*255)/60)+255;
+                }else if(h>60&&h<=120){//5
+                    r=((120-h)*255)/60;
+                    g=255;
+                    blue=0;
+                }else{//h>0&&h<=60 //6
+                    r=255;
+                    g=(((h-60)*255)/60)+255;
+                    blue=0;
+                }
+                r=Math.round(r);
+                g=Math.round(g);
+                blue=Math.round(blue);
+                $("#xuanse #fangkuang").css("background","linear-gradient(transparent,#000),linear-gradient(-90deg,rgb("+r+","+g+","+blue+"),rgb(255,255,255))")
+            }
+            function refreshHSB(x,y) {
+                if(x<0)x=0;
+                if(x>360)x=360;
+                    var s=Math.round((5*x)/18);
+                    $("#shuzise #shuziHSB #hsb2").val(s)
+                if(y<0)y=0;
+                if(y>360)y=360;
+                    var b=Math.round(100-(5*y)/18);
+                    $("#shuzise #shuziHSB #hsb3").val(b)
+                function hsbToRgb(h, s, b) {//0-360,0-1,0-1
+                    var r,g,blue;
+                    var max=255*b;
+                    if(h>300&&h<=360){//1
+                        r=max;
+                        g=0;
+                        blue=((360-h)*max)/60;
+                        g=max*(1-s);//进行s变化
+                        blue=max-(max-blue)*s;
+                    }else if(h>240&&h<=300){//2
+                        r=(((h-300)*max)/60)+max;
+                        g=0;
+                        blue=max;
+                        r=max-(max-r)*s;//进行s变化
+                        g=max*(1-s);
+                    }else if(h>180&&h<=240){//3
+                        r=0;
+                        g=((240-h)*max)/60;
+                        blue=max;
+                        r=max*(1-s);//进行s变化
+                        g=max-(max-g)*s;
+                    }else if(h>120&&h<=180){//4
+                        r=0;
+                        g=max;
+                        blue=(((h-180)*max)/60)+max;
+                        r=max*(1-s);//进行s变化
+                        blue=max-(max-blue)*s;
+                    }else if(h>60&&h<=120){//5
+                        r=((120-h)*max)/60;
+                        g=max;
+                        blue=0;
+                        r=max-(max-r)*s;//进行s变化
+                        blue=max*(1-s);
+                    }else{//h>0&&h<=60 //6
+                        //console.log(h)
+                        r=max;
+                        g=(((h-60)*max)/60)+max;
+                        blue=0;
+                        g=max-(max-g)*s;//进行s变化
+                        blue=max*(1-s);
+                    }
+                    return [r,g,blue]
+                }
+                var rgb=hsbToRgb($("#shuzise #shuziHSB #hsb1").val(),x/360,(1-y/360));
+                refreshFFF(rgb);
+                refreshRGB(rgb);
+                refreshCMYK(rgb);
+                refreshXianse();
+            }
+            function refreshXianse() {
+                //一定写在fff变化之后
+                $("#xianse #xinde").css("background-color","#"+fff)
+            }
+            function refreshRGB(rgb){
+                //因为输入的rgb所以直接显示了
+                $("#shuzise #shuziRGB input").eq(0).val(Math.round(rgb[0]))
+                $("#shuzise #shuziRGB input").eq(1).val(Math.round(rgb[1]))
+                $("#shuzise #shuziRGB input").eq(2).val(Math.round(rgb[2]))
+            };
+            function refreshCMYK(rgb){
+                //网上的方法，是c#的，但实测跟ps拾色器里出的数值不一样
+                //输入数组[r,g,b]
+                var c=(255-rgb[0])/255;
+                var m=(255-rgb[1])/255;
+                var y=(255-rgb[2])/255;
+                var k=Math.min(c,m,y);
+                if(k==1){
+                    c=m=y=0;
+                }else {
+                    c = (c - k) / (1 - k);
+                    m = (m - k) / (1 - k);
+                    y = (y - k) / (1 - k);
+                }
+                Math.round(c*100)
+                $("#shuzise #shuziCMYK input").eq(0).val(Math.round(c*100))
+                $("#shuzise #shuziCMYK input").eq(1).val(Math.round(m*100))
+                $("#shuzise #shuziCMYK input").eq(2).val(Math.round(y*100))
+                $("#shuzise #shuziCMYK input").eq(3).val(Math.round(k*100))
+                return[c,m,y,k];
+                //逆向转换如下
+/*                r = Convert.ToInt32((1.0 - c) * (1.0 - k) * 255.0);
+                g = Convert.ToInt32((1.0 - m) * (1.0 - k) * 255.0);
+                b = Convert.ToInt32((1.0 - y) * (1.0 - k) * 255.0);*/
+            };
+        })
+    </script>
+</head>
+<body>
+    <div id="waikuang">
+        <div id="xuanse">
+            <div id="fangkuang">
+                <div id="suoding"></div>
+            </div>
+            <div id="yuanquan"></div>
+            <div id="shutiao"></div>
+            <div id="zuobiao"></div>
+            <div id="youbiao"></div>
+        </div>
+        <div id="xianse">
+            <span>新的</span>
+            <div id="xinde"></div>
+            <div id="jiude"></div>
+            <span>旧的</span>
+        </div>
+        <div id="anjian">
+            <input type="button" value="某功能">
+            <input type="button" value="某功能">
+            <input type="button" value="某功能">
+            <input type="button" value="某功能">
+        </div>
+        <div id="shuzise">
+            <div id="shuziHSB">
+                <label>H: </label>
+                <input type="text" id="hsb1" value="360">
+                度<br>
+                <label>S: </label>
+                <input type="text" id="hsb2" value="100">
+                %<br>
+                <label>B: </label>
+                <input type="text" id="hsb3" value="100">
+                %
+            </div>
+            <div id="shuziCMYK">
+                <label>C: </label>
+                <input type="text" value="0 仅">
+                %<br>
+                <label>M: </label>
+                <input type="text" value="100供">
+                %<br>
+                <label>Y: </label>
+                <input type="text" value="100参">
+                %<br>
+                <label>K: </label>
+                <input type="text" value="0 考">
+                %
+            </div>
+            <div id="shuziRGB">
+                <label>R: </label>
+                <input type="text">
+                <br>
+                <label>G: </label>
+                <input type="text">
+                <br>
+                <label>B: </label>
+                <input type="text">
+            </div>
+            <div id="shuziFFF">
+                <label># </label>
+                <input type="text" value="ff0000">
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

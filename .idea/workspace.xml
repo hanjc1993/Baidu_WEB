@@ -1,0 +1,732 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="7f54b6f0-67fb-49e2-8acd-1d2c29902f13" name="默认的" comment="" />
+    <ignored path="$PROJECT_DIR$/.tmp/" />
+    <ignored path="$PROJECT_DIR$/temp/" />
+    <ignored path="$PROJECT_DIR$/tmp/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <splitter split-orientation="horizontal" split-proportion="0.1258831">
+      <split-first>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file leaf-file-name="demo.html" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/16/日历/demo.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="440">
+                  <caret line="438" column="22" lean-forward="false" selection-start-line="438" selection-start-column="22" selection-end-line="438" selection-end-column="22" />
+                  <folding>
+                    <element signature="n#style#0;n#head#0;n#html#0;n#!!top" expanded="false" />
+                    <element signature="n#style#3;n#head#0;n#html#0;n#!!top" expanded="false" />
+                    <element signature="n#style#4;n#head#0;n#html#0;n#!!top" expanded="false" />
+                    <element signature="n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+                    <element signature="n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+                    <element signature="n#div#3;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+                    <element signature="e#15848#16719#0" expanded="false" />
+                    <element signature="e#16750#16799#0" expanded="false" />
+                    <element signature="e#16829#16937#0" expanded="false" />
+                    <element signature="e#16963#17316#0" expanded="false" />
+                    <element signature="e#17375#17678#0" expanded="false" />
+                    <element signature="e#17702#18695#0" expanded="false" />
+                    <element signature="e#20236#21300#0" expanded="false" />
+                    <element signature="e#25900#27076#0" expanded="false" />
+                    <element signature="e#27126#27557#0" expanded="false" />
+                    <element signature="e#27626#28652#0" expanded="false" />
+                    <element signature="e#28701#29374#0" expanded="false" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="色彩选择器Vue升级版.html" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/Advanced/色彩选择器/色彩选择器Vue升级版.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="12440">
+                  <caret line="622" column="7" lean-forward="false" selection-start-line="622" selection-start-column="7" selection-end-line="622" selection-end-column="7" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file leaf-file-name="demo.html" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/16/日历/demo.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="215">
+                  <caret line="711" column="21" lean-forward="true" selection-start-line="711" selection-start-column="21" selection-end-line="711" selection-end-column="21" />
+                  <folding>
+                    <element signature="n#style#1;n#head#0;n#html#0;n#!!top" expanded="false" />
+                    <element signature="e#15848#16719#0" expanded="false" />
+                    <element signature="e#16750#16799#0" expanded="false" />
+                    <element signature="e#16829#16937#0" expanded="false" />
+                    <element signature="e#17375#17678#0" expanded="false" />
+                    <element signature="e#17702#18695#0" expanded="false" />
+                    <element signature="e#20236#21300#0" expanded="false" />
+                    <element signature="e#27126#27557#0" expanded="false" />
+                    <element signature="e#27626#28652#0" expanded="false" />
+                    <element signature="e#28701#29374#0" expanded="false" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+        <option value="JavaScript File" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>share</find>
+      <find>v-bind</find>
+      <find>display</find>
+      <find>this.width-2</find>
+      <find>this.height-2</find>
+      <find>top</find>
+      <find>block</find>
+      <find>read</find>
+      <find>left</find>
+      <find>x</find>
+      <find>monthLength</find>
+      <find>row</find>
+      <find>pecial</find>
+      <find>calendar</find>
+      <find>rili.thisYear</find>
+      <find>position()</find>
+      <find>position</find>
+      <find>position:</find>
+      <find>checked</find>
+      <find>row5</find>
+      <find>#lbcbDays .row div</find>
+      <find>thisDay</find>
+      <find>getday</find>
+      <find>firstDayWeek</find>
+      <find>rbTopdate</find>
+      <find>lbctt</find>
+      <find>option</find>
+      <find>monthDrop</find>
+      <find>duty</find>
+      <find>notThisMonth</find>
+    </findStrings>
+    <replaceStrings>
+      <replace />
+      <replace>bottom</replace>
+      <replace>d</replace>
+    </replaceStrings>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/YaoYao/Task-5窗口动画2/Task-5.js" />
+        <option value="$PROJECT_DIR$/YaoYao/Task-6浮出层拖动/Task-6.html" />
+        <option value="$PROJECT_DIR$/数据类型测试.html" />
+        <option value="$PROJECT_DIR$/YaoYao/Task-7表格排序/Task-7锁定首行.html" />
+        <option value="$PROJECT_DIR$/YaoYao/Task-7表格排序/Task-7.html" />
+        <option value="$PROJECT_DIR$/Advanced/ShangyePingtai-HXF/模拟时钟/别人做的.html" />
+        <option value="$PROJECT_DIR$/Advanced/ShangyePingtai-HXF/模拟时钟/别人做的2.html" />
+        <option value="$PROJECT_DIR$/Advanced/ShangyePingtai-HXF/模拟时钟/模拟时钟.html" />
+        <option value="$PROJECT_DIR$/Advanced/ShangyePingtai-HXF/模拟时钟/模拟时钟.css" />
+        <option value="$PROJECT_DIR$/Advanced/ShangyePingtai-HXF/模拟时钟/模拟时钟.js" />
+        <option value="$PROJECT_DIR$/Primary/YaoYao/Task-6浮出层拖动/Task-6.html" />
+        <option value="$PROJECT_DIR$/css transitions测试.html" />
+        <option value="$PROJECT_DIR$/345.html" />
+        <option value="$PROJECT_DIR$/Advanced/BaiduNuomi-XCL/自定义checkbox， radio样式.html" />
+        <option value="$PROJECT_DIR$/Primary/YaoYao/Task-7表格排序/Task-7.html" />
+        <option value="$PROJECT_DIR$/Primary/YaoYao/Task-5方块移动2/Task-5.html" />
+        <option value="$PROJECT_DIR$/Advanced/BaiduNuomi-XCL/1/自定义checkbox， radio样式.html" />
+        <option value="$PROJECT_DIR$/Primary/YaoYao/Task-3表单验证3/Task-3表单自动隐藏出现.html" />
+        <option value="$PROJECT_DIR$/Primary/YaoYao/Task-2表单验证2/Task-2.html" />
+        <option value="$PROJECT_DIR$/Advanced/BaiduNuomi-XCL/2/自定义右键菜单.html" />
+        <option value="$PROJECT_DIR$/a.txt" />
+        <option value="$PROJECT_DIR$/a.php" />
+        <option value="$PROJECT_DIR$/Advanced/BaiduNuomi-XCL/3/正则表达式.html" />
+        <option value="$PROJECT_DIR$/123.html" />
+        <option value="$PROJECT_DIR$/123.js" />
+        <option value="$PROJECT_DIR$/Advanced/ShangyePingtai-HXF/标签云.html" />
+        <option value="$USER_HOME$/AppData/Local/Temp/新加入.url" />
+        <option value="$PROJECT_DIR$/Advanced/ShangyePingtai-HXF/标签云2.html" />
+        <option value="$PROJECT_DIR$/Advanced/ShangyePingtai-HXF/标签云1.html" />
+        <option value="$PROJECT_DIR$/Advanced/BaiduNuomi-XCL/4/模糊及流光.html" />
+        <option value="$PROJECT_DIR$/Advanced/BaiduNuomi-XCL/5纯CSS折叠面板/纯CSS 标签折叠.html" />
+        <option value="$PROJECT_DIR$/Advanced/ShangyePingtai-MHN/色彩选择器/色彩选择器.html" />
+        <option value="$PROJECT_DIR$/Advanced/BaiduNuomi-CXD/css3饼状Loading/css3饼状loading.html" />
+        <option value="$PROJECT_DIR$/Advanced/BaiduNuomi-CXD/css3饼状Loading/css3饼状Loading.html" />
+        <option value="$PROJECT_DIR$/Advanced/ECharts/ECharts-1.html" />
+        <option value="$PROJECT_DIR$/Advanced/ECharts/ECharts-2.html" />
+        <option value="$PROJECT_DIR$/Advanced/ShangyePingtai-MHN/色彩选择器/色彩选择器Vue升级版.html" />
+        <option value="$PROJECT_DIR$/Advanced/ShangyePingtai-TGY/js图片裁剪器，如保存需经后端.html" />
+        <option value="$PROJECT_DIR$/Advanced/ECharts/map/hina.json" />
+        <option value="$PROJECT_DIR$/Advanced/ECharts/ECharts-3.html" />
+        <option value="$PROJECT_DIR$/Advanced/ShangyePingtai-GB/懒加载.html" />
+        <option value="$PROJECT_DIR$/Advanced/BaiduNuomi-CXD/3d图片轮播/3D图片轮播.html" />
+        <option value="$PROJECT_DIR$/测试.html" />
+        <option value="$PROJECT_DIR$/Advanced/BaiduNuomi-CXD/3d图片轮播/法1：3D图片轮播.html" />
+        <option value="$PROJECT_DIR$/Advanced/BaiduNuomi-CXD/3d图片轮播/法2：3D图片轮播.html" />
+        <option value="$PROJECT_DIR$/Advanced/BaiduNuomi-CXD/3d图片轮播/法2修正：3D图片轮播.html" />
+        <option value="$PROJECT_DIR$/Advanced/标签云/标签云1.html" />
+        <option value="$PROJECT_DIR$/Advanced/标签云/标签云2错误保留.html" />
+        <option value="$PROJECT_DIR$/Advanced/标签云/标签云升级-最终.html" />
+        <option value="$PROJECT_DIR$/Advanced/色彩选择器/色彩选择器Vue升级版.html" />
+        <option value="$PROJECT_DIR$/16/日历/demo.html" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsFlowSettings">
+    <service-enabled>true</service-enabled>
+    <exe-path />
+    <annotation-enable>false</annotation-enable>
+    <other-services-enabled>true</other-services-enabled>
+    <auto-save>true</auto-save>
+  </component>
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="669" />
+    <option name="y" value="40" />
+    <option name="width" value="1251" />
+    <option name="height" value="1040" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State>
+            <id />
+          </State>
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>AngularJS</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scratches" />
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="BaiduWEB" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BaiduWEB" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BaiduWEB" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BaiduWEB" type="462c0819:PsiDirectoryNode" />
+              <item name="Advanced" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BaiduWEB" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BaiduWEB" type="462c0819:PsiDirectoryNode" />
+              <item name="Advanced" type="462c0819:PsiDirectoryNode" />
+              <item name="色彩选择器" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="HbShouldOpenHtmlAsHb" value="" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Bootstrap学习" />
+    <property name="settings.editor.selected.configurable" value="Settings.JavaScript" />
+    <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\HanJC\WebstormProjects\BaiduWEB" />
+      <recent name="C:\Users\HanJC\WebstormProjects\BaiduWEB\Advanced\标签云" />
+      <recent name="C:\Users\HanJC\WebstormProjects\BaiduWEB\Advanced\BaiduNuomi-CXD\3d图片轮播" />
+      <recent name="C:\Users\HanJC\WebstormProjects\BaiduWEB\Advanced\ECharts\map" />
+      <recent name="C:\Users\HanJC\WebstormProjects\BaiduWEB\Advanced\ShangyePingtai-TGY" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\HanJC\WebstormProjects\BaiduWEB\Advanced" />
+      <recent name="C:\Users\HanJC\WebstormProjects\BaiduWEB\Advanced\BaiduNuomi-CXD\3d图片轮播" />
+      <recent name="C:\Users\HanJC\WebstormProjects\BaiduWEB\Advanced\ShangyePingtai-TGY" />
+      <recent name="C:\Users\HanJC\WebstormProjects\BaiduWEB\Advanced\ShangyePingtai-MHN\色彩选择器" />
+      <recent name="C:\Users\HanJC\WebstormProjects\BaiduWEB\Advanced\ShangyePingtai-WY\标签云" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="123.js" type="NodeJSConfigurationType" factoryName="Node.js" path-to-js-file="123.js" working-dir="$PROJECT_DIR$" />
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7f54b6f0-67fb-49e2-8acd-1d2c29902f13" name="默认的" comment="" />
+      <created>1511923777721</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1511923777721</updated>
+      <workItem from="1511923779031" duration="1254000" />
+      <workItem from="1511925819947" duration="64821000" />
+      <workItem from="1512183000689" duration="14108000" />
+      <workItem from="1512267002429" duration="20883000" />
+      <workItem from="1512356201620" duration="139000" />
+      <workItem from="1512359113708" duration="8722000" />
+      <workItem from="1512437366812" duration="94978000" />
+      <workItem from="1512786826829" duration="24716000" />
+      <workItem from="1512866873054" duration="52138000" />
+      <workItem from="1513046133407" duration="23658000" />
+      <workItem from="1513156134093" duration="19636000" />
+      <workItem from="1513308690651" duration="42356000" />
+      <workItem from="1513413194070" duration="2613000" />
+      <workItem from="1513572820260" duration="145000" />
+      <workItem from="1513599383422" duration="949000" />
+      <workItem from="1513750079773" duration="59745000" />
+      <workItem from="1514511024724" duration="28723000" />
+      <workItem from="1514599957793" duration="1164000" />
+      <workItem from="1514601145291" duration="75896000" />
+      <workItem from="1515038005297" duration="125474000" />
+      <workItem from="1515380517631" duration="14489000" />
+      <workItem from="1515498341587" duration="11671000" />
+      <workItem from="1515554793195" duration="33086000" />
+      <workItem from="1515634604271" duration="18894000" />
+      <workItem from="1515743650095" duration="13907000" />
+      <workItem from="1515810870060" duration="39558000" />
+      <workItem from="1517818847625" duration="171000" />
+      <workItem from="1518091169322" duration="605000" />
+      <workItem from="1518229847976" duration="28197000" />
+      <workItem from="1518312131510" duration="32383000" />
+      <workItem from="1518401035545" duration="24978000" />
+      <workItem from="1518484916068" duration="25519000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="905576000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="669" y="40" width="1251" height="1040" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14771785" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32910052" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="调试" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3281768" sideWeight="0.5" order="12" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.074074075" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="运行" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="层次结构" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32967034" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="找到" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32910052" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+    </layout>
+    <layout-to-restore>
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32910052" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="层次结构" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32967034" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="调试" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3281768" sideWeight="0.5" order="12" side_tool="true" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.074074075" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="运行" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14771785" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
+      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="找到" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32910052" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+    </layout-to-restore>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="55" />
+    </breakpoint-manager>
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/Advanced/自定义checkbox， radio样式/自定义checkbox， radio样式.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="29" column="27" lean-forward="true" selection-start-line="29" selection-start-column="27" selection-end-line="29" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Primary/YaoYao/Task-2表单验证2/Task-2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="21" column="38" lean-forward="true" selection-start-line="21" selection-start-column="38" selection-end-line="21" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Primary/YaoYao/Task-3表单验证3/Task-3表单自动隐藏出现.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="460">
+          <caret line="62" column="29" lean-forward="true" selection-start-line="62" selection-start-column="29" selection-end-line="62" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Advanced/自定义右键菜单/自定义右键菜单.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="104" column="35" lean-forward="true" selection-start-line="104" selection-start-column="35" selection-end-line="104" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/axios.js" />
+    <entry file="file://$PROJECT_DIR$/vue-resource.js" />
+    <entry file="file://$PROJECT_DIR$/a.php" />
+    <entry file="file://$PROJECT_DIR$/css对话框测试.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="9" column="9" lean-forward="false" selection-start-line="9" selection-start-column="9" selection-end-line="9" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Advanced/BaiduNuomi-XCL/4/timg.jpg" />
+    <entry file="file://$PROJECT_DIR$/Advanced/模糊及流光/未标题-1.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/123.html" />
+    <entry file="file://$PROJECT_DIR$/123.js" />
+    <entry file="file://$PROJECT_DIR$/Advanced/标签云/标签云1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="18" column="34" lean-forward="true" selection-start-line="18" selection-start-column="34" selection-end-line="18" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/新加入.url" />
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/DHTML.js" />
+    <entry file="file://$PROJECT_DIR$/Advanced/正则表达式/正则表达式.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="17" column="47" lean-forward="true" selection-start-line="17" selection-start-column="42" selection-end-line="17" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Advanced/模糊及流光/模糊及流光.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="820">
+          <caret line="74" column="23" lean-forward="true" selection-start-line="74" selection-start-column="23" selection-end-line="74" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Advanced/模拟时钟/模拟时钟.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="10" column="13" lean-forward="true" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Advanced/模拟时钟/模拟时钟.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="15" column="14" lean-forward="true" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/345.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="10" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Advanced/5纯CSS折叠面板/纯CSS 标签折叠.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="600">
+          <caret line="30" column="39" lean-forward="true" selection-start-line="30" selection-start-column="39" selection-end-line="30" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vue.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="478">
+          <caret line="4271" column="36" lean-forward="false" selection-start-line="4271" selection-start-column="36" selection-end-line="4271" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Advanced/色彩选择器/色彩选择器jQ废物版.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-619">
+          <caret line="378" column="13" lean-forward="true" selection-start-line="378" selection-start-column="13" selection-end-line="378" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Advanced/色彩选择器/未标题-1.ico">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Advanced/色彩选择器/要求图.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Advanced/css3饼状Loading/css3饼状Loading.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="101" column="35" lean-forward="true" selection-start-line="101" selection-start-column="35" selection-end-line="101" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/echarts.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="460">
+          <caret line="2200" column="24" lean-forward="true" selection-start-line="2200" selection-start-column="24" selection-end-line="2200" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/infographic.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="40" column="10" lean-forward="true" selection-start-line="40" selection-start-column="10" selection-end-line="40" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Advanced/ECharts/dark.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Advanced/ECharts/ECharts-2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20">
+          <caret line="15" column="7" lean-forward="false" selection-start-line="15" selection-start-column="7" selection-end-line="15" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Advanced/ECharts/ECharts-1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="8" column="9" lean-forward="false" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Advanced/ShangyePingtai-TGY/123.jpg" />
+    <entry file="file://$PROJECT_DIR$/Advanced/js 图片裁剪器/背景.gif">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Advanced/ECharts/map/usa.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="12" column="24" lean-forward="false" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Advanced/ECharts/map/china.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="0" column="38631" lean-forward="false" selection-start-line="0" selection-start-column="38631" selection-end-line="0" selection-end-column="38631" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Advanced/ECharts/ECharts-3.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="18" column="76" lean-forward="true" selection-start-line="18" selection-start-column="76" selection-end-line="18" selection-end-column="76" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Advanced/js 图片裁剪器/js图片裁剪器，如保存须经后端.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="93" column="56" lean-forward="false" selection-start-line="93" selection-start-column="56" selection-end-line="93" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Advanced/懒加载/懒加载.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="5" column="43" lean-forward="true" selection-start-line="5" selection-start-column="43" selection-end-line="5" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/测试.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="695">
+          <caret line="90" column="9" lean-forward="true" selection-start-line="90" selection-start-column="9" selection-end-line="90" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Advanced/3d图片轮播/2.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Advanced/3d图片轮播/法2：3D图片轮播.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-159">
+          <caret line="59" column="31" lean-forward="false" selection-start-line="59" selection-start-column="31" selection-end-line="59" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Advanced/标签云/标签云升级-错误保留.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="28" column="37" lean-forward="true" selection-start-line="28" selection-start-column="37" selection-end-line="28" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Advanced/3d图片轮播/法1：3D图片轮播.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="7" column="26" lean-forward="true" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Advanced/3d图片轮播/法2修正：3D图片轮播.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="980">
+          <caret line="49" column="9" lean-forward="true" selection-start-line="49" selection-start-column="9" selection-end-line="49" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Advanced/标签云/标签云1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="132" column="36" lean-forward="true" selection-start-line="132" selection-start-column="36" selection-end-line="132" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/1.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Advanced/标签云/标签云升级-最终.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="168" column="28" lean-forward="true" selection-start-line="168" selection-start-column="28" selection-end-line="168" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bootstrap.css" />
+    <entry file="file://$PROJECT_DIR$/jquery-3.2.1.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="334">
+          <caret line="10002" column="9" lean-forward="true" selection-start-line="10002" selection-start-column="9" selection-end-line="10002" selection-end-column="9" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Advanced/色彩选择器/色彩选择器Vue升级版.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="12440">
+          <caret line="622" column="7" lean-forward="false" selection-start-line="622" selection-start-column="7" selection-end-line="622" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/16/日历/demo.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="215">
+          <caret line="711" column="21" lean-forward="true" selection-start-line="711" selection-start-column="21" selection-end-line="711" selection-end-column="21" />
+          <folding>
+            <element signature="n#style#1;n#head#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="e#15848#16719#0" expanded="false" />
+            <element signature="e#16750#16799#0" expanded="false" />
+            <element signature="e#16829#16937#0" expanded="false" />
+            <element signature="e#17375#17678#0" expanded="false" />
+            <element signature="e#17702#18695#0" expanded="false" />
+            <element signature="e#20236#21300#0" expanded="false" />
+            <element signature="e#27126#27557#0" expanded="false" />
+            <element signature="e#27626#28652#0" expanded="false" />
+            <element signature="e#28701#29374#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
