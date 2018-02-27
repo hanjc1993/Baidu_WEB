@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>调查问卷主页</title>
+    <script src="../../jquery-3.2.1.js" type="text/javascript"></script>
+    <script src="../../vue.js" type="text/javascript"></script>
+    <!--头部内容-->
+    <style>
+        header{
+            background-color: #ee7419;
+            height: 50px;width: 100%;
+            position: fixed;
+            padding-left: 100px;
+            z-index: 100;
+        }
+        header span{
+            display: inline-block;
+            font: bold 22px/26px '微软雅黑';
+            color: #fff;
+        }
+        header>span{
+            float: left;
+            margin-top: 10px;
+        }
+        #header{
+            margin-right: 70px;
+            margin-top: 13px;
+        }
+        #circle{
+            margin-top: 13px;
+            margin-right: 8px;
+            width: 26px;
+            border-radius: 50%;
+            background-color: #fff;
+            color: #ee7419;
+            text-align: center;
+        }
+        .tag{
+            font-weight: normal;
+            font-size: 17px;
+            margin-left: 10px;
+            border-radius: 10px 10px 0 0 ;
+            height: 35px;width: 100px;
+            text-align: center;
+            padding-top: 5px;
+        }
+        .tag:hover{
+            background-color: white;
+            color: #ee7419;
+            cursor: pointer;
+        }
+        .checked{
+            display: block!important;
+            color: #ee7419;
+            background-color: #fcf0e5;
+        }
+        #newWenTag,#editWenTag{display: none}
+    </style>
+    <!--主要内容-->
+    <style>
+        html,body,#container{height: 100%}
+        body{margin: 0;padding: 0;}
+        #content{
+            min-height: 100%;width: 100%;
+            text-align: center;
+            background-color: #ddd;
+            z-index: -1;
+        }
+        #blank{height: 100px}
+        #content table{
+            background-color: white;
+            overflow: hidden;
+            margin: 0 auto;
+            text-align: left;
+            width: 820px;
+            border-collapse: collapse;
+            /*这一句必须有，否则tr的边框显示无效*/
+        }
+        #content table tr{
+            height: 40px;
+        }
+        #content tbody tr{
+            border-bottom: 2px solid #ddd;
+        }
+        #content tbody tr:not(#last):hover{
+            background-color: #fcf0e5;
+        }
+        #content table thead{
+            background-color: #eee;
+        }
+        #content tbody{
+            font-size: 15px;
+            border-left: 40px solid #fff;
+            border-right: 40px solid #fff;
+        }
+        #content .col1{width: 40px;text-align: center;}
+        #content .col2{width: 400px;}
+        #content .col3{width: 250px;}
+        #content .col4{width: 80px;}
+        #content .col5{width: 200px;}
+        input[type='button']{
+            background-color: #fff;
+            outline: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        input[type='button']:hover{
+            color: #fff;
+            background-color: #ee7419;
+        }
+        #content .ing{
+            color: #00e600;
+        }
+        #content #last{
+            height: 50px;
+            border: none;
+        }
+        #last td:first-child{
+            position: relative;
+        }
+        #content #newWen{
+            display: inline-block;
+            position: absolute;
+            left: 250px;top: 13px;
+            color: #fff;
+            width: 100px;height: 24px;
+            border-radius: 5px;
+            background-color: #ee7419;
+            line-height: 20px;
+            outline: none;
+            cursor: pointer;
+        }
+        #content tbody .selected{
+            background-color: #fcf0e5;
+        }
+        #content #newBig{
+            display: none;
+            background-color: white;
+            /*overflow: hidden;*/
+            margin: 0 auto;
+            /*text-align: left;*/
+            width: 820px;min-height: 400px;
+            position: relative;
+        }
+        #content #newWenButton{
+            font-size: 50px;
+            position: absolute;
+            top: 150px;
+            left: 290px;
+        }
+    </style>
+    <!--新建问卷-->
+    <style>
+        #newMain{
+            display: none;
+            padding: 10px;
+        }
+        #newWenName{
+            padding: 5px 40px 0 40px;
+            margin-bottom: 10px;
+            height: 55px;
+            overflow: hidden;
+        }
+        #newWenName>*{
+            margin: 0 0 5px 0;
+            height: 55px;
+            font: bold 20px/50px '微软雅黑';
+            text-align: center;
+            border: 1px solid #fff;
+        }
+        #newWenName p{
+            cursor: pointer;
+        }
+        #newWenName>*:hover{
+            background-color: #fcf0e5;
+        }
+        #newWenName input{
+            display: none;
+            outline: none;
+            border-radius: 8px;
+            border-color: #aaa;
+            height: 48px;
+            padding: 0;
+            display: block;
+            width: 100%;
+        }
+        #newWenName input{
+            box-shadow: 0 0 3px 1px rgba(48, 174, 255, 0.8);
+        }
+        #newMain #newWenBody{
+            padding: 15px 40px;
+        }
+        #newWenBody ul{
+            margin: 0;
+            list-style: none;
+            text-align: left;
+        }
+        .newWenQs{
+            padding-top: 10px;
+        }
+        .newWenQs:hover{
+            background-color: #fcf0e5;
+        }
+        #newWenBody li>span{
+            display: none;
+            cursor: pointer;
+            font-weight: bold;
+            color: #aaa;
+            margin-left: 20px;
+        }
+        #newWenBody ul>textarea{
+            margin-left: 35px;
+            width: 600px;
+        }
+        #newWenBody li:hover{
+            background-color: #eee;
+        }
+        #newWenBody li:hover>span{
+            display: inline-block;
+        }
+        #newWenBody li:hover>span:hover{
+            color: #000;
+        }
+        #newWenBody li{
+            line-height: 25px;
+            height: 25px;
+            font-size: 16px;
+            margin-left: 32px;
+        }
+        #newWenBody li:first-child{
+            font-size: 18px;
+            margin: 0;
+        }
+
+        .newWenQs:hover .qsFunc{
+            display: block;
+        }
+        .newWenQs .qsFunc{
+            height: 35px;
+            display: none;
+        }
+        #newWenQs .qsFunc span{
+            display: inline-block;
+            margin-right: 15px;
+            float: right;
+            cursor: pointer;
+            color: #aaa;
+        }
+        #newWenQs .qsFunc span:hover{
+            color: #000;
+        }
+        #newWenQs .qsFunc span:first-child{
+            color: rgba(255,0,0,0.46)
+        }
+        #newWenQs .qsFunc span:first-child:hover{
+            color: rgba(255,0,0,0.9)
+        }
+        #newWenQs .qsFunc .newOption{
+            float: left;
+            border: 2px dotted  transparent;
+            text-align: center;
+            width: 300px;
+            margin-left: 78px;
+        }
+        #newWenQs .qsFunc .newOption:hover{
+            border: 2px dotted  #aaa;
+        }
+        #newWenNewQs{
+            height: 50px;
+            margin-top: 40px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            cursor: pointer;
+            background-color: #eee;
+            color: #ccc;
+            overflow: hidden;
+        }
+        #newWenNewQs:hover{
+            color: black;
+        }
+        #newWenNewQs>div{
+            height: 50px;
+            line-height: 50px;
+        }
+        #newWenOut{
+            margin: 20px 55px;
+            height: 50px;
+        }
+        #newWenOut input[type='button']{
+            font-size: 18px;
+            margin-right: 20px;
+            float: right;
+
+        }
+    </style>
+    <!--浮动框-->
+    <style>
+        #float{
+            background-color: rgba(0,0,0,0.3);
+            height: 100%;width: 100%;
+            position: absolute;
+            top: 0;
+            display: none;
+            position: fixed;
+        }
+        #float #floatWindow{
+            position: absolute;
+            top: 40%;left: 50%;
+            transform: translate(-50%,-50%);
+            width: 300px;height: 150px;
+            background-color: #fff;
+        }
+        #float #floatWindow.bigger{
+            height: 210px;
+        }
+        #float #floatWindow.bigger #alertContent{
+            height: 90px;
+        }
+        #float #alertHead{
+            font-weight: bold;
+            height: 35px;
+            line-height: 33px;
+            background-color: #eaeaea;
+            padding: 0 20px;
+        }
+        #float #alertHead span{
+            float: right;
+            font-size: 32px;
+            cursor: pointer;
+            color: #aaa;
+        }
+        #float #alertHead span:hover{
+            color: #000;
+        }
+        #float #alertContent{
+            height: 30px;
+            padding: 20px;
+        }
+        #float #alertContent input{
+            width: 250px;
+        }
+        #float .windowB{
+            padding: 10px;
+            text-align: center;
+        }
+        #float .windowB input{
+            font-size: 16px;
+        }
+        #float .windowB input:first-child{
+            background-color:#f07600;
+            color: white
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <header>
+        <span id="circle">？</span>
+        <span id="header">问卷管理</span>
+        <span id="myWen" class="tag checked">我的问卷</span>
+        <span id="newWenTag" class="tag">新建问卷</span>
+        <span id="editWenTag" class="tag">编辑问卷</span>
+    </header>
+    <div id="content">
+        <div id="blank"></div>
+        <table cellspacing="0" id="mainTable">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>标题</th>
+                    <th>截止时间</th>
+                    <th>状态</th>
+                </tr>
+            </thead>
+            <tbody v-html="wenlist">
+            </tbody>
+        </table>
+        <div id="newBig">
+            <input type="button" id="newWenButton" value="+ 新建问卷" onclick="newWen2()">
+            <div id="newMain">
+                <div id="newWenName">
+                    <p>{{newwenjuan[0].name}}</p>
+                    <input type="text" v-model="newwenjuan[0].name">
+                </div>
+                <hr height="3" color="#bbb">
+                <div id="newWenBody">
+                    <div id="newWenQs" v-html="newWenQs">
+<!--                        <div class="newWenQs">
+                            <ul>
+                                <li><b>Q{{newWenLenght}}&nbsp;</b> 单选题</li>
+                                <li><input type="radio" disabled>选项一 <span>×</span></li>
+                                <li><input type="radio" disabled>选项二 <span>×</span></li>
+                                <li><input type="radio" disabled>选项三 <span>×</span></li>
+                                <li><input type="radio" disabled>选项四 <span>×</span></li>
+                            </ul>
+                            <div class="qsFunc">
+                                <span>删除</span>
+                                <span>复用</span>
+                                <span>下移</span>
+                                <span>上移</span>
+                                <span><label><input type="checkbox" checked> 是否必填 </label></span>
+                                <span>＋</span>
+                            </div>
+                        </div>-->
+                    </div>
+                    <div id="newWenNewQs">
+                        <div id="newQsButton">
+                            ＋ 添加问题
+                        </div>
+                        <div id="newQsOption">
+                            <input type="button" value="+ 单选题" onclick="newQs('radio')">
+                            <input type="button" value="+ 多选题" onclick="newQs('check')">
+                            <input type="button" value="+ 简答题" onclick="newQs('text')">
+                        </div>
+                    </div>
+                </div>
+                <div id="newWenOut">
+                    <input type="button" value="保存" onclick="newWenOut('stay')">
+                    <input type="button" value="保存并退出" onclick="newWenOut()">
+                    <input type="button" value="直接退出" onclick="noSaveOut()">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="float">
+        <div id="floatWindow">
+            <div id="alertHead">
+                提示
+                <span onclick="floatClose()">×</span>
+            </div>
+            <div id="alertContent" v-html="alertContent"></div>
+            <div id="floatButton" v-html="floatButton"></div>
+        </div>
+    </div>
+</div>
+</body>
+<script src="wenjuan.js" type="text/javascript"></script>
+<!--初次绘制函数-->
+<script>
+
+</script>
+<script>
+    if (vm.wenjuan.length == 0){
+        newWen1();
+    }
+    // 选择问卷
+    $('#content').on('click','tbody tr',function () {
+        var id = $(this).attr('id');
+        if(id == 'last'){}else{
+            $('#content tbody').find('.selected').removeClass('selected')
+            $(this).addClass('selected').find('input[type=radio]').prop('checked','true')
+        }
+    })
+    //关闭提示框
+    function floatClose() {
+        $("#float").hide().find("#floatWindow").removeClass('bigger');
+    }
+    //删除确认
+    function doDel(x) {
+        if(x=='all'){
+            $("#float").show()
+            vm.floatButton = vm.FBOption.delAll;
+            vm.alertContent = '你确定要删除<b>全部</b>问卷？';
+        }else if(x=='this'){
+            let index = $('#mainTable tbody input[name="select"]:checked').parents('tr').index()
+            if(index == -1){
+                $("#float").show();
+                vm.floatButton = vm.FBOption.alert;
+                vm.alertContent = vm.ACOption.delNoCheck;
+            }else{
+                $("#float").show();
+                vm.floatButton = vm.FBOption.delOne;
+                vm.alertContent = vm.ACOption.delAll;
+            }
+        }
+    }
+    //删除一个问卷
+    function delOneWen() {
+        //没有选中项时候，index == -1
+        let index = $('#mainTable tbody input[name="select"]:checked').parents('tr').index()
+        vm.wenjuan.splice(index,1);
+        floatClose();
+        if (vm.wenjuan.length == 0){
+            newWen1();
+        }
+    }
+    //删除所有问卷
+    function delAllWen() {
+        vm.wenjuan = [];
+        floatClose();
+        newWen1();
+    }
+    //新建问卷
+    function newWen1() {
+        $('#mainTable').hide();
+        $('#newBig').show();
+        $('#myWen').removeClass('checked')
+        $('#newWenTag').addClass('checked')
+    }
+    function newWen2() {
+        $('#newWenButton').hide();
+        $('#newMain').show();
+    }
+    //新建问卷-标题编辑动画
+    let newWenNameEdit = false;
+    $('#newWenName').click(function (e) {
+        e.stopPropagation();
+        $('#newQsButton').slideDown(200);
+        if( ! newWenNameEdit){
+           $(this).find('p').fadeOut(200,function () {
+               $('#newWenName').find('input').focus();
+           });
+        }
+        newWenNameEdit = true;
+    })
+    //新建问卷-选择题目类型动画
+    let newWenTypeEdit = false;
+    $('#newQsButton').click(function (e) {
+        e.stopPropagation();
+        $('#newWenName').find('p').fadeIn(200);
+        if( ! newWenTypeEdit){
+            $(this).slideUp(200);
+        }
+        newWenTypeEdit = true;
+    })
+    //恢复标题编辑，选择题目类型动画
+    $(document).click(function () {
+        $('#newWenName').find('p').fadeIn(200);
+        $('#newQsButton').slideDown(200);
+        newWenNameEdit = false;
+        newWenTypeEdit = false;
+    })
+    //编辑问卷
+    //选项删除
+    $('#newWenQs').on('click','.newWenQs li>span',function () {
+        //这里，因为元素是动态的，必须用on绑定到父级元素，用选择器找到子元素。
+        //但这里绑定到爷爷辈才生效，诡异
+        let optionIndex = $(this).parent().index() - 1;
+        let qsIndex = $(this).parents('.newWenQs').index();
+        console.log('删除选项'+optionIndex,qsIndex)
+        vm.newwenjuan[0].question[qsIndex].options.splice(optionIndex,1)
+        if(vm.newwenjuan[0].question[qsIndex].options == 0){
+            $("#float").show();
+            vm.floatButton = vm.FBOption.alert;
+            vm.alertContent = vm.ACOption.noOptionQs;
+        }
+    })
+    //是否为必选
+    $('#newWenQs').on('click','.qsFunc input',function () {
+        let qsIndex = $(this).parents('.newWenQs').index();
+        vm.newwenjuan[0].question[qsIndex].required = $(this).prop('checked');
+        console.log(qsIndex,vm.newwenjuan[0].question[qsIndex].required)
+    })
+    //添加选项
+    let newOptionIndex;
+    $('#newWenQs').on('click','.qsFunc .newOption',function () {
+        newOptionIndex = $(this).parents('.newWenQs').index();
+        //console.log(newOptionIndex)
+        $("#float").show();
+        vm.floatButton = vm.FBOption.newOption;
+        vm.alertContent = vm.ACOption.inputOne;
+        $('#alertContent input').val('');//否则浏览器会记录上次的内容
+    })
+    //添加选项-监听回车键，其他功能也用到这个监听
+    $('#floatWindow').on('keydown','#alertContent input',function (e) {
+        if(e.keyCode == 13){
+            $(this).parents('#floatWindow').find('.windowB input:first-child').click();
+        }
+    })
+    //添加选项--数据更新到vm
+    function getNewOption() {
+        //console.log(newOptionIndex)
+        vm.newwenjuan[0].question[newOptionIndex].options.push(
+            $('#alertContent').find('input').val()
+        );
+        floatClose();
+    }
+    //调整题目顺序，新建和修改都用到这个func
+    function moveArray(qs,turn,step) {
+        //原理是两个位置的对象重新赋值为对方
+        //Qs参数让函数能找到，这是哪道题；turn是移动方向，step是移动几步
+        //涉及对象的拷贝，可以使用let name = Object.assign({},obj)，es6可以let {...name} = obj;
+            //事实上上面两种拷贝，只能对首层深度拷贝，嵌套的json效果不好
+            //深拷贝最靠谱的还是JSON.parse(JSON.stringify())，但也有缺陷，详见https://segmentfault.com/a/1190000010661297
+        //涉及vue对数组变化的监控缺陷，详见文档的中部 https://cn.vuejs.org/v2/guide/list.html#ad
+        let another;
+        let thisone = JSON.parse(JSON.stringify(vm[qs.type][qs.wenIndex].question[qs.qsIndex]));
+        if (turn == 'up'){
+            another = JSON.parse(JSON.stringify(vm[qs.type][qs.wenIndex].question[qs.qsIndex-step]));
+            vm[qs.type][qs.wenIndex].question.splice(qs.qsIndex-step,1,thisone)
+        }else if(turn == 'down'){
+            another = JSON.parse(JSON.stringify(vm[qs.type][qs.wenIndex].question[qs.qsIndex+step]));
+            vm[qs.type][qs.wenIndex].question.splice(qs.qsIndex+step,1,thisone)
+        }
+        vm[qs.type][qs.wenIndex].question.splice(qs.qsIndex,1,another)
+    }
+    //调整题目顺序，绑定事件
+    $('#newWenQs').on('click','.qsFunc .upThis',function () {
+        //即使是on绑定的事件，其获取的对象也是最终选择到的对象，而不是#newWenQs
+        moveArray({
+            type:'newwenjuan',
+            wenIndex : 0,//新建页面中只有一个问卷,怎么都是0，但如果type是'wenjuan'就不一样了
+            qsIndex:$(this).parents('.newWenQs').index()
+        },'up',1)
+    })
+    $('#newWenQs').on('click','.qsFunc .downThis',function () {
+        moveArray({
+            type:'newwenjuan',
+            wenIndex : 0,//新建页面中只有一个问卷,怎么都是0，但如果type是'wenjuan'就不一样了
+            qsIndex:$(this).parents('.newWenQs').index()
+        },'down',1)
+    })
+    //复用，绑定事件
+    $('#newWenQs').on('click','.qsFunc .reuseThis',function () {
+        let qsIndex = $(this).parents('.newWenQs').index();
+        let content = JSON.parse(JSON.stringify(vm.newwenjuan[0].question[qsIndex]));
+        vm.newwenjuan[0].question.push(content)
+    })
+    //删除，绑定事件
+    $('#newWenQs').on('click','.qsFunc .delThis',function (e) {
+        let qsIndex = $(this).parents('.newWenQs').index();
+        vm.newwenjuan[0].question.splice(qsIndex,1);
+        if(vm.newwenjuan[0].question.length == 0){
+            e.stopPropagation()
+            $('#newQsButton').click();
+        }
+    })
+    //添加不同类型的题目
+    function newQs(type) {
+        $("#float").show();
+        $('#alertContent input').val('');//否则浏览器会记录上次的内容
+        //x是html对象
+        switch(type){
+            case 'radio':
+                $("#floatWindow").addClass('bigger');
+                vm.alertContent = vm.ACOption.inputTwo;
+                vm.floatButton = vm.FBOption.newRadio;
+                break;
+            case 'check':
+                $("#floatWindow").addClass('bigger');
+                vm.alertContent = vm.ACOption.inputTwo;
+                vm.floatButton = vm.FBOption.newCheck;
+                break;
+            case 'text':
+                vm.alertContent = vm.ACOption.inputOne;
+                vm.floatButton = vm.FBOption.newText;
+                break;
+        }
+    }
+    //同步新的题目数据
+    function getNewQs(x) {
+        if(x=='radio' || x=='checkbox'){
+            let text = $("#alertContent #inputTwo1").val() ;
+            if(text){
+                let option = $("#alertContent #inputTwo2").val();
+                if (option.length != 0){
+                    option = option.split(';');
+                }else{
+                    option = [];
+                }
+                vm.newwenjuan[0].question.push({
+                    type:x,
+                    text:text,
+                    options:option,
+                    required:true,
+                    data:[]
+                })
+                floatClose();
+            }else{alert('必须输入题干内容')}
+        }else if(x == 'text'){
+            let text = $("#alertContent input").val();
+            if(text){
+                vm.newwenjuan[0].question.push({
+                    type:x,
+                    text:text,
+                    options:[],
+                    required:true,
+                    data:[]
+                })
+                floatClose();
+            }else{alert('必须输入题干内容')}
+        }
+    }
+    //不保存就退出的提示
+    function noSaveOut() {
+
+        //点是就退，点否就不退
+    }
+</script>
+</html>

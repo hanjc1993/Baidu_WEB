@@ -195,7 +195,7 @@
             color: #000000;
         }
         .today{
-            background-color: #ffcc0a;
+            background-color: #ffcc0a!important;
             border-color: #ffcc0a!important;
         }
         #lbcBootom #lbcbDays .today span{
@@ -208,7 +208,7 @@
             height: 43px;
         }
         #lbcbDays .row6 div span:first-child{
-            font:18px/22px 'Arial';
+            font:bold 18px/22px 'Arial';
             margin-top: 2px;
         }
         #lbcbDays .row6:last-child{
@@ -282,6 +282,7 @@
             background-color: #ffcc0a;
             width: 74px;height: 80px;
             padding-right: 6px;
+            padding-left: 5px;
             text-align: center;
             font: 60px/80px 'arial';
             margin: 15px 0 8px 27px;
@@ -681,6 +682,7 @@
                 $('#holiUl').append('<li>'+rili.holiday[i][0]+'</li>')
             }
             $('#holiUl li').eq(0).addClass('checked');
+            newToday('firstTime')
         }
         first();
 
@@ -764,19 +766,23 @@
             }
         }
         //为当天的一天添加黄底白字效果
-        function newToday() {
+        function newToday(x) {
+            console.log(rili.thisYear,rili.thisMonth)
             if((rili.thisYear == date.getFullYear()) && (rili.thisMonth == date.getMonth())){
                 //仅在匹配的月份才显示
                 //把当前的这一天黄色+黄色边框标记
-                var todayRow = Math.ceil((rili.thisDay+rili.firstDayWeek)/7);
+                var todayRow = Math.ceil((date.getDate()+rili.firstDayWeek)/7);
+                console.log(todayRow)
                 var todayEq = (date.getDate()+rili.firstDayWeek)%7;
                 if (todayEq == 0){
                     todayEq = 6;
                 }else{
                     todayEq -= 1;
                 }
-                $("#lbcbDays #row"+todayRow+' div').eq(todayEq).addClass('today dayChecked');
-
+                $("#lbcbDays #row"+todayRow+' div').eq(todayEq).addClass('today');
+                if(x=='firstTime'){
+                    $("#lbcbDays #row"+todayRow+' div').eq(todayEq).addClass('dayChecked');
+                }
             }else {
                 $("#lbcbDays .row .today").removeClass('today')
             }
