@@ -5,6 +5,7 @@
     <title>调查问卷主页</title>
     <script src="../../jquery-3.2.1.js" type="text/javascript"></script>
     <script src="../../vue.js" type="text/javascript"></script>
+    <script src="../../echarts.js" type="text/javascript"></script>
     <!--头部内容-->
     <style>
         #header{
@@ -304,6 +305,18 @@
             text-align: center;
         }
     </style>
+    <!--显示问卷数据-->
+    <style>
+        #showWenBody .showQsText{
+            text-align: left;
+        }
+        #showBig #showWenName p:hover{
+            background-color: transparent;
+        }
+        #showBig #showWenName p{
+            cursor: auto;
+        }
+    </style>
     <!--浮动框-->
     <style>
         #float{
@@ -465,22 +478,25 @@
                 </div>
             </div>
         </div>
-        <div id="showBig">
-            <div id="editMain" class="main">
-                <div id="editWenName" class="wenName">
-                    <p>{{editwenjuan[0].name}}</p>
+        <div id="showBig" class="big">
+            <div id="showMain" class="main">
+                <div id="showWenName" class="wenName">
+                    <p></p>
                 </div>
                 <hr height="3" color="#bbb">
-                <div class="during">
-                    <span class="left">问卷的<b>发布</b>时间：</span>
-                    <input class="left" type="datetime-local" v-model="editwenjuan[0].startTime" @change="checkDuring()">
+                <div id="showWenBody" class="wenBody">
+
                 </div>
-                <div class="during">
-                    <span class="left">问卷的<b>截止</b>时间：</span>
-                    <input class="left" type="datetime-local" v-model="editwenjuan[0].deadline" @change="checkDuring()">
+                <div class="during" id="durStart">
+                    <span>问卷的发布时间：</span>
+                    <b></b>
+                </div>
+                <div class="during" id="durEnd">
+                    <span>问卷的截止时间：</span>
+                    <b></b>
                 </div>
                 <div id="showWenOut" class="wenOut">
-                    <input type="button" value="退出" onclick="saveOut('stay','edit')">
+                    <input type="button" value="回到主界面" onclick="returnMyWen()">
                 </div>
             </div>
         </div>
@@ -598,7 +614,7 @@
     }
     //新建问卷-退出-保存并退出
     function saveOut(state,which) {
-        if(vm.checkDuring()){
+        if(vm.checkDuring() && vm.checkData()){
             let newWenData = JSON.parse(JSON.stringify(vm[vm.editOrNew+'wenjuan'][0]));
             if(which == 'new'){
                 vm.wenjuan.push(newWenData);
@@ -623,6 +639,7 @@
         }
     }
 //编辑问卷
+    //编辑问卷启动函数
     function editWen(x) {
         if(checkChecked()){
             if(x == 'stillEdit' || vm.wenjuan[vm.selectWenIndex].state == '待发布'){
@@ -674,8 +691,11 @@
 
     //点击我的问卷标签
     function titleClick() {
-        //相当于点击本页的 不保存退出 键
-        $('#'+vm.editOrNew+'WenOut input:last').click();
+        if($('#showBig').css('display') == 'block'){//如果是从查看页面退出，则直接回到主界面
+            returnMyWen();
+        }else{//相当于点击本页的 不保存退出 键
+            $('#'+vm.editOrNew+'WenOut input:last').click();
+        }
     }
     //回到我的问卷主界面
     function returnMyWen() {
@@ -687,9 +707,25 @@
         vm.editOrNew = '';
         checkWen();
     }
-</script>
-<script src="wenjuan.js" type="text/javascript"></script>
 
+//查看问卷数据
+    function showData() {
+        if(checkChecked()){
+            if(vm.wenjuan[vm.selectWenIndex].state != '待发布'){
+                $('#mainTable').hide();
+                $('#showBig').show();
+                $('#header .checked').removeClass('checked')
+                $('#showWenTag').addClass('checked')
+                vm.editOrNew = '';
+                drawCharts();
+            }else{
+                floatWindow('alert','cantShow')
+            }
+        }
+    }
+</script>
+<script src="vm_vue.js" type="text/javascript"></script>
+<script src="show_echarts.js" type="text/javascript"></script>
 <script>
     checkWen();
     // 选择问卷
@@ -706,14 +742,17 @@
     //新建问卷-标题编辑动画
     $('.big .wenName').click(function (e) {
         e.stopPropagation();
-        $(this).parent().find('.qsButton').slideDown(200);
-        if( ! vm.wenNameEditing){
-           $(this).find('p').fadeOut(200,function () {
-               $(this).next().focus();
-           });
+        let which = $(this).parent().attr('id');
+        if(which != 'showMain'){
+            $(this).parent().find('.qsButton').slideDown(200);
+            if( ! vm.wenNameEditing){
+                $(this).find('p').fadeOut(200,function () {
+                    $(this).next().focus();
+                });
+            }
+            vm.wenNameEditing = true;
+            vm.qsTypeEditing = false;
         }
-        vm.wenNameEditing = true;
-        vm.qsTypeEditing = false;
     })
     //新建问卷-选择题目类型动画
     $('.big .qsButton').click(function (e) {
@@ -781,15 +820,18 @@
             //深拷贝最靠谱的还是JSON.parse(JSON.stringify())，但也有缺陷，详见https://segmentfault.com/a/1190000010661297
         //涉及vue对数组变化的监控缺陷，详见文档的中部 https://cn.vuejs.org/v2/guide/list.html#ad
         let another;
-        let thisone = JSON.parse(JSON.stringify(vm[qs.type][qs.wenIndex].question[qs.qsIndex]));
+        let type = qs.type;
+        let wenIndex = qs.wenIndex
+        let qsIndex = qs.qsIndex;
+        let thisone = JSON.parse(JSON.stringify(vm[type][wenIndex].question[qsIndex]));
         if (turn == 'up'){
-            another = JSON.parse(JSON.stringify(vm[qs.type][qs.wenIndex].question[qs.qsIndex-step]));
-            vm[qs.type][qs.wenIndex].question.splice(qs.qsIndex-step,1,thisone)
+            another = JSON.parse(JSON.stringify(vm[type][wenIndex].question[qsIndex-step]));
+            vm[type][wenIndex].question.splice(qsIndex-step,1,thisone)
         }else if(turn == 'down'){
-            another = JSON.parse(JSON.stringify(vm[qs.type][qs.wenIndex].question[qs.qsIndex+step]));
-            vm[qs.type][qs.wenIndex].question.splice(qs.qsIndex+step,1,thisone)
+            another = JSON.parse(JSON.stringify(vm[type][wenIndex].question[qsIndex+step]));
+            vm[type][wenIndex].question.splice(qsIndex+step,1,thisone)
         }
-        vm[qs.type][qs.wenIndex].question.splice(qs.qsIndex,1,another)
+        vm[type][wenIndex].question.splice(qsIndex,1,another)
     }
     //调整题目顺序-向上，绑定事件
     $('#content .wenBody').on('click','.qsFunc .upThis',function () {

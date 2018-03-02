@@ -24,7 +24,7 @@ let vm = new Vue({
                 text:'这是一道简答题，请写下你的想法',
                 options:[],
                 required:false,
-                data:['我觉得他真的好帅','还好他没有我帅','个个都是帅比']
+                data:['我觉得他真的好帅','还好他没有我帅','个个都是帅比','个个都是帅比个个都是帅比个个都是帅比个个都是帅比个个都是帅比']
             }]
         },{
             name: '这是我的第二二二份问卷',
@@ -42,7 +42,7 @@ let vm = new Vue({
                 text:'这是一道多选题，请选择',
                 options:['他也帅','你也帅','我也帅'],
                 required:true,
-                data:[[1,1],[2,1],[2,0],[1],[1,2,0],[1,2]]
+                data:[[1,2],[1,2],[2,0],[1],[1,2,0],[1,2]]
             },{
                 type:'text',
                 text:'这是一道简答题，请写下你的想法',
@@ -74,37 +74,45 @@ let vm = new Vue({
                 required:false,
                 data:['我觉得他真的好帅edit测试','还好他没有我帅edit测试','个个都是帅比edit测试']
             }]
+        },{
+            name: '新建的问卷-测试',
+            startTime:'2018-04-27T12:10',
+            deadline: '2018-02-27T13:10',
+            state: '发布中',
+            question:[
+                {
+                    type:'radio',
+                    text:'这是一道单选题，请选择',
+                    options:['他最帅','你最帅','我最帅','她最帅'],
+                    required:true,
+                    data:[1,1,2,1,3,0,1]
+                },{
+                    type:'checkbox',
+                    text:'这是一道多选题，请选择',
+                    options:['他也帅','你也帅','我也帅'],
+                    required:true,
+                    data:[[1,1],[2,1],[2,0],[1],[1,2,0],[1,2]]
+                },{
+                    type:'checkbox',
+                    text:'这是另一道多选题，请选择',
+                    options:['他也帅','你也帅','我也帅'],
+                    required:true,
+                    data:[[1,1],[2,1],[2,0],[1],[1,2,0],[1,2]]
+                },{
+                    type:'text',
+                    text:'这是一道简答题，请写下你的想法',
+                    options:[],
+                    required:false,
+                    data:['我觉得他真的好帅','还好他没有我帅','个个都是帅比']
+                }
+            ],
         }],
         newwenjuan:[{//这里设置为数组，主要是为了和上面保持一致，方便函数处理
-            name: '新建的问卷-测试',
-            startTime:'123',
-            deadline: '432',
+            name: '请输入标题',
+            startTime:'',
+            deadline: '',
             state: '发布中',
-            question:[{
-                type:'radio',
-                text:'这是一道单选题，请选择',
-                options:['他最帅','你最帅','我最帅','她最帅'],
-                required:true,
-                data:[1,1,2,1,3,0,1]
-            },{
-                type:'checkbox',
-                text:'这是一道多选题，请选择',
-                options:['他也帅','你也帅','我也帅'],
-                required:true,
-                data:[[1,1],[2,1],[2,0],[1],[1,2,0],[1,2]]
-            },{
-                type:'checkbox',
-                text:'这是另一道多选题，请选择',
-                options:['他也帅','你也帅','我也帅'],
-                required:true,
-                data:[[1,1],[2,1],[2,0],[1],[1,2,0],[1,2]]
-            },{
-                type:'text',
-                text:'这是一道简答题，请写下你的想法',
-                options:[],
-                required:false,
-                data:['我觉得他真的好帅','还好他没有我帅','个个都是帅比']
-            }],
+            question:[]
         }],
         editwenjuan:[{
             name: '',
@@ -113,7 +121,7 @@ let vm = new Vue({
             state: '',
             question:[]
         }],
-        selectWenIndex: -1,
+        selectWenIndex: -1,//当前选中的是哪个问卷
         alertContent:'',//提示框中的内容
         ACOption:{
             inputOne:'请输入选项内容：<br><input type="text" id="inputOne">',
@@ -127,7 +135,8 @@ let vm = new Vue({
             noSaveOut:'直接退出后的内容将无法保存，您确定么？',
             noWen:'当前没有问卷，自动跳转到新建页面',
             editStems:'请输入新的题干内容：<br><input type="text" id="inputOne">',
-            cantEdit:'<b>强烈不建议</b>编辑"发布中"或"已结束"的问卷'
+            cantEdit:'<b>强烈不建议</b>编辑"发布中"或"已结束"的问卷',
+            cantShow:'未发布的问卷，没有数据可供展示'
         },
         floatButton:'',//提示框按钮的内容，
         FBOption:{
@@ -219,7 +228,7 @@ let vm = new Vue({
                 '                    <td class="col5">\n' +
                 '                        <input type="button" value="编辑" onclick="editWen()">\n' +
                 '                        <input type="button" value="删除" onclick="doDel(\'this\')">\n' +
-                '                        <input type="button" value="查看数据">\n' +
+                '                        <input type="button" value="查看数据" onclick="showData()">\n' +
                 '                    </td>\n' +
                 '                    <td>\n' +
                 '                        <input type="button" value="全部删除" onclick="doDel(\'all\')">\n' +
@@ -288,6 +297,24 @@ let vm = new Vue({
                 alert('截止时间必须在开始时间之后')
                 return false;
             }else{return true}
+        },
+        checkData:function () {
+            let which = this.editOrNew+'wenjuan';
+            let startTime = this[which][0].startTime;
+            startTime = new Date(startTime.replace(/T/,' ').replace(/-/g,"\/"));
+            let now = new Date();
+            console.log(startTime);
+            console.log(now)
+            if(this[which][0].name == '请输入标题'){
+                alert('请修改标题')
+                return false;
+            }else if(startTime <= now){
+                alert('开始时间不能早于当前时间');
+                return false;
+            }
+            else{
+                return true;
+            }
         }
     }
 })

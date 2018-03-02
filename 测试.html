@@ -12,18 +12,11 @@
 <body class="body">
     <div id="div"></div>
     <script>
-        var vm=new Vue({
-            el:"#div",
-            data:{
-                a:1,
-                b:c()
-            },
-            methods:{
-                c:function () {
-                    return this.a+1;
-                }
-            }
-        })
+        var v = document.getElementById('div')
+        // console.log(v.getContext());
+        var x = $('#div');
+        console.log(x.getContext())
+        console.log(x[0].getContext())
     </script>
 </body>
 </html>

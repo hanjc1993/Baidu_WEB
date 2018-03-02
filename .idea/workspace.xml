@@ -2,9 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7f54b6f0-67fb-49e2-8acd-1d2c29902f13" name="默认的" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/16/调查问卷/show_echarts.js" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/16/调查问卷/index.html" afterPath="$PROJECT_DIR$/16/调查问卷/index.html" />
-      <change beforePath="$PROJECT_DIR$/gradient太难.html" afterPath="$PROJECT_DIR$/gradient.html" />
+      <change beforePath="$PROJECT_DIR$/16/调查问卷/wenjuan.js" afterPath="$PROJECT_DIR$/16/调查问卷/vm_vue.js" />
+      <change beforePath="$PROJECT_DIR$/Advanced/ECharts/ECharts-1.html" afterPath="$PROJECT_DIR$/Advanced/ECharts/ECharts-1.html" />
+      <change beforePath="$PROJECT_DIR$/测试.html" afterPath="$PROJECT_DIR$/测试.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -16,49 +19,42 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FavoritesManager">
+    <favorites_list name="Baidu_WEB" />
+  </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5052687">
+    <splitter split-orientation="horizontal" split-proportion="0.42623815">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+          <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/16/调查问卷/index.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="157">
-                  <caret line="470" column="50" lean-forward="true" selection-start-line="470" selection-start-column="50" selection-end-line="470" selection-end-column="50" />
+                <state relative-caret-position="343">
+                  <caret line="593" column="47" lean-forward="true" selection-start-line="593" selection-start-column="12" selection-end-line="593" selection-end-column="47" />
                   <folding>
                     <element signature="n#style#0;n#head#0;n#html#0;n#!!top" expanded="false" />
                     <element signature="n#style#2;n#head#0;n#html#0;n#!!top" expanded="false" />
-                    <element signature="n#style#3;n#head#0;n#html#0;n#!!top" expanded="false" />
+                    <element signature="n#style#4;n#head#0;n#html#0;n#!!top" expanded="false" />
                     <element signature="n#table#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
                     <element signature="n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-                    <element signature="n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+                    <element signature="n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
                     <element signature="n#script#0;n#html#0;n#!!top" expanded="false" />
                   </folding>
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="gradient.html" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/gradient.html">
+          <file leaf-file-name="vm_vue.js" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/16/调查问卷/vm_vue.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="296">
-                  <caret line="19" column="23" lean-forward="false" selection-start-line="19" selection-start-column="23" selection-end-line="19" selection-end-column="23" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="wenjuan.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/16/调查问卷/wenjuan.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="399">
-                  <caret line="187" column="6" lean-forward="true" selection-start-line="187" selection-start-column="6" selection-end-line="187" selection-end-column="6" />
+                <state relative-caret-position="85">
+                  <caret line="238" column="21" lean-forward="false" selection-start-line="238" selection-start-column="21" selection-end-line="238" selection-end-column="21" />
                   <folding>
-                    <element signature="e#3878#4494#0" expanded="false" />
-                    <element signature="e#4548#7881#0" expanded="false" />
-                    <element signature="e#8108#10111#0" expanded="false" />
-                    <element signature="e#10142#12303#0" expanded="false" />
-                    <marker date="1519950471128" expanded="true" signature="11656:11662" ph=" " />
+                    <element signature="e#4216#4872#0" expanded="false" />
+                    <element signature="e#4926#8259#0" expanded="false" />
+                    <element signature="e#8486#10510#0" expanded="false" />
+                    <element signature="e#10541#12702#0" expanded="false" />
+                    <marker date="1519999177679" expanded="true" signature="12055:12061" ph=" " />
                   </folding>
                 </state>
               </provider>
@@ -67,8 +63,8 @@
           <file leaf-file-name="测试.html" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/测试.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="360">
-                  <caret line="18" column="21" lean-forward="true" selection-start-line="18" selection-start-column="21" selection-end-line="18" selection-end-column="21" />
+                <state relative-caret-position="340">
+                  <caret line="17" column="12" lean-forward="true" selection-start-line="17" selection-start-column="12" selection-end-line="17" selection-end-column="12" />
                   <folding />
                 </state>
               </provider>
@@ -81,13 +77,31 @@
           <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/16/调查问卷/index.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="293">
-                  <caret line="680" column="16" lean-forward="false" selection-start-line="680" selection-start-column="16" selection-end-line="680" selection-end-column="16" />
+                <state relative-caret-position="850">
+                  <caret line="931" column="7" lean-forward="true" selection-start-line="931" selection-start-column="7" selection-end-line="931" selection-end-column="7" />
                   <folding>
                     <element signature="n#style#0;n#head#0;n#html#0;n#!!top" expanded="false" />
-                    <element signature="n#style#1;n#head#0;n#html#0;n#!!top" expanded="false" />
-                    <element signature="n#style#3;n#head#0;n#html#0;n#!!top" expanded="false" />
+                    <element signature="n#style#2;n#head#0;n#html#0;n#!!top" expanded="false" />
+                    <element signature="n#style#4;n#head#0;n#html#0;n#!!top" expanded="false" />
                     <element signature="n#table#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+                    <element signature="n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+                    <element signature="n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+                    <element signature="n#script#0;n#html#0;n#!!top" expanded="false" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="show_echarts.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/16/调查问卷/show_echarts.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="670">
+                  <caret line="113" column="20" lean-forward="true" selection-start-line="113" selection-start-column="20" selection-end-line="113" selection-end-column="20" />
+                  <folding>
+                    <element signature="e#1655#2008#0" expanded="false" />
+                    <element signature="e#2036#2541#0" expanded="false" />
+                    <marker date="1519997062179" expanded="true" signature="637:643" ph=" " />
+                    <marker date="1519997062179" expanded="true" signature="710:736" ph="..." />
                   </folding>
                 </state>
               </provider>
@@ -108,21 +122,10 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>header</find>
-      <find>title</find>
-      <find>vm.editOrNew</find>
-      <find>#newWen</find>
-      <find>#newwen</find>
-      <find>newDuring</find>
-      <find>compareDate</find>
-      <find>delAll</find>
-      <find>wenjuan.splice</find>
-      <find>请输入标题</find>
       <find>.spli</find>
       <find>SaveOut</find>
       <find>.show()</find>
       <find>noSaveOut</find>
-      <find>saveout</find>
       <find>this.new</find>
       <find>newWenButton</find>
       <find>this[which][0].question.length</find>
@@ -137,7 +140,18 @@
       <find>li</find>
       <find>function edit</find>
       <find>saveOut</find>
+      <find>qs.qsIndex</find>
+      <find>showData</find>
+      <find>drawCharts</find>
       <find>saveOut(</find>
+      <find>repl</find>
+      <find>.wenname</find>
+      <find>returnMyWen</find>
+      <find>toolt</find>
+      <find>#mywen</find>
+      <find>请</find>
+      <find>saveout</find>
+      <find>newwenjuan</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -151,8 +165,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/YaoYao/Task-7表格排序/Task-7锁定首行.html" />
-        <option value="$PROJECT_DIR$/YaoYao/Task-7表格排序/Task-7.html" />
         <option value="$PROJECT_DIR$/Advanced/ShangyePingtai-HXF/模拟时钟/别人做的.html" />
         <option value="$PROJECT_DIR$/Advanced/ShangyePingtai-HXF/模拟时钟/别人做的2.html" />
         <option value="$PROJECT_DIR$/Advanced/ShangyePingtai-HXF/模拟时钟/模拟时钟.html" />
@@ -182,7 +194,6 @@
         <option value="$PROJECT_DIR$/Advanced/ShangyePingtai-MHN/色彩选择器/色彩选择器.html" />
         <option value="$PROJECT_DIR$/Advanced/BaiduNuomi-CXD/css3饼状Loading/css3饼状loading.html" />
         <option value="$PROJECT_DIR$/Advanced/BaiduNuomi-CXD/css3饼状Loading/css3饼状Loading.html" />
-        <option value="$PROJECT_DIR$/Advanced/ECharts/ECharts-1.html" />
         <option value="$PROJECT_DIR$/Advanced/ECharts/ECharts-2.html" />
         <option value="$PROJECT_DIR$/Advanced/ShangyePingtai-MHN/色彩选择器/色彩选择器Vue升级版.html" />
         <option value="$PROJECT_DIR$/Advanced/ShangyePingtai-TGY/js图片裁剪器，如保存需经后端.html" />
@@ -199,9 +210,12 @@
         <option value="$PROJECT_DIR$/Advanced/色彩选择器/色彩选择器Vue升级版.html" />
         <option value="$PROJECT_DIR$/16/日历/demo.html" />
         <option value="$PROJECT_DIR$/16/调查问卷/bieren.js" />
-        <option value="$PROJECT_DIR$/测试.html" />
         <option value="$PROJECT_DIR$/16/调查问卷/wenjuan.js" />
+        <option value="$PROJECT_DIR$/Advanced/ECharts/ECharts-1.html" />
+        <option value="$PROJECT_DIR$/测试.html" />
+        <option value="$PROJECT_DIR$/16/调查问卷/show_echarts.js" />
         <option value="$PROJECT_DIR$/16/调查问卷/index.html" />
+        <option value="$PROJECT_DIR$/16/调查问卷/vm_vue.js" />
       </list>
     </option>
   </component>
@@ -219,10 +233,9 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="201" />
-    <option name="y" value="40" />
-    <option name="width" value="1719" />
-    <option name="height" value="1040" />
+    <option name="x" value="410" />
+    <option name="width" value="1510" />
+    <option name="height" value="1080" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -391,12 +404,12 @@
       <workItem from="1519606002946" duration="27921000" />
       <workItem from="1519693283567" duration="17786000" />
       <workItem from="1519779312372" duration="35194000" />
-      <workItem from="1519866509067" duration="22286000" />
+      <workItem from="1519866509067" duration="53077000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1074691000" />
+    <option name="totallyTimeSpent" value="1105482000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -411,7 +424,7 @@
     <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.098524764" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.09850544" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32910052" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="调试" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -420,7 +433,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.074074075" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="运行" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32982087" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="层次结构" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32967034" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -433,6 +446,29 @@
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="找到" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32826087" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
     </layout>
+    <layout-to-restore>
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32910052" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="层次结构" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32967034" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="调试" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3281768" sideWeight="0.5" order="12" side_tool="true" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.074074075" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="运行" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.09850544" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
+      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="找到" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32826087" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -442,12 +478,11 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="61" />
+      <option name="time" value="62" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/axios.js" />
     <entry file="file://$PROJECT_DIR$/vue-resource.js" />
     <entry file="file://$PROJECT_DIR$/a.php" />
     <entry file="file://$PROJECT_DIR$/css对话框测试.html">
@@ -568,20 +603,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Advanced/ECharts/ECharts-2.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20">
-          <caret line="15" column="7" lean-forward="false" selection-start-line="15" selection-start-column="7" selection-end-line="15" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Advanced/ECharts/ECharts-1.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="8" column="9" lean-forward="false" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Advanced/ShangyePingtai-TGY/123.jpg" />
     <entry file="file://$PROJECT_DIR$/Advanced/js 图片裁剪器/背景.gif">
       <provider selected="true" editor-type-id="images">
@@ -599,13 +620,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
           <caret line="0" column="38631" lean-forward="false" selection-start-line="0" selection-start-column="38631" selection-end-line="0" selection-end-column="38631" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Advanced/ECharts/ECharts-3.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="18" column="76" lean-forward="true" selection-start-line="18" selection-start-column="76" selection-end-line="18" selection-end-column="76" />
         </state>
       </provider>
     </entry>
@@ -701,48 +715,87 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/16/调查问卷/bieren.js" />
-    <entry file="file://$PROJECT_DIR$/测试.html">
+    <entry file="file://$PROJECT_DIR$/Advanced/ECharts/ECharts-1.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="18" column="21" lean-forward="true" selection-start-line="18" selection-start-column="21" selection-end-line="18" selection-end-column="21" />
+        <state relative-caret-position="240">
+          <caret line="12" column="6" lean-forward="true" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/16/调查问卷/wenjuan.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="187" column="6" lean-forward="true" selection-start-line="187" selection-start-column="6" selection-end-line="187" selection-end-column="6" />
-          <folding>
-            <element signature="e#3878#4494#0" expanded="false" />
-            <element signature="e#4548#7881#0" expanded="false" />
-            <element signature="e#8108#10111#0" expanded="false" />
-            <element signature="e#10142#12303#0" expanded="false" />
-            <marker date="1519950471128" expanded="true" signature="11656:11662" ph=" " />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/gradient.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="296">
+        <state relative-caret-position="310">
           <caret line="19" column="23" lean-forward="false" selection-start-line="19" selection-start-column="23" selection-end-line="19" selection-end-column="23" />
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Advanced/ECharts/ECharts-3.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="13" column="33" lean-forward="true" selection-start-line="13" selection-start-column="33" selection-end-line="13" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Advanced/ECharts/ECharts-2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="553">
+          <caret line="109" column="0" lean-forward="false" selection-start-line="109" selection-start-column="0" selection-end-line="112" selection-end-column="14" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/测试.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="17" column="12" lean-forward="true" selection-start-line="17" selection-start-column="12" selection-end-line="17" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/16/调查问卷/show_echarts.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="670">
+          <caret line="113" column="20" lean-forward="true" selection-start-line="113" selection-start-column="20" selection-end-line="113" selection-end-column="20" />
+          <folding>
+            <element signature="e#1655#2008#0" expanded="false" />
+            <element signature="e#2036#2541#0" expanded="false" />
+            <marker date="1519997062179" expanded="true" signature="637:643" ph=" " />
+            <marker date="1519997062179" expanded="true" signature="710:736" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/16/调查问卷/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="157">
-          <caret line="470" column="50" lean-forward="true" selection-start-line="470" selection-start-column="50" selection-end-line="470" selection-end-column="50" />
+        <state relative-caret-position="343">
+          <caret line="593" column="47" lean-forward="true" selection-start-line="593" selection-start-column="12" selection-end-line="593" selection-end-column="47" />
           <folding>
             <element signature="n#style#0;n#head#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#style#2;n#head#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#3;n#head#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#4;n#head#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#table#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#script#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/16/调查问卷/vm_vue.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="238" column="21" lean-forward="false" selection-start-line="238" selection-start-column="21" selection-end-line="238" selection-end-column="21" />
+          <folding>
+            <element signature="e#4216#4872#0" expanded="false" />
+            <element signature="e#4926#8259#0" expanded="false" />
+            <element signature="e#8486#10510#0" expanded="false" />
+            <element signature="e#10541#12702#0" expanded="false" />
+            <marker date="1519999177679" expanded="true" signature="12055:12061" ph=" " />
           </folding>
         </state>
       </provider>
