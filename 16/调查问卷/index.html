@@ -474,14 +474,10 @@
                 <div class="during">
                     <span class="left">问卷的<b>发布</b>时间：</span>
                     <input class="left" type="datetime-local" v-model="editwenjuan[0].startTime" @change="checkDuring()">
-                    <label for="edit_startQuick">快捷设置：</label>
-                    <select id="edit_startQuick" onchange="newDuring(this.value,'startTime')"></select>
                 </div>
                 <div class="during">
                     <span class="left">问卷的<b>截止</b>时间：</span>
                     <input class="left" type="datetime-local" v-model="editwenjuan[0].deadline" @change="checkDuring()">
-                    <label for="edit_deadQuick">快捷设置：</label>
-                    <select id="edit_deadQuick" onchange="newDuring(this.value,'deadline')"></select>
                 </div>
                 <div id="showWenOut" class="wenOut">
                     <input type="button" value="退出" onclick="saveOut('stay','edit')">
