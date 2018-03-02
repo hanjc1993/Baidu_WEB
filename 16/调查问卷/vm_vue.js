@@ -136,7 +136,8 @@ let vm = new Vue({
             noWen:'当前没有问卷，自动跳转到新建页面',
             editStems:'请输入新的题干内容：<br><input type="text" id="inputOne">',
             cantEdit:'<b>强烈不建议</b>编辑"发布中"或"已结束"的问卷',
-            cantShow:'未发布的问卷，没有数据可供展示'
+            cantShow:'未发布的问卷，没有数据可供展示',
+            newTextType:'请输入简答题题干：<br><input type="text" id="inputOne">'
         },
         floatButton:'',//提示框按钮的内容，
         FBOption:{

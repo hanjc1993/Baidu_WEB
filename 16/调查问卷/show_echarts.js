@@ -13,7 +13,7 @@ function drawCharts() {
         let qs = thiswen.question[i];
         //<b>Q'+(i+1)+'&nbsp;</b> '+this[which][0].question[i].text
         $('#showWenBody').append(
-            "<div class='showQsText'><b>Q"+(i+1)+"&nbsp;</b>"+qs.text+"</div>" +
+            "<div class='showQsText'><b>Q"+(i+1)+"&nbsp;</b>（"+transformType(qs.type)+"）&nbsp;"+qs.text+"</div>" +
             "<div id='showQs"+i+"' style='height: 300px;width: 700px'></div>"
         )
         let myCharts = echarts.init($('#showWenBody').find('div:last')[0])
