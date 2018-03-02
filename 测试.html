@@ -10,22 +10,20 @@
 </head>
 
 <body class="body">
-    <div></div>
+    <div id="div"></div>
     <script>
-        var x;
-        const a = [];
-        for(var i =0 ; i<5 ; i++){
-            a.push(function () {
-                x = i;
-                return console.log(x)
-            })
-        }
-        console.log(a[0])
-        console.log(a[1])
-        console.log(a[2])
-        a[0]();
-        a[1]();
-        a[2]();
+        var vm=new Vue({
+            el:"#div",
+            data:{
+                a:1,
+                b:c()
+            },
+            methods:{
+                c:function () {
+                    return this.a+1;
+                }
+            }
+        })
     </script>
 </body>
 </html>

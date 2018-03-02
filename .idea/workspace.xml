@@ -2,11 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7f54b6f0-67fb-49e2-8acd-1d2c29902f13" name="默认的" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/16/调查问卷/index.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/16/调查问卷/wenjuan.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/16/调查问卷/edit.png" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/16/日历/demo.html" afterPath="$PROJECT_DIR$/16/日历/demo.html" />
+      <change beforePath="$PROJECT_DIR$/16/调查问卷/index.html" afterPath="$PROJECT_DIR$/16/调查问卷/index.html" />
+      <change beforePath="$PROJECT_DIR$/16/调查问卷/wenjuan.js" afterPath="$PROJECT_DIR$/16/调查问卷/wenjuan.js" />
       <change beforePath="$PROJECT_DIR$/测试.html" afterPath="$PROJECT_DIR$/测试.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -20,34 +19,49 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.544784">
+    <splitter split-orientation="horizontal" split-proportion="0.5052687">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+          <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/16/调查问卷/index.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="4120">
-                  <caret line="432" column="16" lean-forward="false" selection-start-line="432" selection-start-column="16" selection-end-line="432" selection-end-column="16" />
+                <state relative-caret-position="457">
+                  <caret line="485" column="31" lean-forward="false" selection-start-line="485" selection-start-column="31" selection-end-line="485" selection-end-column="31" />
                   <folding>
                     <element signature="n#style#0;n#head#0;n#html#0;n#!!top" expanded="false" />
-                    <element signature="n#style#1;n#head#0;n#html#0;n#!!top" expanded="false" />
+                    <element signature="n#style#2;n#head#0;n#html#0;n#!!top" expanded="false" />
                     <element signature="n#style#3;n#head#0;n#html#0;n#!!top" expanded="false" />
                     <element signature="n#table#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-                    <element signature="n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+                    <element signature="n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+                    <element signature="n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+                    <element signature="n#script#0;n#html#0;n#!!top" expanded="false" />
                   </folding>
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="wenjuan.js" pinned="false" current-in-tab="true">
+          <file leaf-file-name="wenjuan.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/16/调查问卷/wenjuan.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="560">
-                  <caret line="151" column="12" lean-forward="false" selection-start-line="151" selection-start-column="12" selection-end-line="151" selection-end-column="12" />
+                <state relative-caret-position="399">
+                  <caret line="187" column="6" lean-forward="true" selection-start-line="187" selection-start-column="6" selection-end-line="187" selection-end-column="6" />
                   <folding>
-                    <element signature="e#6131#8141#0" expanded="false" />
-                    <marker date="1519696871039" expanded="true" signature="9461:9467" ph=" " />
+                    <element signature="e#3878#4494#0" expanded="false" />
+                    <element signature="e#4548#7881#0" expanded="false" />
+                    <element signature="e#8108#10111#0" expanded="false" />
+                    <element signature="e#10142#12303#0" expanded="false" />
+                    <marker date="1519950471128" expanded="true" signature="11656:11662" ph=" " />
                   </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="测试.html" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/测试.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="360">
+                  <caret line="18" column="21" lean-forward="true" selection-start-line="18" selection-start-column="21" selection-end-line="18" selection-end-column="21" />
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -59,14 +73,13 @@
           <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/16/调查问卷/index.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1341">
-                  <caret line="686" column="0" lean-forward="false" selection-start-line="686" selection-start-column="0" selection-end-line="686" selection-end-column="0" />
+                <state relative-caret-position="293">
+                  <caret line="684" column="16" lean-forward="false" selection-start-line="684" selection-start-column="16" selection-end-line="684" selection-end-column="16" />
                   <folding>
                     <element signature="n#style#0;n#head#0;n#html#0;n#!!top" expanded="false" />
                     <element signature="n#style#1;n#head#0;n#html#0;n#!!top" expanded="false" />
                     <element signature="n#style#3;n#head#0;n#html#0;n#!!top" expanded="false" />
                     <element signature="n#table#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-                    <element signature="n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
                   </folding>
                 </state>
               </provider>
@@ -87,36 +100,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>rbMidDate</find>
-      <find>last</find>
-      <find>vm</find>
-      <find>newTable</find>
-      <find>\n' +</find>
-      <find>newWenQs</find>
-      <find>.type</find>
-      <find>span:last-child</find>
-      <find>newBig</find>
-      <find>newWenNewQs</find>
-      <find>options</find>
-      <find>alertButton</find>
-      <find>windowButton</find>
-      <find>windowB</find>
-      <find>.hide()</find>
-      <find>alert</find>
-      <find>.newOption</find>
-      <find>#alertContent</find>
-      <find>getInput</find>
-      <find>newwenjuan</find>
-      <find>alertB</find>
-      <find>newOption</find>
-      <find>alertconten</find>
-      <find>.alertconten</find>
-      <find>floatWindow</find>
-      <find>.window</find>
-      <find>getinput</find>
-      <find>getinp</find>
-      <find>floatClose</find>
+      <find>header</find>
+      <find>title</find>
+      <find>vm.editOrNew</find>
+      <find>#newWen</find>
+      <find>#newwen</find>
+      <find>newDuring</find>
+      <find>compareDate</find>
+      <find>delAll</find>
+      <find>wenjuan.splice</find>
+      <find>请输入标题</find>
+      <find>.spli</find>
+      <find>SaveOut</find>
+      <find>.show()</find>
+      <find>noSaveOut</find>
+      <find>saveout</find>
+      <find>this.new</find>
       <find>newWenButton</find>
+      <find>this[which][0].question.length</find>
+      <find>$('#mainTable tbody input[name=&quot;select&quot;]:checked').parents('tr').index()</find>
+      <find>index</find>
+      <find>#new</find>
+      <find>.val('')</find>
+      <find>delNewWen</find>
+      <find>{{</find>
+      <find>returnmy</find>
+      <find>.index</find>
+      <find>li</find>
+      <find>function edit</find>
+      <find>saveOut</find>
+      <find>saveOut(</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -179,8 +192,8 @@
         <option value="$PROJECT_DIR$/16/日历/demo.html" />
         <option value="$PROJECT_DIR$/16/调查问卷/bieren.js" />
         <option value="$PROJECT_DIR$/测试.html" />
-        <option value="$PROJECT_DIR$/16/调查问卷/index.html" />
         <option value="$PROJECT_DIR$/16/调查问卷/wenjuan.js" />
+        <option value="$PROJECT_DIR$/16/调查问卷/index.html" />
       </list>
     </option>
   </component>
@@ -237,7 +250,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -249,6 +261,12 @@
               <item name="Baidu_WEB" type="b2602c69:ProjectViewProjectNode" />
               <item name="Baidu_WEB" type="462c0819:PsiDirectoryNode" />
               <item name="16" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Baidu_WEB" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Baidu_WEB" type="462c0819:PsiDirectoryNode" />
+              <item name="16" type="462c0819:PsiDirectoryNode" />
+              <item name="调查问卷" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Baidu_WEB" type="b2602c69:ProjectViewProjectNode" />
@@ -270,6 +288,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="Scratches" />
     </panes>
   </component>
@@ -283,19 +302,19 @@
     <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\HanJC\WebstormProjects\Baidu_WEB\16\调查问卷" />
+      <recent name="C:\Users\HanJC\WebstormProjects\BaiduWEB" />
+      <recent name="C:\Users\HanJC\WebstormProjects\BaiduWEB\Advanced\标签云" />
+      <recent name="C:\Users\HanJC\WebstormProjects\BaiduWEB\Advanced\BaiduNuomi-CXD\3d图片轮播" />
+      <recent name="C:\Users\HanJC\WebstormProjects\BaiduWEB\Advanced\ECharts\map" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\HanJC\WebstormProjects\BaiduWEB\Advanced" />
       <recent name="C:\Users\HanJC\WebstormProjects\BaiduWEB\Advanced\BaiduNuomi-CXD\3d图片轮播" />
       <recent name="C:\Users\HanJC\WebstormProjects\BaiduWEB\Advanced\ShangyePingtai-TGY" />
       <recent name="C:\Users\HanJC\WebstormProjects\BaiduWEB\Advanced\ShangyePingtai-MHN\色彩选择器" />
       <recent name="C:\Users\HanJC\WebstormProjects\BaiduWEB\Advanced\ShangyePingtai-WY\标签云" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\HanJC\WebstormProjects\BaiduWEB" />
-      <recent name="C:\Users\HanJC\WebstormProjects\BaiduWEB\Advanced\标签云" />
-      <recent name="C:\Users\HanJC\WebstormProjects\BaiduWEB\Advanced\BaiduNuomi-CXD\3d图片轮播" />
-      <recent name="C:\Users\HanJC\WebstormProjects\BaiduWEB\Advanced\ECharts\map" />
-      <recent name="C:\Users\HanJC\WebstormProjects\BaiduWEB\Advanced\ShangyePingtai-TGY" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -362,12 +381,14 @@
       <workItem from="1519432294374" duration="14318000" />
       <workItem from="1519521102259" duration="30108000" />
       <workItem from="1519606002946" duration="27921000" />
-      <workItem from="1519693283567" duration="1322000" />
+      <workItem from="1519693283567" duration="17786000" />
+      <workItem from="1519779312372" duration="35194000" />
+      <workItem from="1519866509067" duration="21915000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1000747000" />
+    <option name="totallyTimeSpent" value="1074320000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -379,7 +400,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="32" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.098524764" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -402,7 +423,7 @@
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="找到" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32910052" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="找到" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32826087" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32910052" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -425,7 +446,7 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="找到" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32910052" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="找到" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32826087" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -436,7 +457,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="58" />
+      <option name="time" value="61" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -704,32 +725,35 @@
     <entry file="file://$PROJECT_DIR$/16/调查问卷/bieren.js" />
     <entry file="file://$PROJECT_DIR$/测试.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="14" column="14" lean-forward="true" selection-start-line="14" selection-start-column="14" selection-end-line="14" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/16/调查问卷/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4120">
-          <caret line="432" column="16" lean-forward="false" selection-start-line="432" selection-start-column="16" selection-end-line="432" selection-end-column="16" />
-          <folding>
-            <element signature="n#style#0;n#head#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#1;n#head#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#3;n#head#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#table#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
+        <state relative-caret-position="360">
+          <caret line="18" column="21" lean-forward="true" selection-start-line="18" selection-start-column="21" selection-end-line="18" selection-end-column="21" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/16/调查问卷/wenjuan.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="560">
-          <caret line="151" column="12" lean-forward="false" selection-start-line="151" selection-start-column="12" selection-end-line="151" selection-end-column="12" />
+        <state relative-caret-position="399">
+          <caret line="187" column="6" lean-forward="true" selection-start-line="187" selection-start-column="6" selection-end-line="187" selection-end-column="6" />
           <folding>
-            <element signature="e#6131#8141#0" expanded="false" />
-            <marker date="1519696871039" expanded="true" signature="9461:9467" ph=" " />
+            <element signature="e#3878#4494#0" expanded="false" />
+            <element signature="e#4548#7881#0" expanded="false" />
+            <element signature="e#8108#10111#0" expanded="false" />
+            <element signature="e#10142#12303#0" expanded="false" />
+            <marker date="1519950471128" expanded="true" signature="11656:11662" ph=" " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/16/调查问卷/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="293">
+          <caret line="684" column="16" lean-forward="false" selection-start-line="684" selection-start-column="16" selection-end-line="684" selection-end-column="16" />
+          <folding>
+            <element signature="n#style#0;n#head#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#1;n#head#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#3;n#head#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#table#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>

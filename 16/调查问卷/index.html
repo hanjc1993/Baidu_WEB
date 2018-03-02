@@ -7,27 +7,27 @@
     <script src="../../vue.js" type="text/javascript"></script>
     <!--头部内容-->
     <style>
-        header{
+        #header{
             background-color: #ee7419;
             height: 50px;width: 100%;
             position: fixed;
             padding-left: 100px;
             z-index: 100;
         }
-        header span{
+        #header span{
             display: inline-block;
             font: bold 22px/26px '微软雅黑';
             color: #fff;
         }
-        header>span{
+        #header>span{
             float: left;
             margin-top: 10px;
         }
-        #header{
+        #header #title{
             margin-right: 70px;
             margin-top: 13px;
         }
-        #circle{
+        #header #circle{
             margin-top: 13px;
             margin-right: 8px;
             width: 26px;
@@ -36,7 +36,7 @@
             color: #ee7419;
             text-align: center;
         }
-        .tag{
+        #header .tag{
             font-weight: normal;
             font-size: 17px;
             margin-left: 10px;
@@ -45,17 +45,17 @@
             text-align: center;
             padding-top: 5px;
         }
-        .tag:hover{
+        #header .tag:hover{
             background-color: white;
             color: #ee7419;
             cursor: pointer;
         }
-        .checked{
+        #header .checked{
             display: block!important;
             color: #ee7419;
             background-color: #fcf0e5;
         }
-        #newWenTag,#editWenTag{display: none}
+        #header #newWenTag,#header #editWenTag,#header #showWenTag{display: none}
     </style>
     <!--主要内容-->
     <style>
@@ -125,16 +125,13 @@
             left: 250px;top: 13px;
             color: #fff;
             width: 100px;height: 24px;
-            border-radius: 5px;
             background-color: #ee7419;
             line-height: 20px;
-            outline: none;
-            cursor: pointer;
         }
         #content tbody .selected{
             background-color: #fcf0e5;
         }
-        #content #newBig{
+        #content .big{
             display: none;
             background-color: white;
             /*overflow: hidden;*/
@@ -143,39 +140,32 @@
             width: 820px;min-height: 400px;
             position: relative;
         }
-        #content #newWenButton{
-            font-size: 50px;
-            position: absolute;
-            top: 150px;
-            left: 290px;
-        }
     </style>
     <!--新建问卷-->
     <style>
-        #newMain{
-            display: none;
+        #content .main{
             padding: 10px;
         }
-        #newWenName{
+        #content .wenName{
             padding: 5px 40px 0 40px;
             margin-bottom: 10px;
             height: 55px;
             overflow: hidden;
         }
-        #newWenName>*{
+        #content .wenName>*{
             margin: 0 0 5px 0;
             height: 55px;
             font: bold 20px/50px '微软雅黑';
             text-align: center;
             border: 1px solid #fff;
         }
-        #newWenName p{
+        #content .wenName p{
             cursor: pointer;
         }
-        #newWenName>*:hover{
+        #content .wenName>*:hover{
             background-color: #fcf0e5;
         }
-        #newWenName input{
+        #content .wenName input{
             display: none;
             outline: none;
             border-radius: 8px;
@@ -185,88 +175,97 @@
             display: block;
             width: 100%;
         }
-        #newWenName input{
+        #content .wenName input{
             box-shadow: 0 0 3px 1px rgba(48, 174, 255, 0.8);
         }
-        #newMain #newWenBody{
+        #content .wenBody{
             padding: 15px 40px;
         }
-        #newWenBody ul{
+        #content .wenBody ul{
             margin: 0;
             list-style: none;
             text-align: left;
         }
-        .newWenQs{
+        .wenQs{
             padding-top: 10px;
         }
-        .newWenQs:hover{
+        .wenQs:hover{
             background-color: #fcf0e5;
         }
-        #newWenBody li>span{
+        #content .wenBody li>span{
             display: none;
             cursor: pointer;
             font-weight: bold;
             color: #aaa;
             margin-left: 20px;
         }
-        #newWenBody ul>textarea{
+        #content .wenBody ul>textarea{
             margin-left: 35px;
             width: 600px;
         }
-        #newWenBody li:hover{
+        #content .wenBody li:hover{
             background-color: #eee;
         }
-        #newWenBody li:hover>span{
+        #content .wenBody li:hover>span{
             display: inline-block;
         }
-        #newWenBody li:hover>span:hover{
+        #content .wenBody li:hover>span:hover{
             color: #000;
         }
-        #newWenBody li{
+        #content .wenBody li{
             line-height: 25px;
-            height: 25px;
             font-size: 16px;
             margin-left: 32px;
         }
-        #newWenBody li:first-child{
+        #content .wenBody li img{
+            float: right;
+            border-top: 2px solid transparent;
+            margin-right:10px;
+            opacity: 0.2;
+            cursor: pointer;
+        }
+        #content .wenBody li img:hover{
+            opacity: 1;
+        }
+        #content .wenBody li:first-child{
             font-size: 18px;
             margin: 0;
         }
 
-        .newWenQs:hover .qsFunc{
+        .wenQs:hover .qsFunc{
             display: block;
         }
-        .newWenQs .qsFunc{
+        .wenQs .qsFunc{
             height: 35px;
             display: none;
         }
-        #newWenQs .qsFunc span{
+        #content .qsList .qsFunc span{
             display: inline-block;
             margin-right: 15px;
             float: right;
             cursor: pointer;
             color: #aaa;
         }
-        #newWenQs .qsFunc span:hover{
+        #content .qsList .qsFunc span:hover{
             color: #000;
         }
-        #newWenQs .qsFunc span:first-child{
+        #content .qsList .qsFunc span:first-child{
             color: rgba(255,0,0,0.46)
         }
-        #newWenQs .qsFunc span:first-child:hover{
+        #content .qsList .qsFunc span:first-child:hover{
             color: rgba(255,0,0,0.9)
         }
-        #newWenQs .qsFunc .newOption{
+        #content .qsList .qsFunc .newOption{
             float: left;
             border: 2px dotted  transparent;
             text-align: center;
             width: 300px;
             margin-left: 78px;
         }
-        #newWenQs .qsFunc .newOption:hover{
+        #content .qsList .qsFunc .newOption:hover{
             border: 2px dotted  #aaa;
         }
-        #newWenNewQs{
+        .newQs{
             height: 50px;
             margin-top: 40px;
             border: 1px solid #ccc;
@@ -276,22 +275,33 @@
             color: #ccc;
             overflow: hidden;
         }
-        #newWenNewQs:hover{
+        .newQs:hover{
             color: black;
         }
-        #newWenNewQs>div{
+        .newQs>div{
             height: 50px;
             line-height: 50px;
         }
-        #newWenOut{
-            margin: 20px 55px;
+        .wenOut{
+            margin: 30px 55px 0 55px;
             height: 50px;
         }
-        #newWenOut input[type='button']{
+        .wenOut input[type='button']{
             font-size: 18px;
             margin-right: 20px;
             float: right;
-
+        }
+        .during{
+            margin: 20px 50px;
+            height: 20px;
+        }
+        .during .left{
+            float: left;
+            margin-left: 10px;
+        }
+        .during select{
+            height: 22px;
+            text-align: center;
         }
     </style>
     <!--浮动框-->
@@ -355,12 +365,13 @@
 </head>
 <body>
 <div id="container">
-    <header>
+    <header id="header">
         <span id="circle">？</span>
-        <span id="header">问卷管理</span>
-        <span id="myWen" class="tag checked">我的问卷</span>
+        <span id="title">问卷管理</span>
+        <span id="myWen" class="tag checked" onclick="titleClick()">我的问卷</span>
         <span id="newWenTag" class="tag">新建问卷</span>
         <span id="editWenTag" class="tag">编辑问卷</span>
+        <span id="showWenTag" class="tag">查看数据</span>
     </header>
     <div id="content">
         <div id="blank"></div>
@@ -376,49 +387,104 @@
             <tbody v-html="wenlist">
             </tbody>
         </table>
-        <div id="newBig">
-            <input type="button" id="newWenButton" value="+ 新建问卷" onclick="newWen2()">
-            <div id="newMain">
-                <div id="newWenName">
+        <div id="newBig" class="big">
+            <div id="newMain" class="main">
+                <div id="newWenName" class="wenName">
                     <p>{{newwenjuan[0].name}}</p>
                     <input type="text" v-model="newwenjuan[0].name">
                 </div>
                 <hr height="3" color="#bbb">
-                <div id="newWenBody">
-                    <div id="newWenQs" v-html="newWenQs">
-<!--                        <div class="newWenQs">
-                            <ul>
-                                <li><b>Q{{newWenLenght}}&nbsp;</b> 单选题</li>
-                                <li><input type="radio" disabled>选项一 <span>×</span></li>
-                                <li><input type="radio" disabled>选项二 <span>×</span></li>
-                                <li><input type="radio" disabled>选项三 <span>×</span></li>
-                                <li><input type="radio" disabled>选项四 <span>×</span></li>
-                            </ul>
-                            <div class="qsFunc">
-                                <span>删除</span>
-                                <span>复用</span>
-                                <span>下移</span>
-                                <span>上移</span>
-                                <span><label><input type="checkbox" checked> 是否必填 </label></span>
-                                <span>＋</span>
-                            </div>
-                        </div>-->
-                    </div>
-                    <div id="newWenNewQs">
-                        <div id="newQsButton">
+                <div id="newWenBody" class="wenBody">
+                    <div id="newWenQs" v-html="newWenQs" class="qsList"></div>
+                    <div id="newWenNewQs" class="newQs">
+                        <div id="new_newQsButton" class="qsButton">
                             ＋ 添加问题
                         </div>
-                        <div id="newQsOption">
+                        <div>
                             <input type="button" value="+ 单选题" onclick="newQs('radio')">
                             <input type="button" value="+ 多选题" onclick="newQs('check')">
                             <input type="button" value="+ 简答题" onclick="newQs('text')">
                         </div>
                     </div>
                 </div>
-                <div id="newWenOut">
-                    <input type="button" value="保存" onclick="newWenOut('stay')">
-                    <input type="button" value="保存并退出" onclick="newWenOut()">
+                <div class="during">
+                    <span class="left">问卷的<b>发布</b>时间：</span>
+                    <input class="left" type="datetime-local" v-model="newwenjuan[0].startTime" @change="checkDuring()">
+                    <label for="new_startQuick">快捷设置：</label>
+                    <select id="new_startQuick" onchange="newDuring(this.value,'startTime')"></select>
+                </div>
+                <div class="during">
+                    <span class="left">问卷的<b>截止</b>时间：</span>
+                    <input class="left" type="datetime-local" v-model="newwenjuan[0].deadline" @change="checkDuring()">
+                    <label for="new_deadQuick">快捷设置：</label>
+                    <select id="new_deadQuick" onchange="newDuring(this.value,'deadline')"></select>
+                </div>
+                <div id="newWenOut" class="wenOut">
+                    <input type="button" value="保存" onclick="saveOut('stay','new')">
+                    <input type="button" value="保存并退出" onclick="saveOut('','new')">
                     <input type="button" value="直接退出" onclick="noSaveOut()">
+                </div>
+            </div>
+        </div>
+        <div id="editBig" class="big">
+            <div id="editMain" class="main">
+                <div id="editWenName" class="wenName">
+                    <p>{{editwenjuan[0].name}}</p>
+                    <input type="text" v-model="editwenjuan[0].name">
+                </div>
+                <hr height="3" color="#bbb">
+                <div id="editWenBody" class="wenBody">
+                    <div id="editWenQs" v-html="newWenQs" class="qsList"></div>
+                    <div id="editWenNewQs" class="newQs">
+                        <div id="edit_newQsButton" class="qsButton">
+                            ＋ 添加问题
+                        </div>
+                        <div>
+                            <input type="button" value="+ 单选题" onclick="newQs('radio')">
+                            <input type="button" value="+ 多选题" onclick="newQs('check')">
+                            <input type="button" value="+ 简答题" onclick="newQs('text')">
+                        </div>
+                    </div>
+                </div>
+                <div class="during">
+                    <span class="left">问卷的<b>发布</b>时间：</span>
+                    <input class="left" type="datetime-local" v-model="editwenjuan[0].startTime" @change="checkDuring()">
+                    <label for="edit_startQuick">快捷设置：</label>
+                    <select id="edit_startQuick" onchange="newDuring(this.value,'startTime')"></select>
+                </div>
+                <div class="during">
+                    <span class="left">问卷的<b>截止</b>时间：</span>
+                    <input class="left" type="datetime-local" v-model="editwenjuan[0].deadline" @change="checkDuring()">
+                    <label for="edit_deadQuick">快捷设置：</label>
+                    <select id="edit_deadQuick" onchange="newDuring(this.value,'deadline')"></select>
+                </div>
+                <div id="editWenOut" class="wenOut">
+                    <input type="button" value="保存" onclick="saveOut('stay','edit')">
+                    <input type="button" value="保存并退出" onclick="saveOut('','edit')">
+                    <input type="button" value="直接退出" onclick="noSaveOut()">
+                </div>
+            </div>
+        </div>
+        <div id="showBig">
+            <div id="editMain" class="main">
+                <div id="editWenName" class="wenName">
+                    <p>{{editwenjuan[0].name}}</p>
+                </div>
+                <hr height="3" color="#bbb">
+                <div class="during">
+                    <span class="left">问卷的<b>发布</b>时间：</span>
+                    <input class="left" type="datetime-local" v-model="editwenjuan[0].startTime" @change="checkDuring()">
+                    <label for="edit_startQuick">快捷设置：</label>
+                    <select id="edit_startQuick" onchange="newDuring(this.value,'startTime')"></select>
+                </div>
+                <div class="during">
+                    <span class="left">问卷的<b>截止</b>时间：</span>
+                    <input class="left" type="datetime-local" v-model="editwenjuan[0].deadline" @change="checkDuring()">
+                    <label for="edit_deadQuick">快捷设置：</label>
+                    <select id="edit_deadQuick" onchange="newDuring(this.value,'deadline')"></select>
+                </div>
+                <div id="showWenOut" class="wenOut">
+                    <input type="button" value="退出" onclick="saveOut('stay','edit')">
                 </div>
             </div>
         </div>
@@ -435,132 +501,267 @@
     </div>
 </div>
 </body>
-<script src="wenjuan.js" type="text/javascript"></script>
 <!--初次绘制函数-->
 <script>
-
+    let quicksetOption =
+        '                        <option value=""></option>\n' +
+        '                        <option value="0"> 今天</option>\n' +
+        '                        <option value="1">1 天后</option>\n' +
+        '                        <option value="2">2 天后</option>\n' +
+        '                        <option value="3">3 天后</option>\n' +
+        '                        <option value="5">5 天后</option>\n' +
+        '                        <option value="7">7 天后</option>\n' +
+        '                        <option value="10">10天后</option>\n' +
+        '                        <option value="30">30天后</option>\n' +
+        '                        <option value="365">365天后</option>'
+    $('#content .during select').append(quicksetOption);
 </script>
+<!--全局功能函数-->
 <script>
-    if (vm.wenjuan.length == 0){
-        newWen1();
+    //检查问卷数量，如果为0则自动跳转新建页面
+    function checkWen() {
+        if (vm.wenjuan.length == 0){
+            floatWindow('alert','noWen')
+            newWen();
+        }
     }
+
+    //提示框-显示-被各种调用
+    function floatWindow(button,content) {
+        $('#alertContent input').val('');//否则浏览器会记录上次的内容
+        vm.floatButton = vm.FBOption[button];
+        vm.alertContent = vm.ACOption[content];
+        $("#float").show();
+        //这里vue处理需要时间，所以把focus放在timeout队列中
+        setTimeout(function () {
+            $('#alertContent input').eq(0).focus()
+        },1)
+    }
+    //提示框-关闭
+    function floatClose() {
+        $("#float").hide().find("#floatWindow").removeClass('bigger');
+    }
+
+//新建问卷
+    //新建问卷-启动函数
+    function newWen() {
+        $('#mainTable,#showBig,#editBig').hide();
+        $('#newBig').show();
+        $('#header .checked').removeClass('checked')
+        $('#newWenTag').addClass('checked')
+        $('#content #newMain select option:first-child').prop('selected','true')
+        vm.editOrNew = 'new'
+        newDuring();
+    }
+    //新建问卷-新建截止日期，默认设置为当前日期
+    function newDuring(dayafter,type) {
+        let date = new Date();
+        let date1;
+        if(dayafter!=undefined){
+            dayafter = Number(dayafter);
+            date1 = new Date(date.getFullYear(),date.getMonth(),(date.getDate()+dayafter));
+        }else{date1 = date;}
+        let day = ('0'+date1.getDate()).slice(-2);
+        let month = ('0'+(date1.getMonth()+1)).slice(-2);
+        let year = date1.getFullYear()
+        let hour = ('0'+date.getHours()).slice(-2);
+        let minute = ('0'+date.getMinutes()).slice(-2);
+        let which = vm.editOrNew+'wenjuan';
+        if(type == 'deadline'){
+            vm[which][0].deadline = year+'-'+month+'-'+day+'T'+hour+':'+minute;
+        }else if(type == 'startTime'){
+            vm[which][0].startTime = year+'-'+month+'-'+day+'T'+hour+':'+minute;
+        }else if(type == undefined){
+            vm[which][0].deadline = vm[which][0].startTime = year+'-'+month+'-'+day+'T'+hour+':'+minute;
+        }
+        vm.checkDuring();
+    }
+    //日期-日期比较，输入1012-12-33 12:11这种数据，返回x是否比y大的Boolean
+    function compareDate(x,y) {
+        if(typeof x == "string"){
+            x = new Date(x.replace(/-/g,"\/"));
+        }
+        if(typeof y == "string"){
+            y = new Date(y.replace(/-/g,"\/"));
+        }
+        return x > y;
+    }
+    //新建问卷-退出-不保存就退出的提示
+    function noSaveOut() {
+        floatWindow('noSaveOut','noSaveOut');
+    }
+    //新建问卷-退出-删除
+    function delNowWen() {
+        vm[vm.editOrNew+'wenjuan'] = [{
+            name: '请输入标题',
+            startTime:'',
+            deadline: '',
+            state: '发布中',
+            question:[]
+        }];
+    }
+    //新建问卷-退出-保存并退出
+    function saveOut(state,which) {
+        if(vm.checkDuring()){
+            let newWenData = JSON.parse(JSON.stringify(vm[vm.editOrNew+'wenjuan'][0]));
+            if(which == 'new'){
+                vm.wenjuan.push(newWenData);
+                delNowWen();//必须放在前面，好坑，放在跳转之后的话vm.editOrNew会变成''，导致delNowWen()不能正确的指向数组，然后把vm.wenjuan全清了
+                if(state == 'stay'){
+                    setTimeout(function () {//还是数据同步时间问题，深度复制好像是另一个线程？
+                        $('#mainTable tbody input[name="select"]:last').prop('checked',true)
+                        editWen();
+                    },1)
+                }
+            }else if(which == 'edit'){
+                vm.wenjuan.splice(vm.selectWenIndex,1,newWenData);
+                delNowWen();//必须放在前面，好坑，放在跳转之后的话vm.editOrNew会变成''，导致delNowWen()不能正确的指向数组，然后把vm.wenjuan全清了
+                if(state == 'stay'){//这里就不需要settimeout，不懂为什么
+                        $('#mainTable tbody input[name="select"]').eq(vm.selectWenIndex).prop('checked',true)
+                        editWen();
+                }
+            }else if(which == 'relative'){//懒得把这条数据放在vue-computed中，将就一下
+                saveOut('',vm.editOrNew);
+            }
+            if(state == ''){returnMyWen()}
+        }
+    }
+//编辑问卷
+    function editWen(x) {
+        if(checkChecked()){
+            if(x == 'stillEdit' || vm.wenjuan[vm.selectWenIndex].state == '待发布'){
+                $('#mainTable,#newBig').hide();
+                $('#editBig').show();
+                $('#header .checked').removeClass('checked')
+                $('#editWenTag').addClass('checked')
+                $('#content #editMain select option:first-child').prop('selected','true');
+                let edit = JSON.parse(JSON.stringify(vm.wenjuan[vm.selectWenIndex]));
+                vm.editwenjuan.splice(0,1,edit);
+                vm.editOrNew = 'edit'
+                if(x){floatClose();}
+            }else{
+                floatWindow('cantEdit','cantEdit')
+            }
+        }
+    }
+    //检查是否选中，单个删除和查看数据时也调用这函数
+    function checkChecked() {
+        vm.selectWenIndex = $('#mainTable tbody input[name="select"]:checked').parents('tr').index();
+        if(vm.selectWenIndex == -1){
+            floatWindow('alert','delNoCheck');
+            return false
+        }else{
+            return true;
+        }
+    }
+
+//删除问卷
+    //删除问卷-确认
+    function doDel(x) {
+        if(x=='all'){
+            floatWindow('delAll','delAll');
+        }else if(x=='this' && checkChecked()) {//如果是删除单个，且有选中，弹出删除一个的提示框
+            floatWindow('delOne','delThis');
+        }
+    }
+    //删除问卷-删除一个
+    function delOneWen() {
+        vm.wenjuan.splice(vm.selectWenIndex,1);
+        floatClose();
+        checkWen();
+    }
+    //删除问卷-删除所有
+    function delAllWen() {
+        vm.wenjuan = [];
+        checkWen();
+    }
+
+    //点击我的问卷标签
+    function titleClick() {
+        //相当于点击本页的 不保存退出 键
+        $('#'+vm.editOrNew+'WenOut input:last').click();
+    }
+    //回到我的问卷主界面
+    function returnMyWen() {
+        $('#float').hide();
+        $('#mainTable').show();
+        $('#content .big').hide();
+        $('#header .checked').removeClass('checked')
+        $('#myWen').addClass('checked');
+        vm.editOrNew = '';
+        checkWen();
+    }
+</script>
+<script src="wenjuan.js" type="text/javascript"></script>
+
+<script>
+    checkWen();
     // 选择问卷
     $('#content').on('click','tbody tr',function () {
         var id = $(this).attr('id');
-        if(id == 'last'){}else{
+        if(id != 'last'){
             $('#content tbody').find('.selected').removeClass('selected')
             $(this).addClass('selected').find('input[type=radio]').prop('checked','true')
         }
     })
-    //关闭提示框
-    function floatClose() {
-        $("#float").hide().find("#floatWindow").removeClass('bigger');
-    }
-    //删除确认
-    function doDel(x) {
-        if(x=='all'){
-            $("#float").show()
-            vm.floatButton = vm.FBOption.delAll;
-            vm.alertContent = '你确定要删除<b>全部</b>问卷？';
-        }else if(x=='this'){
-            let index = $('#mainTable tbody input[name="select"]:checked').parents('tr').index()
-            if(index == -1){
-                $("#float").show();
-                vm.floatButton = vm.FBOption.alert;
-                vm.alertContent = vm.ACOption.delNoCheck;
-            }else{
-                $("#float").show();
-                vm.floatButton = vm.FBOption.delOne;
-                vm.alertContent = vm.ACOption.delAll;
-            }
-        }
-    }
-    //删除一个问卷
-    function delOneWen() {
-        //没有选中项时候，index == -1
-        let index = $('#mainTable tbody input[name="select"]:checked').parents('tr').index()
-        vm.wenjuan.splice(index,1);
-        floatClose();
-        if (vm.wenjuan.length == 0){
-            newWen1();
-        }
-    }
-    //删除所有问卷
-    function delAllWen() {
-        vm.wenjuan = [];
-        floatClose();
-        newWen1();
-    }
-    //新建问卷
-    function newWen1() {
-        $('#mainTable').hide();
-        $('#newBig').show();
-        $('#myWen').removeClass('checked')
-        $('#newWenTag').addClass('checked')
-    }
-    function newWen2() {
-        $('#newWenButton').hide();
-        $('#newMain').show();
-    }
+
+//编辑问卷
+    //切换动画
     //新建问卷-标题编辑动画
-    let newWenNameEdit = false;
-    $('#newWenName').click(function (e) {
+    $('.big .wenName').click(function (e) {
         e.stopPropagation();
-        $('#newQsButton').slideDown(200);
-        if( ! newWenNameEdit){
+        $(this).parent().find('.qsButton').slideDown(200);
+        if( ! vm.wenNameEditing){
            $(this).find('p').fadeOut(200,function () {
-               $('#newWenName').find('input').focus();
+               $(this).next().focus();
            });
         }
-        newWenNameEdit = true;
+        vm.wenNameEditing = true;
+        vm.qsTypeEditing = false;
     })
     //新建问卷-选择题目类型动画
-    let newWenTypeEdit = false;
-    $('#newQsButton').click(function (e) {
+    $('.big .qsButton').click(function (e) {
         e.stopPropagation();
-        $('#newWenName').find('p').fadeIn(200);
-        if( ! newWenTypeEdit){
+        $(this).parents('.main').find('.wenName p').fadeIn(200);
+        if( ! vm.qsTypeEditing){
             $(this).slideUp(200);
         }
-        newWenTypeEdit = true;
+        vm.wenNameEditing = false;
+        vm.qsTypeEditing = true;
     })
     //恢复标题编辑，选择题目类型动画
     $(document).click(function () {
-        $('#newWenName').find('p').fadeIn(200);
-        $('#newQsButton').slideDown(200);
-        newWenNameEdit = false;
-        newWenTypeEdit = false;
+        if(vm.editOrNew == 'new'){
+            $('#newWenName').find('p').fadeIn(200);
+            $('#new_newQsButton').slideDown(200);
+        }else if(vm.editOrNew == 'edit'){
+            $('#editWenName').find('p').fadeIn(200);
+            $('#edit_newQsButton').slideDown(200);
+        }
+        vm.wenNameEditing = false;
+        vm.qsTypeEditing = false;
     })
-    //编辑问卷
     //选项删除
-    $('#newWenQs').on('click','.newWenQs li>span',function () {
+    $('#content .qsList').on('click','.wenQs li>span',function () {
         //这里，因为元素是动态的，必须用on绑定到父级元素，用选择器找到子元素。
-        //但这里绑定到爷爷辈才生效，诡异
+        //实测绑定到爷爷辈才生效，诡异
         let optionIndex = $(this).parent().index() - 1;
-        let qsIndex = $(this).parents('.newWenQs').index();
-        console.log('删除选项'+optionIndex,qsIndex)
-        vm.newwenjuan[0].question[qsIndex].options.splice(optionIndex,1)
-        if(vm.newwenjuan[0].question[qsIndex].options == 0){
-            $("#float").show();
-            vm.floatButton = vm.FBOption.alert;
-            vm.alertContent = vm.ACOption.noOptionQs;
+        let qsIndex = $(this).parents('.wenQs').index();
+        //console.log('删除选项'+optionIndex,qsIndex)
+        vm[vm.editOrNew+'wenjuan'][0].question[qsIndex].options.splice(optionIndex,1)
+        if(vm[vm.editOrNew+'wenjuan'][0].question[qsIndex].options == 0){
+            floatWindow('alert','noOptionQs');
         }
     })
     //是否为必选
-    $('#newWenQs').on('click','.qsFunc input',function () {
-        let qsIndex = $(this).parents('.newWenQs').index();
-        vm.newwenjuan[0].question[qsIndex].required = $(this).prop('checked');
-        console.log(qsIndex,vm.newwenjuan[0].question[qsIndex].required)
+    $('#content .qsList').on('click','.qsFunc input',function () {
+        let qsIndex = $(this).parents('.wenQs').index();
+        vm[vm.editOrNew+'wenjuan'][0].question[qsIndex].required = $(this).prop('checked');
     })
-    //添加选项
-    let newOptionIndex;
-    $('#newWenQs').on('click','.qsFunc .newOption',function () {
-        newOptionIndex = $(this).parents('.newWenQs').index();
-        //console.log(newOptionIndex)
-        $("#float").show();
-        vm.floatButton = vm.FBOption.newOption;
-        vm.alertContent = vm.ACOption.inputOne;
-        $('#alertContent input').val('');//否则浏览器会记录上次的内容
+    //选项添加
+    $('#content .qsList').on('click','.qsFunc .newOption',function () {
+        vm.editWhichQs = $(this).parents('.wenQs').index();
+        floatWindow('newOption','inputOne');
     })
     //添加选项-监听回车键，其他功能也用到这个监听
     $('#floatWindow').on('keydown','#alertContent input',function (e) {
@@ -570,8 +771,7 @@
     })
     //添加选项--数据更新到vm
     function getNewOption() {
-        //console.log(newOptionIndex)
-        vm.newwenjuan[0].question[newOptionIndex].options.push(
+        vm[vm.editOrNew+'wenjuan'][0].question[vm.editWhichQs].options.push(
             $('#alertContent').find('input').val()
         );
         floatClose();
@@ -595,60 +795,55 @@
         }
         vm[qs.type][qs.wenIndex].question.splice(qs.qsIndex,1,another)
     }
-    //调整题目顺序，绑定事件
-    $('#newWenQs').on('click','.qsFunc .upThis',function () {
-        //即使是on绑定的事件，其获取的对象也是最终选择到的对象，而不是#newWenQs
+    //调整题目顺序-向上，绑定事件
+    $('#content .wenBody').on('click','.qsFunc .upThis',function () {
+        //即使是on绑定的事件，其获取的对象也是最终选择到的对象，而不是.WenBody
         moveArray({
-            type:'newwenjuan',
+            type:vm.editOrNew+'wenjuan',
             wenIndex : 0,//新建页面中只有一个问卷,怎么都是0，但如果type是'wenjuan'就不一样了
-            qsIndex:$(this).parents('.newWenQs').index()
+            qsIndex:$(this).parents('.wenQs').index()
         },'up',1)
     })
-    $('#newWenQs').on('click','.qsFunc .downThis',function () {
+    //调整题目顺序-向上，绑定事件
+    $('#content .wenBody').on('click','.qsFunc .downThis',function () {
         moveArray({
-            type:'newwenjuan',
-            wenIndex : 0,//新建页面中只有一个问卷,怎么都是0，但如果type是'wenjuan'就不一样了
-            qsIndex:$(this).parents('.newWenQs').index()
+            type:vm.editOrNew+'wenjuan',
+            wenIndex : 0,//如果是新建或者编辑页面，这个值永远是0，但如果type是'wenjuan'就不一样了
+            qsIndex:$(this).parents('.wenQs').index()
         },'down',1)
     })
     //复用，绑定事件
-    $('#newWenQs').on('click','.qsFunc .reuseThis',function () {
-        let qsIndex = $(this).parents('.newWenQs').index();
-        let content = JSON.parse(JSON.stringify(vm.newwenjuan[0].question[qsIndex]));
-        vm.newwenjuan[0].question.push(content)
+    $('#content .qsList').on('click','.qsFunc .reuseThis',function () {
+        let qsIndex = $(this).parents('.wenQs').index();
+        let content = JSON.parse(JSON.stringify(vm[vm.editOrNew+'wenjuan'][0].question[qsIndex]));
+        vm[vm.editOrNew+'wenjuan'][0].question.push(content)
     })
     //删除，绑定事件
-    $('#newWenQs').on('click','.qsFunc .delThis',function (e) {
-        let qsIndex = $(this).parents('.newWenQs').index();
-        vm.newwenjuan[0].question.splice(qsIndex,1);
-        if(vm.newwenjuan[0].question.length == 0){
+    $('#content .qsList').on('click','.qsFunc .delThis',function (e) {
+        let qsIndex = $(this).parents('.wenQs').index();
+        vm[vm.editOrNew+'wenjuan'][0].question.splice(qsIndex,1);
+        if(vm[vm.editOrNew+'wenjuan'][0].question.length == 0){
             e.stopPropagation()
-            $('#newQsButton').click();
+            $(this).parents('.main').find('.qsButton').click();
         }
     })
-    //添加不同类型的题目
+    //添加题目-按钮事件-添加不同类型的题目
     function newQs(type) {
-        $("#float").show();
-        $('#alertContent input').val('');//否则浏览器会记录上次的内容
-        //x是html对象
         switch(type){
             case 'radio':
                 $("#floatWindow").addClass('bigger');
-                vm.alertContent = vm.ACOption.inputTwo;
-                vm.floatButton = vm.FBOption.newRadio;
+                floatWindow('newRadio','inputTwo')
                 break;
             case 'check':
                 $("#floatWindow").addClass('bigger');
-                vm.alertContent = vm.ACOption.inputTwo;
-                vm.floatButton = vm.FBOption.newCheck;
+                floatWindow('newCheck','inputTwo')
                 break;
             case 'text':
-                vm.alertContent = vm.ACOption.inputOne;
-                vm.floatButton = vm.FBOption.newText;
+                floatWindow('newText','inputOne')
                 break;
         }
     }
-    //同步新的题目数据
+    //添加题目-同步新的题目数据
     function getNewQs(x) {
         if(x=='radio' || x=='checkbox'){
             let text = $("#alertContent #inputTwo1").val() ;
@@ -659,7 +854,7 @@
                 }else{
                     option = [];
                 }
-                vm.newwenjuan[0].question.push({
+                vm[vm.editOrNew+'wenjuan'][0].question.push({
                     type:x,
                     text:text,
                     options:option,
@@ -671,7 +866,7 @@
         }else if(x == 'text'){
             let text = $("#alertContent input").val();
             if(text){
-                vm.newwenjuan[0].question.push({
+                vm[vm.editOrNew+'wenjuan'][0].question.push({
                     type:x,
                     text:text,
                     options:[],
@@ -682,10 +877,18 @@
             }else{alert('必须输入题干内容')}
         }
     }
-    //不保存就退出的提示
-    function noSaveOut() {
-
-        //点是就退，点否就不退
+    //编辑题干
+    //绑定事件
+    $('#content .wenBody').on('click','li img',function () {
+        vm.editWhichQs = $(this).parents('.wenQs').index();
+        floatWindow('editStems','editStems');
+        setTimeout(function () {
+            $('#float #alertContent input').val(vm[vm.editOrNew+'wenjuan'][0].question[vm.editWhichQs].text)
+        },1)
+    })
+    function stemsEdit() {
+        vm[vm.editOrNew+'wenjuan'][0].question[vm.editWhichQs].text = $('#float #alertContent input').val();
+        floatClose();
     }
 </script>
 </html>
