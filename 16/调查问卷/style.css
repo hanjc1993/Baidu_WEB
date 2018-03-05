@@ -124,11 +124,8 @@ input[type='button']:hover{
     background-color: #fcf0e5;
 }
 #content .big{
-    display: none;
     background-color: white;
-    /*overflow: hidden;*/
     margin: 0 auto;
-    /*text-align: left;*/
     width: 820px;min-height: 400px;
     position: relative;
 }
@@ -313,7 +310,6 @@ input[type='button']:hover{
 
 /*浮动框*/
 #float{
-    display: none;
     background-color: rgba(0,0,0,0.3);
     height: 100%;width: 100%;
     position: absolute;

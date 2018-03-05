@@ -13,14 +13,14 @@
     <header id="header">
         <span id="circle">？</span>
         <span id="title">问卷管理</span>
-        <span id="myWen" class="tag checked" onclick="titleClick()">我的问卷</span>
-        <span id="newWenTag" class="tag">新建问卷</span>
-        <span id="editWenTag" class="tag">编辑问卷</span>
-        <span id="showWenTag" class="tag">查看数据</span>
+        <span id="myWen" :class="['tag',{'checked':othersHide.main}]" onclick="titleClick()">我的问卷</span>
+        <span id="newWenTag" :class="['tag',{'checked':othersHide.new}]">新建问卷</span>
+        <span id="editWenTag" :class="['tag',{'checked':othersHide.edit}]">编辑问卷</span>
+        <span id="showWenTag" :class="['tag',{'checked':othersHide.show}]">查看数据</span>
     </header>
     <div id="content">
         <div id="blank"></div>
-        <table cellspacing="0" id="mainTable">
+        <table cellspacing="0" id="mainTable" v-show="othersHide.main">
             <thead>
                 <tr>
                     <th></th>
@@ -29,10 +29,29 @@
                     <th>状态</th>
                 </tr>
             </thead>
-            <tbody v-html="wenlist">
+            <tbody>
+                <tr v-for="(item,index) in wenjuan">
+                    <td class="col1"><input type="radio" name="select"></td>
+                    <td class="col2">{{item.name}}</td>
+                    <td class="col3">{{timeAndState.wenjuan[index].deadlineNoT}}</td>
+                    <td :class="['col4',{'ing':timeAndState.wenjuan[index].state[1]}]">{{timeAndState.wenjuan[index].state[0]}}</td>
+                </tr>
+                <tr id="last">
+                    <td colspan="2">
+                        <input type="button" id="newWen" @click="newWen()" value="＋ 新建问卷">
+                    </td>
+                    <td class="col5">
+                        <input type="button" value="编辑" @click="editWen">
+                        <input type="button" value="删除" onclick="doDel('this')">
+                        <input type="button" value="查看数据" onclick="showData()">
+                    </td>
+                    <td>
+                        <input type="button" value="全部删除" onclick="doDel('all')">
+                    </td>
+                </tr>
             </tbody>
         </table>
-        <div id="newBig" class="big">
+        <div id="newBig" class="big" v-show="othersHide.new">
             <div id="newMain" class="main">
                 <div id="newWenName" class="wenName">
                     <p>{{newwenjuan[0].name}}</p>
@@ -56,22 +75,22 @@
                     <span class="left">问卷的<b>发布</b>时间：</span>
                     <input class="left" type="datetime-local" v-model="newwenjuan[0].startTime" @change="checkDuring()">
                     <label for="new_startQuick">快捷设置：</label>
-                    <select id="new_startQuick" onchange="newDuring(this.value,'startTime')"></select>
+                    <select id="new_startQuick" @change="newDuring($event.target.value,'startTime')" v-html="quicksetOption"></select>
                 </div>
                 <div class="during">
                     <span class="left">问卷的<b>截止</b>时间：</span>
                     <input class="left" type="datetime-local" v-model="newwenjuan[0].deadline" @change="checkDuring()">
                     <label for="new_deadQuick">快捷设置：</label>
-                    <select id="new_deadQuick" onchange="newDuring(this.value,'deadline')"></select>
+                    <select id="new_deadQuick" @change="newDuring($event.target.value,'deadline')" v-html="quicksetOption"></select>
                 </div>
                 <div id="newWenOut" class="wenOut">
-                    <input type="button" value="保存" onclick="saveOut('stay','new')">
-                    <input type="button" value="保存并退出" onclick="saveOut('','new')">
-                    <input type="button" value="直接退出" onclick="noSaveOut()">
+                    <input type="button" value="保存" @click="saveOut('stay')">
+                    <input type="button" value="保存并退出" @click="saveOut()">
+                    <input type="button" value="直接退出" @click="noSaveOut">
                 </div>
             </div>
         </div>
-        <div id="editBig" class="big">
+        <div id="editBig" class="big" v-show="othersHide.edit">
             <div id="editMain" class="main">
                 <div id="editWenName" class="wenName">
                     <p>{{editwenjuan[0].name}}</p>
@@ -95,22 +114,22 @@
                     <span class="left">问卷的<b>发布</b>时间：</span>
                     <input class="left" type="datetime-local" v-model="editwenjuan[0].startTime" @change="checkDuring()">
                     <label for="edit_startQuick">快捷设置：</label>
-                    <select id="edit_startQuick" onchange="newDuring(this.value,'startTime')"></select>
+                    <select id="edit_startQuick" @change="newDuring($event.target.value,'startTime')" v-html="quicksetOption"></select>
                 </div>
                 <div class="during">
                     <span class="left">问卷的<b>截止</b>时间：</span>
                     <input class="left" type="datetime-local" v-model="editwenjuan[0].deadline" @change="checkDuring()">
                     <label for="edit_deadQuick">快捷设置：</label>
-                    <select id="edit_deadQuick" onchange="newDuring(this.value,'deadline')"></select>
+                    <select id="edit_deadQuick" @change="newDuring($event.target.value,'deadline')" v-html="quicksetOption"></select>
                 </div>
                 <div id="editWenOut" class="wenOut">
-                    <input type="button" value="保存" onclick="saveOut('stay','edit')">
-                    <input type="button" value="保存并退出" onclick="saveOut('','edit')">
-                    <input type="button" value="直接退出" onclick="noSaveOut()">
+                    <input type="button" value="保存" @click="saveOut('stay')">
+                    <input type="button" value="保存并退出" @click="saveOut()">
+                    <input type="button" value="直接退出" @click="noSaveOut()">
                 </div>
             </div>
         </div>
-        <div id="showBig" class="big">
+        <div id="showBig" class="big" v-show="othersHide.show">
             <div id="showMain" class="main">
                 <div id="showWenName" class="wenName">
                     <p></p>
@@ -133,11 +152,11 @@
             </div>
         </div>
     </div>
-    <div id="float">
-        <div id="floatWindow">
+    <div id="float" v-show="floatShow">
+        <div id="floatWindow" :class="{bigger:biggerFloat}">
             <div id="alertHead">
                 提示
-                <span onclick="floatClose()">×</span>
+                <span @click="floatClose">×</span>
             </div>
             <div id="alertContent" v-html="alertContent"></div>
             <div id="floatButton" v-html="floatButton"></div>
@@ -145,81 +164,8 @@
     </div>
 </div>
 </body>
-<!--初次绘制函数-->
+<!--工具函数,与dom无关-->
 <script>
-    let quicksetOption =
-        '                        <option value=""></option>\n' +
-        '                        <option value="0"> 今天</option>\n' +
-        '                        <option value="1">1 天后</option>\n' +
-        '                        <option value="2">2 天后</option>\n' +
-        '                        <option value="3">3 天后</option>\n' +
-        '                        <option value="5">5 天后</option>\n' +
-        '                        <option value="7">7 天后</option>\n' +
-        '                        <option value="10">10天后</option>\n' +
-        '                        <option value="30">30天后</option>\n' +
-        '                        <option value="365">365天后</option>'
-    $('#content .during select').append(quicksetOption);
-</script>
-<!--全局功能函数-->
-<script>
-    //检查问卷数量，如果为0则自动跳转新建页面
-    function checkWen() {
-        if (vm.wenjuan.length == 0){
-            floatWindow('alert','noWen')
-            newWen();
-        }
-    }
-
-    //提示框-显示-被各种调用
-    function floatWindow(button,content) {
-        $('#alertContent input').val('');//否则浏览器会记录上次的内容
-        vm.floatButton = vm.FBOption[button];
-        vm.alertContent = vm.ACOption[content];
-        $("#float").show();
-        //这里vue处理需要时间，所以把focus放在timeout队列中
-        setTimeout(function () {
-            $('#alertContent input').eq(0).focus()
-        },1)
-    }
-    //提示框-关闭
-    function floatClose() {
-        $("#float").hide().find("#floatWindow").removeClass('bigger');
-    }
-
-//新建问卷
-    //新建问卷-启动函数
-    function newWen() {
-        $('#mainTable,#showBig,#editBig').hide();
-        $('#newBig').show();
-        $('#header .checked').removeClass('checked')
-        $('#newWenTag').addClass('checked')
-        $('#content #newMain select option:first-child').prop('selected','true')
-        vm.editOrNew = 'new'
-        newDuring();
-    }
-    //新建问卷-新建截止日期，默认设置为当前日期
-    function newDuring(dayafter,type) {
-        let date = new Date();
-        let date1;
-        if(dayafter!=undefined){
-            dayafter = Number(dayafter);
-            date1 = new Date(date.getFullYear(),date.getMonth(),(date.getDate()+dayafter));
-        }else{date1 = date;}
-        let day = ('0'+date1.getDate()).slice(-2);
-        let month = ('0'+(date1.getMonth()+1)).slice(-2);
-        let year = date1.getFullYear()
-        let hour = ('0'+date.getHours()).slice(-2);
-        let minute = ('0'+date.getMinutes()).slice(-2);
-        let which = vm.editOrNew+'wenjuan';
-        if(type == 'deadline'){
-            vm[which][0].deadline = year+'-'+month+'-'+day+'T'+hour+':'+minute;
-        }else if(type == 'startTime'){
-            vm[which][0].startTime = year+'-'+month+'-'+day+'T'+hour+':'+minute;
-        }else if(type == undefined){
-            vm[which][0].deadline = vm[which][0].startTime = year+'-'+month+'-'+day+'T'+hour+':'+minute;
-        }
-        vm.checkDuring();
-    }
     //日期-日期比较，输入1012-12-33 12:11这种数据，返回x是否比y大的Boolean
     function compareDate(x,y) {
         if(typeof x == "string"){
@@ -230,95 +176,34 @@
         }
         return x > y;
     }
-    //新建问卷-退出-不保存就退出的提示
-    function noSaveOut() {
-        floatWindow('noSaveOut','noSaveOut');
-    }
-    //新建问卷-退出-删除
-    function delNowWen() {
-        vm[vm.editOrNew+'wenjuan'] = [{
-            name: '请输入标题',
-            startTime:'',
-            deadline: '',
-            state: '发布中',
-            question:[]
-        }];
-    }
-    //新建问卷-退出-保存并退出
-    function saveOut(state,which) {
-        if(vm.checkDuring() && vm.checkData()){
-            let newWenData = JSON.parse(JSON.stringify(vm[vm.editOrNew+'wenjuan'][0]));
-            if(which == 'new'){
-                vm.wenjuan.push(newWenData);
-                delNowWen();//必须放在前面，好坑，放在跳转之后的话vm.editOrNew会变成''，导致delNowWen()不能正确的指向数组，然后把vm.wenjuan全清了
-                if(state == 'stay'){
-                    setTimeout(function () {//还是数据同步时间问题，深度复制好像是另一个线程？
-                        $('#mainTable tbody input[name="select"]:last').prop('checked',true)
-                        editWen();
-                    },1)
-                }
-            }else if(which == 'edit'){
-                vm.wenjuan.splice(vm.selectWenIndex,1,newWenData);
-                delNowWen();//必须放在前面，好坑，放在跳转之后的话vm.editOrNew会变成''，导致delNowWen()不能正确的指向数组，然后把vm.wenjuan全清了
-                if(state == 'stay'){//这里就不需要settimeout，不懂为什么
-                        $('#mainTable tbody input[name="select"]').eq(vm.selectWenIndex).prop('checked',true)
-                        editWen();
-                }
-            }else if(which == 'relative'){//懒得把这条数据放在vue-computed中，将就一下
-                saveOut('',vm.editOrNew);
-            }
-            if(state == ''){returnMyWen()}
+    //转换type为文字
+    function transformType(type) {
+        switch(type){
+            case 'radio': return '单选'
+            case 'checkbox': return '多选'
+            case 'text' : return '问答'
         }
     }
-//编辑问卷
-    //编辑问卷启动函数
-    function editWen(x) {
-        if(checkChecked()){
-            if(x == 'stillEdit' || vm.wenjuan[vm.selectWenIndex].state == '待发布'){
-                $('#mainTable,#newBig').hide();
-                $('#editBig').show();
-                $('#header .checked').removeClass('checked')
-                $('#editWenTag').addClass('checked')
-                $('#content #editMain select option:first-child').prop('selected','true');
-                let edit = JSON.parse(JSON.stringify(vm.wenjuan[vm.selectWenIndex]));
-                vm.editwenjuan.splice(0,1,edit);
-                vm.editOrNew = 'edit'
-                if(x){floatClose();}
-            }else{
-                floatWindow('cantEdit','cantEdit')
-            }
-        }
-    }
-    //检查是否选中，单个删除和查看数据时也调用这函数
-    function checkChecked() {
-        vm.selectWenIndex = $('#mainTable tbody input[name="select"]:checked').parents('tr').index();
-        if(vm.selectWenIndex == -1){
-            floatWindow('alert','delNoCheck');
-            return false
-        }else{
-            return true;
-        }
-    }
-
-//删除问卷
+</script>
+<!--功能函数，可以全部转成Vue-->
+<script>
+    //删除问卷
     //删除问卷-确认
     function doDel(x) {
         if(x=='all'){
-            floatWindow('delAll','delAll');
-        }else if(x=='this' && checkChecked()) {//如果是删除单个，且有选中，弹出删除一个的提示框
-            floatWindow('delOne','delThis');
+            vm.floatWindow('delAll','delAll');
+        }else if(x=='this' && vm.checkChecked()) {//如果是删除单个，且有选中，弹出删除一个的提示框
+            vm.floatWindow('delOne','delThis');
         }
     }
     //删除问卷-删除一个
     function delOneWen() {
         vm.wenjuan.splice(vm.selectWenIndex,1);
-        floatClose();
-        checkWen();
+        vm.floatClose();
     }
     //删除问卷-删除所有
     function delAllWen() {
         vm.wenjuan = [];
-        checkWen();
     }
 
     //点击我的问卷标签
@@ -326,41 +211,123 @@
         if($('#showBig').css('display') == 'block'){//如果是从查看页面退出，则直接回到主界面
             returnMyWen();
         }else{//相当于点击本页的 不保存退出 键
-            $('#'+vm.editOrNew+'WenOut input:last').click();
+            $('#'+vm.whichShow+'WenOut input:last').click();
         }
     }
     //回到我的问卷主界面
     function returnMyWen() {
-        $('#float').hide();
+        vm.floatShow = false;
         $('#mainTable').show();
         $('#content .big').hide();
         $('#header .checked').removeClass('checked')
         $('#myWen').addClass('checked');
-        vm.editOrNew = '';
-        checkWen();
+        vm.whichShow = 'main';
     }
-
 //查看问卷数据
     function showData() {
-        if(checkChecked()){
-            if(vm.wenjuan[vm.selectWenIndex].state != '待发布'){
+        if(vm.checkChecked()){
+            if(vm.timeAndState.wenjuan[vm.selectWenIndex].state[0] != '待发布'){
                 $('#mainTable').hide();
                 $('#showBig').show();
                 $('#header .checked').removeClass('checked')
                 $('#showWenTag').addClass('checked')
-                vm.editOrNew = '';
+                vm.whichShow = 'show';
                 drawCharts();
             }else{
-                floatWindow('alert','cantShow')
+                vm.floatWindow('alert','cantShow')
             }
         }
+    }
+    //添加选项--数据更新到vm
+    function getNewOption() {
+        vm[vm.whichShow+'wenjuan'][0].question[vm.editWhichQs].options.push(
+            $('#alertContent').find('input').val()
+        );
+        vm.floatClose();
+    }
+    //调整题目顺序，新建和修改都用到这个func
+    function moveArray(qs,turn,step) {
+        //原理是两个位置的对象重新赋值为对方
+        //Qs参数让函数能找到，这是哪道题；turn是移动方向，step是移动几步
+        //涉及对象的拷贝，可以使用let name = Object.assign({},obj)，es6可以let {...name} = obj;
+        //事实上上面两种拷贝，只能对首层深度拷贝，嵌套的json效果不好
+        //深拷贝最靠谱的还是JSON.parse(JSON.stringify())，但也有缺陷，详见https://segmentfault.com/a/1190000010661297
+        //涉及vue对数组变化的监控缺陷，详见文档的中部 https://cn.vuejs.org/v2/guide/list.html#ad
+        let another;
+        let type = qs.type;
+        let wenIndex = qs.wenIndex
+        let qsIndex = qs.qsIndex;
+        let thisone = JSON.parse(JSON.stringify(vm[type][wenIndex].question[qsIndex]));
+        if (turn == 'up'){
+            another = JSON.parse(JSON.stringify(vm[type][wenIndex].question[qsIndex-step]));
+            vm[type][wenIndex].question.splice(qsIndex-step,1,thisone)
+        }else if(turn == 'down'){
+            another = JSON.parse(JSON.stringify(vm[type][wenIndex].question[qsIndex+step]));
+            vm[type][wenIndex].question.splice(qsIndex+step,1,thisone)
+        }
+        vm[type][wenIndex].question.splice(qsIndex,1,another)
+    }
+    //添加题目-按钮事件-添加不同类型的题目
+    function newQs(type) {
+        switch(type){
+            case 'radio':
+                vm.biggerFloat = true;
+                vm.floatWindow('newRadio','inputTwo')
+                break;
+            case 'check':
+                vm.biggerFloat = true;
+                vm.floatWindow('newCheck','inputTwo')
+                break;
+            case 'text':
+                vm.floatWindow('newText','newTextType')
+                break;
+        }
+    }
+    //添加题目-同步新的题目数据
+    function getNewQs(x) {
+        if(x=='radio' || x=='checkbox'){
+            let text = $("#alertContent #inputTwo1").val() ;
+            if(text){
+                let option = $("#alertContent #inputTwo2").val();
+                if (option.length != 0){
+                    option = option.split(';');
+                }else{
+                    option = [];
+                }
+                vm[vm.whichShow+'wenjuan'][0].question.push({
+                    type:x,
+                    text:text,
+                    options:option,
+                    required:true,
+                    data:[]
+                })
+                vm.floatClose();
+            }else{alert('必须输入题干内容')}
+        }else if(x == 'text'){
+            let text = $("#alertContent input").val();
+            if(text){
+                vm[vm.whichShow+'wenjuan'][0].question.push({
+                    type:x,
+                    text:text,
+                    options:[],
+                    required:true,
+                    data:[]
+                })
+                vm.floatClose();
+            }else{alert('必须输入题干内容')}
+        }
+    }
+    //编辑题干--更新数据
+    function stemsEdit() {
+        vm[vm.whichShow+'wenjuan'][0].question[vm.editWhichQs].text = $('#float #alertContent input').val();
+        vm.floatClose();
     }
 </script>
 <script src="vm_vue.js" type="text/javascript"></script>
 <script src="show_echarts.js" type="text/javascript"></script>
+<!--事件绑定的代码，暂时不知怎么转到Vue-->
 <script>
-    checkWen();
-    // 选择问卷
+// 选择问卷
     $('#content').on('click','tbody tr',function () {
         var id = $(this).attr('id');
         if(id != 'last'){
@@ -398,10 +365,10 @@
     })
     //恢复标题编辑，选择题目类型动画
     $(document).click(function () {
-        if(vm.editOrNew == 'new'){
+        if(vm.whichShow == 'new'){
             $('#newWenName').find('p').fadeIn(200);
             $('#new_newQsButton').slideDown(200);
-        }else if(vm.editOrNew == 'edit'){
+        }else if(vm.whichShow == 'edit'){
             $('#editWenName').find('p').fadeIn(200);
             $('#edit_newQsButton').slideDown(200);
         }
@@ -415,20 +382,20 @@
         let optionIndex = $(this).parent().index() - 1;
         let qsIndex = $(this).parents('.wenQs').index();
         //console.log('删除选项'+optionIndex,qsIndex)
-        vm[vm.editOrNew+'wenjuan'][0].question[qsIndex].options.splice(optionIndex,1)
-        if(vm[vm.editOrNew+'wenjuan'][0].question[qsIndex].options == 0){
-            floatWindow('alert','noOptionQs');
+        vm[vm.whichShow+'wenjuan'][0].question[qsIndex].options.splice(optionIndex,1)
+        if(vm[vm.whichShow+'wenjuan'][0].question[qsIndex].options == 0){
+            vm.floatWindow('alert','noOptionQs');
         }
     })
     //是否为必选
     $('#content .qsList').on('click','.qsFunc input',function () {
         let qsIndex = $(this).parents('.wenQs').index();
-        vm[vm.editOrNew+'wenjuan'][0].question[qsIndex].required = $(this).prop('checked');
+        vm[vm.whichShow+'wenjuan'][0].question[qsIndex].required = $(this).prop('checked');
     })
     //选项添加
     $('#content .qsList').on('click','.qsFunc .newOption',function () {
         vm.editWhichQs = $(this).parents('.wenQs').index();
-        floatWindow('newOption','inputOne');
+        vm.floatWindow('newOption','inputOne');
     })
     //添加选项-监听回车键，其他功能也用到这个监听
     $('#floatWindow').on('keydown','#alertContent input',function (e) {
@@ -436,40 +403,11 @@
             $(this).parents('#floatWindow').find('.windowB input:first-child').click();
         }
     })
-    //添加选项--数据更新到vm
-    function getNewOption() {
-        vm[vm.editOrNew+'wenjuan'][0].question[vm.editWhichQs].options.push(
-            $('#alertContent').find('input').val()
-        );
-        floatClose();
-    }
-    //调整题目顺序，新建和修改都用到这个func
-    function moveArray(qs,turn,step) {
-        //原理是两个位置的对象重新赋值为对方
-        //Qs参数让函数能找到，这是哪道题；turn是移动方向，step是移动几步
-        //涉及对象的拷贝，可以使用let name = Object.assign({},obj)，es6可以let {...name} = obj;
-            //事实上上面两种拷贝，只能对首层深度拷贝，嵌套的json效果不好
-            //深拷贝最靠谱的还是JSON.parse(JSON.stringify())，但也有缺陷，详见https://segmentfault.com/a/1190000010661297
-        //涉及vue对数组变化的监控缺陷，详见文档的中部 https://cn.vuejs.org/v2/guide/list.html#ad
-        let another;
-        let type = qs.type;
-        let wenIndex = qs.wenIndex
-        let qsIndex = qs.qsIndex;
-        let thisone = JSON.parse(JSON.stringify(vm[type][wenIndex].question[qsIndex]));
-        if (turn == 'up'){
-            another = JSON.parse(JSON.stringify(vm[type][wenIndex].question[qsIndex-step]));
-            vm[type][wenIndex].question.splice(qsIndex-step,1,thisone)
-        }else if(turn == 'down'){
-            another = JSON.parse(JSON.stringify(vm[type][wenIndex].question[qsIndex+step]));
-            vm[type][wenIndex].question.splice(qsIndex+step,1,thisone)
-        }
-        vm[type][wenIndex].question.splice(qsIndex,1,another)
-    }
     //调整题目顺序-向上，绑定事件
     $('#content .wenBody').on('click','.qsFunc .upThis',function () {
         //即使是on绑定的事件，其获取的对象也是最终选择到的对象，而不是.WenBody
         moveArray({
-            type:vm.editOrNew+'wenjuan',
+            type:vm.whichShow+'wenjuan',
             wenIndex : 0,//新建页面中只有一个问卷,怎么都是0，但如果type是'wenjuan'就不一样了
             qsIndex:$(this).parents('.wenQs').index()
         },'up',1)
@@ -477,7 +415,7 @@
     //调整题目顺序-向上，绑定事件
     $('#content .wenBody').on('click','.qsFunc .downThis',function () {
         moveArray({
-            type:vm.editOrNew+'wenjuan',
+            type:vm.whichShow+'wenjuan',
             wenIndex : 0,//如果是新建或者编辑页面，这个值永远是0，但如果type是'wenjuan'就不一样了
             qsIndex:$(this).parents('.wenQs').index()
         },'down',1)
@@ -485,90 +423,26 @@
     //复用，绑定事件
     $('#content .qsList').on('click','.qsFunc .reuseThis',function () {
         let qsIndex = $(this).parents('.wenQs').index();
-        let content = JSON.parse(JSON.stringify(vm[vm.editOrNew+'wenjuan'][0].question[qsIndex]));
-        vm[vm.editOrNew+'wenjuan'][0].question.push(content)
+        let content = JSON.parse(JSON.stringify(vm[vm.whichShow+'wenjuan'][0].question[qsIndex]));
+        vm[vm.whichShow+'wenjuan'][0].question.push(content)
     })
     //删除，绑定事件
     $('#content .qsList').on('click','.qsFunc .delThis',function (e) {
         let qsIndex = $(this).parents('.wenQs').index();
-        vm[vm.editOrNew+'wenjuan'][0].question.splice(qsIndex,1);
-        if(vm[vm.editOrNew+'wenjuan'][0].question.length == 0){
+        vm[vm.whichShow+'wenjuan'][0].question.splice(qsIndex,1);
+        if(vm[vm.whichShow+'wenjuan'][0].question.length == 0){
             e.stopPropagation()
             $(this).parents('.main').find('.qsButton').click();
         }
     })
-    //添加题目-按钮事件-添加不同类型的题目
-    function newQs(type) {
-        switch(type){
-            case 'radio':
-                $("#floatWindow").addClass('bigger');
-                floatWindow('newRadio','inputTwo')
-                break;
-            case 'check':
-                $("#floatWindow").addClass('bigger');
-                floatWindow('newCheck','inputTwo')
-                break;
-            case 'text':
-                floatWindow('newText','newTextType')
-                break;
-        }
-    }
-    //添加题目-同步新的题目数据
-    function getNewQs(x) {
-        if(x=='radio' || x=='checkbox'){
-            let text = $("#alertContent #inputTwo1").val() ;
-            if(text){
-                let option = $("#alertContent #inputTwo2").val();
-                if (option.length != 0){
-                    option = option.split(';');
-                }else{
-                    option = [];
-                }
-                vm[vm.editOrNew+'wenjuan'][0].question.push({
-                    type:x,
-                    text:text,
-                    options:option,
-                    required:true,
-                    data:[]
-                })
-                floatClose();
-            }else{alert('必须输入题干内容')}
-        }else if(x == 'text'){
-            let text = $("#alertContent input").val();
-            if(text){
-                vm[vm.editOrNew+'wenjuan'][0].question.push({
-                    type:x,
-                    text:text,
-                    options:[],
-                    required:true,
-                    data:[]
-                })
-                floatClose();
-            }else{alert('必须输入题干内容')}
-        }
-    }
     //编辑题干
     //绑定事件
     $('#content .wenBody').on('click','li img',function () {
         vm.editWhichQs = $(this).parents('.wenQs').index();
-        floatWindow('editStems','editStems');
+        vm.floatWindow('editStems','editStems');
         setTimeout(function () {
-            $('#float #alertContent input').val(vm[vm.editOrNew+'wenjuan'][0].question[vm.editWhichQs].text)
+            $('#float #alertContent input').val(vm[vm.whichShow+'wenjuan'][0].question[vm.editWhichQs].text)
         },1)
     })
-    //编辑题干--更新数据
-    function stemsEdit() {
-        vm[vm.editOrNew+'wenjuan'][0].question[vm.editWhichQs].text = $('#float #alertContent input').val();
-        floatClose();
-    }
-
-    //转换type为文字
-    function transformType(type) {
-        switch(type){
-            case 'radio': return '单选'
-            case 'checkbox': return '多选'
-            case 'text' : return '问答'
-        }
-    }
 </script>
 </html>
